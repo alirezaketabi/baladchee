@@ -1,0 +1,69 @@
+﻿
+
+@{
+    Layout = "~/views/shared/_AdminLayout.cshtml";
+}
+@using QRProject.Core
+@using QRProject.helper
+<style>
+ .tblCnb{width:100%;font-family:IranSansl;font-weight:bold;} 
+</style>
+<br />
+<center>
+    <img src="~/images/payment.png" alt="opinion" />
+</center>
+<br />
+<table id="myOpinion" class="table table-striped table-bordered tblCnb" >
+    <thead>
+        <tr>
+            <th>تاریخ</th>
+            <th>موضوع</th>
+            <th>مبلغ(تومان)</th>
+            <th>پرداخت</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tbody>
+
+
+        @foreach (var item in (List<factor>)ViewBag.PaymentsList)
+            {
+            <tr>
+                <td class="translate">
+                    @Replace.ToShamsi(item.CreateDate)
+                </td>
+                <td class="translate">@item.Description</td>
+                <td class="translate">@item.Price</td>
+             @if (item.IsFinaly==true)
+             {
+                <td class="translate" style="color:green">موفق</td>
+             }
+                @if (item.IsFinaly == false)
+                {
+                    <td class="translate" style="color:red">ناموفق</td>
+                }
+            </tr>
+        }
+
+
+
+    </tbody>
+</table>
+@*farsi kardane adad*@
+<script type="text/javascript">
+        $(document).ready(function () {
+            var arabicNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+            $('.translate').text(function (i, v) {
+                var chars = v.split('');
+                for (var i = 0; i < chars.length; i++) {
+                    if (/\d/.test(chars[i])) {
+                        chars[i] = arabicNumbers[chars[i]];
+                    }
+                }
+                return chars.join('');
+            })
+
+
+        });
+</script>
+

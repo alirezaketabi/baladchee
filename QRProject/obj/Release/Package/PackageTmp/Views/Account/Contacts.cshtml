@@ -1,0 +1,134 @@
+﻿
+@{
+    Layout = "~/views/shared/_AdminLayout.cshtml";
+}
+@using QRProject.Core
+@using QRProject.helper
+<style> 
+    .tblCnb{width:100%;font-family:IranSansl;font-weight:700}.myInput{background-position:10px 10px;background-repeat:no-repeat;width:258px;font-size:16px;padding:12px 20px 12px 40px;border:1px solid #ddd;margin-bottom:12px;border-radius:5px}.phnCd{font-family:IranSansl;font-weight:700;color:red}.Pendpn{font-family:IranSans;margin-top:3pt}.Addpn{font-family:IranSansl;direction:rtl;font-weight:700}.inpCss{font-family:IranSansl;direction:rtl;margin-bottom:3pt}.btnBgn{font-family:IranSans;margin-top:3pt}.cntTg{text-align:center}
+</style>
+<br />
+<center>
+    <img src="~/images/Contacts.png" />
+</center>
+
+@if (ViewBag.phone != null)
+{
+    <center>
+        <div class="phnCd">@ViewBag.phone</div>
+    </center>
+}
+<button href="#"  class="btn btn-default Pendpn" data-toggle="modal" data-target="#myModal">  + اضافه کردن مخاطب</button>
+@using (Html.BeginForm("AddContact", "Account", FormMethod.Post, new { enctype = "multipart/form-data", id = "logoutyFormm", @class = "navbar-right" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <center>
+                        <img src="~/images/AddContact.png" alt="ویرایش" />
+
+                        <h4 class="modal-title Addpn">اضافه کردن مخاطب</h4>
+
+                    </center>
+                </div>
+
+
+                <div  class="modal-body cntTg">
+                    <input type="text" class="myInput inpCss"  placeholder="شماره همراه" name="PhoneNumber" required />
+                    <input type="text" class="myInput inpCss"  placeholder="توضیحات" name="Description" value="" />
+                    <input type="text" class="hidden"  name="ClientId" value="@ViewBag.clientid" />
+                </div>
+                <center>
+                    <button id="mySubmitt" type="submit"  class="btn btn-default btnBgn"> ثبت مخاطب</button>
+                </center>
+
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<input type="text" style="float:left" id="myInput" class="myInput" onkeyup="myFunction()" placeholder="جستجو بر اساس توضیحات">
+
+
+<table id="myContacts" class="table table-striped table-bordered tblCnb" >
+    <thead>
+        <tr>
+            <th>مخاطب</th>
+            <th>تاریخ ثبت</th>
+            <th>توضیحات</th>
+            <th>عملیات</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tbody>
+
+
+        @foreach (var item in (List<Contacts>)ViewBag.Contacts)
+            {
+            <tr>
+                <td class="translate">@item.PhoneNumber</td>
+                <td class="translate"> @Replace.ToShamsi(item.CreateDate)</td>
+                <td class="translate">@item.Description</td>
+
+                <td>
+
+                    @Html.ActionLink(" حذف ", "DeleteContacts", "Account", new { ContactId = item.Id, ClientId = ViewBag.clientid }, new { onclick = "return confirm('آیا برای حذف مطمئن هستید؟');" })
+
+
+                </td>
+            </tr>
+        }
+
+
+
+    </tbody>
+</table>
+@*farsi kardane adad*@
+<script type="text/javascript">
+    $(document).ready(function () {
+        var arabicNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+        $('.translate').text(function (i, v) {
+            var chars = v.split('');
+            for (var i = 0; i < chars.length; i++) {
+                if (/\d/.test(chars[i])) {
+                    chars[i] = arabicNumbers[chars[i]];
+                }
+            }
+            return chars.join('');
+        })
+
+
+    });
+
+
+
+    //search in table
+
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myContacts");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[2];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+
+
+</script>
+

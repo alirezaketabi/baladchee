@@ -1,0 +1,119 @@
+﻿
+<style>
+    .TelPrice {
+        font-family: IranSansl;
+        text-align: right;
+        margin: 3pt;
+    }
+</style>
+<link href="~/leaf/leaflet.css" rel="stylesheet" />
+
+@*<link href="~/leafletTest/leaflet.css" rel="stylesheet" />*@
+
+<div style="font-family:IranSans;text-align:right;margin:3pt"> محل دقیق آدرس رو با حرکت دادن مکان نما مشخص کنید</div>
+<div style="font-family:IranSansl;text-align:right;margin:3pt"> "اگر نقشه کامل بارگذاری نشده است، چند بار زوم کنید"</div>
+
+<div id="MapLocation" style="height: 310px;width:240pt"></div>
+
+
+@if (ViewBag.ViewPrice != null)
+{
+    if (Convert.ToInt32(ViewBag.ViewPrice) != 0)
+    {
+        <div class="TelPrice">هزینه ارسال به مقصد شما <b class="translate">@(ViewBag.ViewPrice)</b> تومان میباشد </div>
+    }
+    else
+    {
+        <div class="TelPrice"><b>هزینه ارسال به مقصد شما رایگان است</b> </div>
+
+    }
+
+}
+
+<input id="Latitude" value="@ViewBag.lat" style="display:none" name="LocationLatitude" />
+<input id="Longitude" value="@ViewBag.lng" style="display:none" name="LocationLongitude" />
+
+<script src="~/leaf/leaflet.js"></script>
+@*<script src="~/leafletTest/leaflet.js"></script>*@
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+
+
+
+    $(function () {
+
+
+        var curLocation = @Html.Raw(ViewBag.tt);
+        // use below if you have a model
+        zoom: 15;
+
+        if (curLocation[0] == 0 && curLocation[1] == 0) {
+            curLocation = @Html.Raw(ViewBag.tt);
+        }
+
+        var map = L.map('MapLocation').setView(curLocation, 14);
+
+
+        //L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        //    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        //}).addTo(map);
+
+
+        //lnk haye osm
+        //https://wiki.openstreetmap.org/wiki/Tile_servers
+
+       
+        //L.tileLayer('http://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+        //    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        //}).addTo(map);
+     
+
+        L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+            attribution: 'baladchee.com'
+        }).addTo(map);
+
+        map.attributionControl.setPrefix(false);
+
+        var marker = new L.marker(curLocation, {
+            draggable: 'true'
+
+        });
+
+        marker.on('dragend', function (event) {
+            var position = marker.getLatLng();
+            marker.setLatLng(position, {
+                draggable: 'true'
+            }).bindPopup(position).update();
+            $("#Latitude").val(position.lat);
+            $("#Longitude").val(position.lng).keyup();
+        });
+
+        $("#Latitude, #Longitude").change(function () {
+            var position = [parseInt($("#Latitude").val()), parseInt($("#Longitude").val())];
+            marker.setLatLng(position, {
+                draggable: 'true'
+            }).bindPopup(position).update();
+            map.panTo(position);
+        });
+
+        map.addLayer(marker);
+    })
+</script>
+<script>
+        //3-farsi kardane adad dar div hamzaman
+        $(document).ready(function () {
+            var arabicNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+            $('.translate').text(function (i, v) {
+                var chars = v.split('');
+                for (var i = 0; i < chars.length; i++) {
+                    if (/\d/.test(chars[i])) {
+                        chars[i] = arabicNumbers[chars[i]];
+                    }
+                }
+                return chars.join('');
+            })
+
+
+        });
+</script>

@@ -1,0 +1,91 @@
+﻿
+@{
+    Layout = null;
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<style>
+ 
+    
+@@font-face {
+  font-family: 'IranSans';
+  src: url('../../fonts/iransans-light.ttf');
+}
+    .lSize {
+        font-size: 20pt;
+        font-weight: bold;
+        font-family:IranSans;
+    }
+
+    body {
+        background-color: rgb(255, 199, 173);
+    }
+
+    .button {
+        background-color: rgb(31, 125, 226); /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+    .button1 {
+        background-color: white;
+        color: black;
+        border: 2px solid rgb(31, 125, 226);
+        border-radius: 5px;
+    }
+     .button2 {
+        background-color: white;
+        color: black;
+        border: 2px solid rgb(9, 165, 150);
+        border-radius: 5px;
+    }
+</style>
+<br />
+<center>
+    <br />
+    <br />
+    <div class="row">
+      <img src="~/images/check.png" alt="Alternate Text" />
+        <div style="font-family:IranSans;direction:rtl"> سفارش شما با موفقیت ثبت گردید و از طریق پیامک به فروشنده اطلاع داده خواهد شد!</div>
+    </div>
+        <br />
+   @if (ViewBag.isfromMore != null)
+   {
+    <a id="return" style="display:none" class="lSize button button2" href="@Url.Action("MoreProducts", "home", new { id = ViewBag.cid})">بازگشت به صفحه اصلی</a>
+
+   }
+
+   else
+   {
+    <a id="return" style="display:none" class="lSize button button2" href="@Url.Action("show", "home", new { id = ViewBag.cid})">بازگشت به صفحه اصلی</a>
+     
+	}
+   
+    
+     <a id="factor" onclick="showOrHideDiv()"  class="lSize button button1" href="@Url.Action("pdf", "home")">دریافت فاکتور</a>
+    
+    <br />
+    <br />
+
+    <img src="~/images/delivey.gif"  alt="buy" />
+ <div>baladchee.com</div>
+
+</center>
+
+    <script>
+   function showOrHideDiv() {
+       var fac = document.getElementById("factor");
+       var ret = document.getElementById("return");
+  
+       fac.style.display = "none";
+   
+       ret.style.display = "block";
+      
+   }
+</script>

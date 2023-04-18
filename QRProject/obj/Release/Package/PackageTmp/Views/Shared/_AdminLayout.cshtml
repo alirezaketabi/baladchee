@@ -1,0 +1,322 @@
+﻿
+@{
+    Layout = null;
+
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    @*<title>SB Admin 2 - Bootstrap Admin Theme</title>*@
+
+
+    <title>داشبورد بلدچی</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Admin/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="~/Admin/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="~/Admin/css/plugins/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="~/Admin/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="~/Admin/css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="~/Admin/css/font-awesome/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+                  @@font-face {
+            font-family: IranSans;
+            src: url(../../fonts/iransans-bold.woff2);
+        }
+
+        @@font-face {
+            font-family: IranSansl;
+            src: url(../../fonts/iransans-light.woff2);
+        }
+        .circle {
+            border-radius: 50%;
+            width: 50%;
+            height: auto;
+            background-color: rgb(255, 209, 92);
+            box-shadow: 1px 1px 6px rgb(128, 128, 128);
+        }
+
+             .rvb{
+            margin-left:8px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button id="onc" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+       
+                <a class="navbar-brand" style="font-weight:bold" href= @Url.Action("show","home",new {id=ViewBag.clientid })>ویترین من</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+
+               
+              
+                        <li style="margin-top:10pt">
+                            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                @Html.AntiForgeryToken()
+                            
+                                <input class="btn btn-default"  type="submit" style="margin-right:20pt;font-weight:bold" name="name" value="خروج" /> <i class="fa fa-sign-out fa-fw"></i>
+                            }
+
+
+                        </li>
+                    @*</ul>*@
+                    <!-- /.dropdown-user -->
+               
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div id="side-menu1" class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+
+                        <li>
+                            <a style="font-weight:bold;font-size:14pt" href="@Url.Action("BaladcheeQR","Account", new {ClientId=ViewBag.clientid})"><i style="font-weight:bold;font-size:16pt" class="fa fa-qrcode rvb"></i>&nbsp;بلدچی کیو آر &nbsp;</a>
+
+                        </li>
+
+         
+
+                        <li>
+                            <a style="font-weight:bold" href="@Url.Action("dashboard", "Account", new {ClientId=ViewBag.clientid})"><i class="fa fa-tasks fa-fw rvb"></i>آمار بازدید</a>
+
+                        </li>
+                      
+                        
+                        <li>
+                            <a style="font-weight:bold" href="@Url.Action("Opinion","Account",new {ClientId=ViewBag.clientid})"><i class="fa fa-edit fa-fw rvb"></i>نظرات</a>
+
+                        </li>
+
+                        <li>
+                            @*sefareshe dide nashode dare*@
+                            @if (ViewBag.isSeen == "false")
+                            { 
+
+                                <a style="font-weight:bold;color:red" href="@Url.Action("Orders","Account",new {ClientId=ViewBag.clientid})"><i class="fa fa-money rvb"></i>
+                                 
+                            سفارشات
+                                    <span class="badge">...</span>
+                                  
+                            
+                            </a>                              
+                              
+
+                            }
+                            //sefareshi ya nadare ya agaram dare dide
+                            else
+                            {
+                                <a style="font-weight:bold" href="@Url.Action("Orders","Account",new {ClientId=ViewBag.clientid})"><i class="fa fa-money rvb"></i>سفارشات</a>
+
+                            }
+                         
+                        </li>
+
+                        <li>
+                            <a style="font-weight:bold" href="@Url.Action("ClientClub","Account",new {ClientId=ViewBag.clientid})"><i class="fa fa-exchange fa-envira rvb"></i>باشگاه مشتریان</a>
+
+                        </li>
+
+            
+
+                        <li>
+                            <a style="font-weight:bold" href="@Url.Action("Contacts","Account",new {ClientId=ViewBag.clientid})"><i class="fa fa-exchange fa-envira rvb"></i>شماره همراه مخاطبین</a>
+
+                        </li>
+
+
+
+                        <li>
+                            <a style="font-weight:bold" href="@Url.Action("SaleCode","Account",new {ClientId=ViewBag.clientid})"><i class="fa fa-sitemap fa-fw rvb"></i>ایجاد کد تخفیف</a>
+                            <div class="circle translate" style="text-align:center;margin-right:25pt;font-weight:bold;color:rgb(217,83,79)"></div>
+
+                        </li>
+
+
+
+                        <li>
+                            <a style="font-weight:bold" href="@Url.Action("unavailable","Account",new {ClientId=ViewBag.clientid})"><i class="fa fa-times-circle rvb"></i>کالاهای ناموجود</a>
+
+                        </li>
+
+
+
+                        <li>
+                            <a style="font-weight:bold" href="@Url.Action("ChangePassword","Manage",new {ClientId=ViewBag.clientid})"><i class="fa fa-lock rvb"></i>تغییر رمز عبور، لوکیشن، هزینه ارسال</a>
+
+                        </li>
+
+
+
+                        <li>
+                            <a style="font-weight:bold" href="@Url.Action("PaymentsList","Account",new {ClientId=ViewBag.clientid})"><i class="fa fa-credit-card rvb"></i>پرداخت ها</a>
+
+                        </li>
+
+                        <li>
+                            <a style="font-weight:bold" href="@Url.Action("ManagementApk","Account",new {ClientId=ViewBag.clientid})"><i class="fa fa-android rvb"></i>دانلود اپلیکیشن اندروید</a>
+
+                        </li>
+
+                        <li>
+                            <a style="font-weight:bold" id="onc2" href="#"><i class="fa fa-envelope fa-fw rvb"></i>مدیریت پیامک<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="@Url.Action("SmsSend","Account",new {ClientId=ViewBag.clientid})">ارسال پیامک</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("SentBox","Account",new {ClientId=ViewBag.clientid})">ارسال شده ها</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("ReceivedSms","Account",new {ClientId=ViewBag.clientid})">دریافت پیامک</a>
+                                </li>
+                           
+                              </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        
+
+                    
+                     </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+
+
+
+            @RenderBody()
+
+
+
+
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery Version 1.11.0 -->
+    @*<script src="~/Scripts/jquery-3.1.1.min.js"></script>*@
+
+
+    <script src="~/Admin/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Admin/js/bootstrap.min.js"></script>
+
+
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/Admin/js/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="~/Admin/js/raphael/raphael.min.js"></script>
+    <script src="~/Admin/js/morris/morris.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="~/Admin/js/sb-admin-2.js"></script>
+   
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var arabicNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+            $('.translate').text(function (i, v) {
+                var chars = v.split('');
+                for (var i = 0; i < chars.length; i++) {
+                    if (/\d/.test(chars[i])) {
+                        chars[i] = arabicNumbers[chars[i]];
+                    }
+                }
+                return chars.join('');
+            })
+
+
+        });
+
+
+
+        $(document).ready(function () {
+            $("#onc").click(function () {
+                $("#side-menu1").scroll();
+                $("#side-menu1").animate({
+                    scrollTop: 1000
+                }, 1100);
+
+
+                $("#side-menu1").scroll();
+                $("#side-menu1").animate({
+                    scrollTop: -1000
+                }, 1000);
+
+            });
+        });
+
+
+
+
+        $(document).ready(function () {
+            $("#onc2").click(function () {
+                $("#side-menu1").scroll();
+                $("#side-menu1").animate({
+                    scrollTop: 1000
+                }, 1100);
+
+
+            });
+        });
+
+    </script>
+
+
+
+</body>
+
+</html>

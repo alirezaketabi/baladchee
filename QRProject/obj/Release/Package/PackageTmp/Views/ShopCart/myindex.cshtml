@@ -1,0 +1,1129 @@
+﻿@model IEnumerable<QRProject.Models.ShopCartViewModel>
+@using QRProject.helper
+@{Layout = null;
+    ViewBag.Title = " سبد خرید ";
+    int row = 1;
+}
+<title>سبد خرید بلدچی</title>
+<style>
+    .btnFsize {
+        width: 88pt;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        text-align: right;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    th {
+       background-color: rgb(35,183,194);
+        color: white;
+    }
+
+    .button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+    }
+
+    .button2:hover {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+    .scrollmenu {
+        overflow: auto;
+        white-space: nowrap;
+    }
+</style>
+<style>
+    @@font-face {
+        font-family: IranSans;
+        src: url(../../fonts/iransans-bold.woff2);
+    }
+
+    @@font-face {
+        font-family: IranSansl;
+        src: url(../../fonts/iransans-light.woff2);
+    }
+
+    .upload-btn-wrapper {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+    }
+
+    .btnn {
+        border: 2px solid gray;
+        color: gray;
+        background-color: white;
+        padding: 8px 20px;
+        border-radius: 8px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .upload-btn-wrapper input[type=file] {
+        font-size: 100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+    }
+
+    .Bborder {
+        text-align: center;
+        width: 232pt;
+        color: #000;
+        font-family: IranSansl;
+        font-weight: 700;
+        direction: rtl;
+        border: 2px dashed #d7d7d7;
+        padding: 7pt;
+        background-color: #f5f5f5;
+        border-radius: 5%;
+    }
+
+    .newline {
+        white-space: pre-wrap;
+    }
+
+    .myfilter-option {
+        display: inline-block;
+        overflow: hidden;
+        width: 100%;
+        text-align: center;
+    }
+
+    .titleShop {
+        text-align: center;
+        margin: 12px;
+        font-size: 16px;
+    }
+</style>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src='https://www.google.com/recaptcha/api.js' type="text/javascript"></script>
+
+<link rel="stylesheet" href="~/FormTemplate/css/style.css">
+
+
+<link href="~/Themplate/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/StyleSheet/myStyles.css" rel="stylesheet" />
+<div class="container" style="direction:rtl;font-family:IranSans">
+    <br />
+
+    @*agar az more umade bud*@
+    @if (ViewBag.BackLinkFromMore != null && ViewBag.BackLinkFromMore != "")
+    {
+        <i style="float:left;font-family:IranSansl">
+            <a href="@ViewBag.BackLinkFromMore"><img src="~/images/BackTo.png" alt="بازگشت" /></a>
+        </i>
+    }
+    @*az samte vitrin umade*@
+    else
+    {
+        <i style="float:left;font-family:IranSansl">
+            <a href="@Url.Action("Show", "Home", new { id = ViewBag.Client })"><img src="~/images/BackTo.png" alt="بازگشت" /></a>
+        </i>
+    }
+    <br /><br />
+
+    <div class="titleShop">
+
+        <img style="margin-left:4pt" src="~/images/Sabade-Kala-Gif.gif" alt="ShopCart" />
+    </div>
+    <center style="font-size:17px">
+        سبد خرید شما از      @Replace.returnClientTitle(ViewBag.Client)
+
+        @if(ViewBag.isLowPrice != null)
+        {
+        <div style="color:red;direction:rtl">@ViewBag.isLowPrice</div>
+        }
+    </center>
+    <br />
+
+
+    <div class="scrollmenu">
+        <table style="direction:rtl" class="table table-bordered">
+            <tr>
+                <th>#</th>
+                <th>تصویر</th>
+                <th>کالا</th>
+                <th>تعداد</th>
+                <th>قیمت</th>
+                <th>جمع</th>
+                <th>حذف</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@row</td>
+                    <td>
+                        <img class="thumbnail" style="max-width: 120px" src="@Url.Content(item.ImageAddress)" />
+                    </td>
+                    <td>@item.Title</td>
+                    <td class="translate">@item.Count</td>
+                    <td class="translate">@item.Price.ToString("#,0 ")</td>
+                    <td class="translate">@item.Sum.ToString("#,0 ")</td>
+                    <td>
+                        @*/ShopCart/RemoveFromCart/@item.ProductID*@
+                        <a class="btn btn-danger btn-xs" href="@Url.Action("RemoveFromCart", "ShopCart", new {ClientId=item.ClientId,ProductId=item.ProductId,MoreProduct=item.MoreProductId })">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+
+                row++;
+            }
+            <tr>
+                <td class="translate" colspan="3" class="text-left">
+                    جمع تعداد :
+                </td>
+                <td class="translate">
+                    @Model.Sum(p => p.Count)
+                    @{
+                        var ProductsPrices = Model.Sum(p => p.Sum);
+                    }
+                </td>
+                <td class="text-left">
+                    جمع قیمت :
+                </td>
+                <td colspan="2" class="text-center translate">
+                    <p class="text-success">@Model.Sum(p => p.Sum).ToString("#,0 تومان")</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    @if (ViewBag.NotSession != null)
+    {
+        <center>
+            <img src="~/images/emptyBasket.gif" alt="empty shopcart" />
+        </center>
+    }
+    @*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////*@
+
+
+                        @*اگر خریدی در سبدکالا بود، اطلاعات فردی را نمایش بده*@
+                        @if (ViewBag.NotSession == null)
+                        {
+                            @*...............................................................خرید با فرم...............................................*@
+
+                            <ul class="nav nav-tabs">
+                                <li id="s1" class="active"><a data-toggle="tab" href="#home">خرید با فرم اطلاعات</a></li>
+                                <li id="s2"><a data-toggle="tab" href="#menu1"> خرید با کد اشتراک </a></li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div id="home" class="tab-pane fade in active">
+
+                                    @using (Html.BeginForm("GoPay", "ShopCart", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal login100-form validate-form", role = "form", id = "myform" }))
+                {
+
+
+
+
+                                        @Html.AntiForgeryToken()
+                                        <div id='recaptcha' class="g-recaptcha"
+                                             data-sitekey="6Lf3e8oUAAAAALNDfgQzIxlpSUo6BkHdqxll9An-"
+                                             @*local :6LeRqhYaAAAAACXordAmvhGsEe-XfuP_YvW42HgM*@
+                                             @*Website: 6Lf3e8oUAAAAALNDfgQzIxlpSUo6BkHdqxll9An-*@
+                                             data-callback="onCompleted"
+                                             data-size="invisible"></div>
+
+
+
+                                            <div class="row justify-content-center">
+                                                <div class="col-md-12">
+                                                    <div class="wrapper">
+
+
+                                                        <div class="contact-wrap w-100 p-md-5 p-4">
+
+                                                            <div id="form-message-warning" class="mb-4"></div>
+                                                            @*<div id="form-message-success" class="mb-4">
+                                                                    Your message was sent, thank you!
+                                                                </div>*@
+                                                            <form method="POST" id="contactForm" name="contactForm" class="contactForm">
+                                                                <center><div class="Bborder"><img src="~/images/DeliverySabadeKharid.png" alt="Delivery" /><center>خریدار عزیز، هزینه ارسال بعد از انتخاب کردن شهرتان، به شما نمایش داده خواهد شد.</center></div></center>
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+
+                                                                            <input type="text" class="form-control" name="Name" id="name" placeholder="نام و نام خانوادگی" oninput="setCustomValidity('')" required oninvalid="this.setCustomValidity('لطفا نام خود را وارد نمایید')">
+                                                                            <input type="text" class="hidden" id="clientid" name="id" value="@ViewBag.Client" />
+
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+
+                                                                            <input type="text" class="form-control" name="Phone" id="phone" placeholder="تلفن همراه با اعداد لاتین" oninput="setCustomValidity('')" required pattern="09\d{9}" oninvalid="    this.setCustomValidity('لطفا شماره همراه خود را بصورت لاتین وارد نمایید')">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+
+                                                                            <input type="text" class="form-control" name="Address" id="address" placeholder="آدرس" oninput="setCustomValidity('')" required oninvalid="this.setCustomValidity('لطفا آدرس را وارد نمایید')">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+
+                                                                            <input type="text" class="form-control" name="PostalCode" id="pstalCode" placeholder="کد پستی(اختیاری)">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+
+                                                                            <textarea name="Tozihat" class="form-control" id="Tozihat" cols="30" rows="4" placeholder="توضیحات، برای مثال نکات مهم درباره نحوه تحویل سفارش"></textarea>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-md-12">
+
+                                                                        <span style="font-family:IranSans;display:none;color:red" id="CityValidation" class="label-input100">شهر خود را انتخاب کنید</span>
+
+                                                                        <div style="font-family:IranSans">
+
+
+
+                                                                            <div class="row-fluid">
+                                                                                <select tabindex="2" name="city" id="city" style="font-family:IranSans;text-align:center" data-show-subtext="true" data-live-search="true" oninput="setCustomValidity('')" required oninvalid="this.setCustomValidity('لطفا لوکیشن محل تحویل کالا را مشخص کنید')">
+
+
+                                                                                    <option style="font-family:IranSans" value="">..شهر خود را انتخاب کنید..</option>
+                                                                                    <option style="font-family:IranSans" value="تهران">تهران</option>
+                                                                                    <option style="font-family:IranSans" value="کرج">کرج</option>
+                                                                                    <option style="font-family:IranSans" value="قزوین">قزوین</option>
+                                                                                    <option style="font-family:IranSans" value="تبریز">تبریز</option>
+                                                                                    <option style="font-family:IranSans" value="مشهد">مشهد</option>
+                                                                                    <option style="font-family:IranSans" value="قم">قم</option>
+                                                                                    <option style="font-family:IranSans" value="زنجان">زنجان</option>
+                                                                                    <option style="font-family:IranSans" value="رشت">رشت</option>
+                                                                                    <option style="font-family:IranSans" value="اردبیل">اردبیل</option>
+                                                                                    <option style="font-family:IranSans" value="گرگان">گرگان</option>
+                                                                                    <option style="font-family:IranSans" value="اراک">اراک</option>
+                                                                                    <option style="font-family:IranSans" value="کاشان">کاشان</option>
+                                                                                    <option style="font-family:IranSans" value="اصفهان">اصفهان</option>
+                                                                                    <option style="font-family:IranSans" value="یزد">یزد</option>
+                                                                                    <option style="font-family:IranSans" value="اهواز">اهواز</option>
+                                                                                    <option style="font-family:IranSans" value="شیراز">شیراز</option>
+                                                                                    <option style="font-family:IranSans" value="بندرعباس">بندرعباس</option>
+                                                                                    <option style="font-family:IranSans" value="کرمان">کرمان</option>
+                                                                                    <option style="font-family:IranSans" value="بجنورد">بجنورد</option>
+
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+                                                                            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+                                                                            <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+
+                                                                        </div>
+                                                                        <cenetr style="display:none;font-family:IranSans" id="loadingImg">
+                                                                            <br />
+                                                                            <img src="~/images/mapLoader.gif" alt="waiting" />
+
+                                                                        </cenetr>
+
+                                                                        <div class="wrap-input100 row">
+                                                                            <div class="col-lg-6" id="Seccond">
+                                                                            </div>
+                                                                            <div id="deliveyIMG" style="display:none" class="col-lg-6 hidden-sm hidden-xs">
+                                                                                <img style="display:block" src="~/images/baladcheeDelivery.gif" alt="delivery" />
+                                                                            </div>
+                                                                        </div>
+
+
+
+                                                                    </div>
+
+                                                                    <div class="col-md-12">
+                                                                        <br />
+                                                                        <div class="form-group">
+                                                                            <input type="submit" value="پرداخت" class="btnFsize btn btn-primary">
+                                                                            <div class="submitting"></div>
+                                                                        </div>
+                                                                        <a href="https://www.zarinpal.com/">
+                                                                            <img src="~/images/ZarinPal.png" alt="zarinpal" />
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    }
+
+                                    <script>
+
+                                        $('#myform').submit(function (event) {
+                                            //console.log('form submitted.');
+
+                                            if (!grecaptcha.getResponse()) {
+                                                //console.log('captcha not yet completed.');
+
+                                                event.preventDefault(); //prevent form submit
+                                                grecaptcha.execute();
+                                            } else {
+                                                //console.log('form really submitted.');
+                                            }
+                                        });
+
+                                        onCompleted = function () {
+                                            console.log('captcha completed.');
+                                            $('#myform').submit();
+
+
+                                        }
+
+
+                                    </script>
+
+
+                                </div>
+
+
+
+
+
+
+
+                                @*............................................خرید با کد اشتراک...........................................................*@
+
+
+
+                                <div id="menu1" class="tab-pane fade">
+
+                                    @using (Html.BeginForm("GoPay", "ShopCart", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal login100-form validate-form", role = "form", id = "myform2" }))
+                {
+
+                                        @Html.AntiForgeryToken()
+
+
+
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-12">
+                                                <div class="wrapper">
+
+                                                    <div class="contact-wrap w-100 p-md-5 p-4">
+
+                                                        <div id="form-message-warning" class="mb-4"></div>
+
+                                                        <form method="POST" id="contactForm2" name="contactForm2" class="contactForm">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+
+
+
+
+
+                                                                    <div class="form-group">
+                                                                        <input type="text" id="HazineErsal" class="hidden" name="HazineErsal" value="" />
+
+                                                                        @if (ViewBag.EshterakNotFound != null)
+                                                                        {
+                                                                            <div id="EshterakNotFounds" style="text-align:right;color:black;margin-right:10pt">
+                                                                                کد اشتراک <b style="color:red;font-size:17px">@ViewBag.EshterakNotFound</b> در سیستم ثبت نشده است!
+                                                                            </div>
+                                                                        }
+                                                                        @if (ViewBag.CommonCode != null)
+                                                                        {
+
+                                                                            <div style="text-align:right;color:black;margin-right:10pt">
+                                                                                لطفا اسکرین شات بگیرید و یا به خاطر بسپارید <b style="color:green;font-size:17px">@ViewBag.CommonCode</b> کد اشتراک شما میباشد.
+                                                                            </div>
+
+
+
+                                                                            <span id="s1s" name="s1" style="display:none;color:red;font-family:IranSansl;float:right;margin-right:10pt" class="label-input100">⚠</span>
+                                                                            <br />
+                                                                            <span id="s3s" name="s3s" style="display:none;color:green;font-family:IranSansl;float:right;margin-right:10pt" class="label-input100 translate"></span>
+                                                                            <br />
+                                                                            <span style="display:none;color:green;font-family:IranSansl;float:right;margin-right:10pt" id="SpanTik">✓&nbsp;مجموع پرداختی شما  : </span>
+                                                                            <span id="s2s" name="s2" style="display:none;color:green;font-family:IranSansl;float:right;margin-right:10pt" class="label-input100 translate"> </span>
+
+
+
+
+                                                                            <input type="text" value="@ViewBag.CommonCode" class="form-control" name="EshterakCode" id="EshterakCode" placeholder="کد اشتراک به لاتین برای مثال er0935xxxxxxx" oninput="setCustomValidity('')" required oninvalid="this.setCustomValidity('لطفا کد اشتراک خود را وارد نمایید')">
+
+                                                                        }
+                                                                        else
+                                                                        {
+
+
+                                                                            <span id="s1s" name="s1" style="display:none;color:red;font-family:IranSansl;float:right;margin-right:10pt" class="label-input100">⚠</span>
+                                                                            <br />
+                                                                            <span id="s3s" name="s3s" style="display:none;color:green;font-family:IranSansl;float:right;margin-right:10pt" class="label-input100 translate"></span>
+                                                                            <br />
+                                                                            <span style="display:none;color:green;font-family:IranSansl;float:right;margin-right:10pt" id="SpanTik">✓&nbsp;مجموع پرداختی شما  : </span>
+                                                                            <span id="s2s" name="s2" style="display:none;color:green;font-family:IranSansl;float:right;margin-right:10pt" class="label-input100 translate"> </span>
+
+
+
+
+                                                                            <input type="text" class="form-control" name="EshterakCode" id="EshterakCode" placeholder="کد اشتراک به لاتین برای مثال er0935xxxxxxx" oninput="setCustomValidity('')" required oninvalid="this.setCustomValidity('لطفا کد اشتراک خود را وارد نمایید')">
+
+                                                                        }
+
+
+                                                                        <div class="Bborder translate" id="ElameTakhfif" style="display:none;margin-top:21pt;"></div>
+                                                                        <div id="Takhfif" class="row">
+                                                                            <div id="ImageNormal" class="col-lg-3 col-md-2 col-xl-1 col-xs-1">
+                                                                                <img style="margin-top:-1pt" src="~/images/TakhfifPng.png" alt="Takhfif" />
+                                                                            </div>
+
+                                                                            <div id="ImageWarning" style="display:none" class="col-lg-3 col-md-2 col-xl-1 col-xs-1">
+                                                                                <img style="margin-top:-1pt" src="~/images/TakhfifPngNotFound.png" alt="Takhfif" />
+                                                                            </div>
+
+                                                                            <div id="ImageVerify" style="display:none" class="col-lg-3 col-md-2 col-xl-1 col-xs-1">
+                                                                                <img style="margin-top:-1pt" src="~/images/TakhfifPngIsVeryfy.png" alt="Takhfif" />
+                                                                            </div>
+
+                                                                            <div class="col-lg-5 col-md-6 col-xl-3 col-xs-6 pull-left">
+                                                                                <input style="margin-right:17pt" type="text" class="form-control" name="TakhfifCode" id="TakhfifCode" placeholder="کد تخفیف">
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                        <input type="text" class="hidden" id="clientid" name="id" value="@ViewBag.Client" />
+
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+
+                                                                        <textarea name="EshterakTozihat" class="form-control" id="EshterakTozihat" cols="30" rows="4" placeholder="توضیحات، برای مثال نکات مهم درباره نحوه تحویل سفارش"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+
+                                                                    <div style="text-align:right;color:darkgray">
+                                                                        <b style="color:red">*</b>اگر آدرس، شماره تماس و سایر اطلاعات شما تغییر کرده است، لطفا یک کد اشتراک جدید دریافت کنید.
+                                                                    </div>
+
+
+
+                                                                    <div style="text-align:right;color:black">
+                                                                        با داشتن کد اشتراک، دیگر نیاز نیست برای هر بار خرید، آدرس، کد پستی و سایر اطلاعات خود را دوباره وارد نمایید.
+                                                                        <a href="@Url.Action("CommonCode", "ShopCart", new { clientid = ViewBag.Client })">
+                                                                            دریافت رایگان کد اشتراک
+                                                                        </a>
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="col-md-12">
+                                                                    <br />
+                                                                    <div class="form-group">
+                                                                        <input type="submit" value="پرداخت" class="btnFsize btn btn-primary">
+                                                                        <div class="submitting"></div>
+                                                                    </div>
+                                                                    <a href="https://www.zarinpal.com/">
+                                                                        <img src="~/images/ZarinPal.png" alt="zarinpal" />
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    }
+
+
+
+
+                                </div>
+
+
+
+
+
+
+                            </div>
+
+
+
+
+                        }
+
+
+                        <script src="~/FormTemplate/js/jquery.min.js"></script>
+                        <script src="~/FormTemplate/js/popper.js"></script>
+                        <script src="~/FormTemplate/js/bootstrap.min.js"></script>
+                        @*<script src="~/FormTemplate/js/jquery.validate.min.js"></script>*@
+                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+                        @*<script src="~/FormTemplate/js/google-map.js"></script>*@
+                        <script src="~/FormTemplate/js/main.js"></script>
+
+                        @*لود مپ برای خرید با اطلاعات فردی*@
+
+                        <script type="text/javascript">
+
+                            $('#city').on('change', function () {
+                                $("#loadingImg").css("display", "block");
+                                $("#Seccond").html("");
+                                var jobid = document.getElementById("city").value;
+                                var cid = document.getElementById("clientid").value;
+                                $.ajax({
+                                    type: "post",
+                                    url: "/Account/mapload",
+                                    dataType: 'html',
+                                    data: { jobid: jobid, clientId: cid },
+                                    success: function (result) {
+                                        //////$("loadimg").slideUp();
+                                        $("#Seccond").html(result);
+                                        $("#deliveyIMG").css("display", "block");
+                                        $("#loadingImg").css("display", "none");
+                                        $("#forms").css("display", "block");
+
+
+
+                                    },
+
+
+                                }
+                                 )
+                            });
+
+
+
+                            //select validation
+                            function Validate() {
+
+
+                                var CityValidation = document.getElementById("city");
+
+                                if (CityValidation.value == "") {
+
+
+                                    $("#CityValidation").css("display", "block");
+
+
+                                }
+                                else {
+                                    $("#CityValidation").css("display", "none");
+                                }
+
+                            }
+
+
+
+                        </script>
+                        @if (ViewBag.CommonCode != null || ViewBag.EshterakNotFound != null)
+                        {
+                            <script>
+
+                                $(document).ready(function () {
+                                    $("#s1").removeClass("active");
+                                    $("#s2").addClass("active");
+
+
+                                    $("#home").removeClass("in");
+                                    $("#home").removeClass("active");
+
+                                    $("#menu1").addClass("in");
+                                    $("#menu1").addClass("active");
+
+
+
+
+
+
+                                    //check urlName realTime
+
+
+                                    if ($('#EshterakCode').val() !== "") {
+
+
+                                        var EshterakCode = document.getElementById("EshterakCode").value;
+                                        var ClientId = document.getElementById("clientid").value;;
+
+
+                                        $.ajax({
+                                            type: "post",
+                                            url: '@Url.Action("SendDeliveryPrice", "ShopCart")',
+                                            dataType: 'json',
+                                            data: { EshterakCode: EshterakCode, ClientId: ClientId },
+                                            success: function (response) {
+                                                if (response.success) {
+                                                    if (response.responseText !== "کد اشتراک صحیح نمیباشد") {
+
+                                                        $('#s1s').css("display", "none");
+
+                                                        $('#s2s').css("display", "block");
+                                                        $('#s3s').css("display", "block");
+                                                        $('#SpanTik').css("display", "block");
+
+                                                        //...hazineErsalPorShavad
+                                                        $('#HazineErsal').val(response.responseText);
+
+
+                                                        var t = parseInt(response.responseText) + parseInt(@Html.Raw(ProductsPrices))
+                                                        $('#s2s').text(t + " تومان ");
+                                                        $('#s3s').text("🚚 هزینه ارسال : " + response.responseText + " تومان ");
+
+
+                                                        $(document).ready(function () {
+                                                            var arabicNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+                                                            $('.translate').text(function (i, v) {
+                                                                var chars = v.split('');
+                                                                for (var i = 0; i < chars.length; i++) {
+                                                                    if (/\d/.test(chars[i])) {
+                                                                        chars[i] = arabicNumbers[chars[i]];
+                                                                    }
+                                                                }
+                                                                return chars.join('');
+                                                            })
+
+
+                                                        });
+
+
+
+
+
+
+                                                        
+
+                                                        //.................................................in baraye codeTakhfif
+
+
+                                                        //check urlName realTime
+                                                        $('#TakhfifCode').on('keyup', function () {
+
+                                                            if ($('#TakhfifCode').val() !== "") {
+
+
+                                                                var TakhfifCode = document.getElementById("TakhfifCode").value;
+                                                                var ClientId = document.getElementById("clientid").value;
+
+
+                                                                $.ajax({
+                                                                    type: "post",
+                                                                    url: '@Url.Action("DoTakhfifPrice", "ShopCart")',
+                                                                    dataType: 'json',
+                                                                    data: { TakhfifCode: TakhfifCode, ClientId: ClientId },
+                                                                    success: function (response) {
+                                                                        if (response.success) {
+                                                                            if (response.responseText !== "کد تخفیف صحیح نمیباشد") {
+
+
+
+                                                                                $('#s2s').css("display", "block");
+                                                                                $('#SpanTik').css("display", "block");
+
+                                                                                $('#ImageNormal').css("display", "none");
+                                                                                $('#ImageWarning').css("display", "none");
+                                                                                $('#ImageVerify').css("display", "block");
+                                                                                //...hazineErsalRoBegir
+                                                                                var HazineRSL = document.getElementById("HazineErsal").value;
+
+                                                                                var t = parseFloat(response.responseText) * parseInt(@Html.Raw(ProductsPrices))+parseInt(HazineRSL)
+                                                                                $('#s2s').text(t + " تومان ");
+
+
+
+
+
+                                                                                //hala dg bia kolan input takhfif ro pak kon va darsad ro neshun bede
+                                                                                var q = parseFloat(response.responseText) * parseInt(100);
+                                                                                var end =  parseInt(100) -  parseInt(q);
+                                                                                //hide code takhfif input
+                                                                                $('#Takhfif').css("display", "none");
+
+
+                                                                                $('#ElameTakhfif').css("display", "block");
+                                                                                //hide code takhfif codeEshterak
+                                                                                $('#EshterakCode').css("display", "none");
+
+                                                                                $('#ElameTakhfif').text(end + " درصد تخفیف اعمال شد! ");
+
+
+
+                                                                                $(document).ready(function () {
+                                                                                    var arabicNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+                                                                                    $('.translate').text(function (i, v) {
+                                                                                        var chars = v.split('');
+                                                                                        for (var i = 0; i < chars.length; i++) {
+                                                                                            if (/\d/.test(chars[i])) {
+                                                                                                chars[i] = arabicNumbers[chars[i]];
+                                                                                            }
+                                                                                        }
+                                                                                        return chars.join('');
+                                                                                    })
+
+
+                                                                                });
+
+
+                                                                            }
+
+                                                                            else {
+
+
+                                                                                //$('#s2s').css("display", "none");
+                                                                                //$('#SpanTik').css("display", "none");
+
+                                                                                $('#ImageNormal').css("display", "none");
+                                                                                $('#ImageWarning').css("display", "block");
+                                                                                $('#ImageVerify').css("display", "none");
+
+
+                                                                            }
+
+                                                                        }
+                                                                    },
+                                                                    error: function (response) {
+                                                                        alert("متاسفانه مشکلی در سیستم پیش آمده");
+                                                                    }
+                                                                })
+
+                                                            }
+                                                            else {
+                                                                //$('#s1s').css("display", "none");
+
+                                                                //$('#s2s').css("display", "none");
+
+                                                                //$('#SpanTik').css("display", "none");
+
+
+                                                                $('#ImageNormal').css("display", "block");
+                                                                $('#ImageWarning').css("display", "none");
+                                                                $('#ImageVerify').css("display", "none");
+                                                            }
+                                                        });
+
+
+
+
+
+
+
+
+
+                                                    }
+
+                                                    else {
+                                                        $('#s1s').css("display", "block");
+
+                                                        $('#s2s').css("display", "none");
+                                                        $('#s3s').css("display", "none");
+                                                        $('#SpanTik').css("display", "none");
+
+                                                    }
+
+                                                }
+                                            },
+                                            error: function (response) {
+                                                alert("متاسفانه مشکلی در سیستم پیش آمده");
+                                            }
+                                        })
+
+                                    }
+                                    else {
+                                        $('#s1s').css("display", "none");
+
+                                        $('#ImageWarning').css("display", "none");
+
+                                        $('#s2s').css("display", "none");
+                                        $('#s3s').css("display", "none");
+                                        $('#SpanTik').css("display", "none");
+                                    }
+                                });
+
+
+
+
+
+
+
+                            </script>
+                        }
+                        <script>
+                            //3-farsi kardane adad dar div hamzaman
+                            $(document).ready(function () {
+                                var arabicNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+                                $('.translate').text(function (i, v) {
+                                    var chars = v.split('');
+                                    for (var i = 0; i < chars.length; i++) {
+                                        if (/\d/.test(chars[i])) {
+                                            chars[i] = arabicNumbers[chars[i]];
+                                        }
+                                    }
+                                    return chars.join('');
+                                })
+
+
+                            });
+
+
+                            //check urlName realTime
+                            $('#EshterakCode').on('keyup', function () {
+
+                                if ($('#EshterakCode').val() !== "") {
+
+
+                                    var EshterakCode = document.getElementById("EshterakCode").value;
+                                    var ClientId = document.getElementById("clientid").value;;
+
+
+                                    $.ajax({
+                                        type: "post",
+                                        url: '@Url.Action("SendDeliveryPrice", "ShopCart")',
+                                        dataType: 'json',
+                                        data: { EshterakCode: EshterakCode, ClientId: ClientId },
+                                        success: function (response) {
+                                            if (response.success) {
+                                                if (response.responseText !== "کد اشتراک صحیح نمیباشد") {
+
+                                                    $('#s1s').css("display", "none");
+
+                                                    $('#s2s').css("display", "block");
+                                                    $('#s3s').css("display", "block");
+                                                    $('#SpanTik').css("display", "block");
+
+
+                                                    $('#ImageNormal').css("display", "none");
+
+                                                    $('#ImageVerify').css("display", "block");
+
+                                                    //...hazineErsalPorShavad
+                                                    $('#HazineErsal').val(response.responseText);
+
+
+                                                    var t = parseInt(response.responseText) + parseInt(@Html.Raw(ProductsPrices))
+                                                    $('#s2s').text(t + " تومان ");
+                                                    $('#s3s').text("🚚 هزینه ارسال : " + response.responseText + " تومان ");
+
+
+                                                    $(document).ready(function () {
+                                                        var arabicNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+                                                        $('.translate').text(function (i, v) {
+                                                            var chars = v.split('');
+                                                            for (var i = 0; i < chars.length; i++) {
+                                                                if (/\d/.test(chars[i])) {
+                                                                    chars[i] = arabicNumbers[chars[i]];
+                                                                }
+                                                            }
+                                                            return chars.join('');
+                                                        })
+
+
+                                                    });
+
+
+
+
+
+
+                                                    //.................................................in baraye codeTakhfif
+
+
+                                                    //check urlName realTime
+                                                    $('#TakhfifCode').on('keyup', function () {
+
+                                                        if ($('#TakhfifCode').val() !== "") {
+
+
+                                                            var TakhfifCode = document.getElementById("TakhfifCode").value;
+                                                            var ClientId = document.getElementById("clientid").value;
+
+
+                                                            $.ajax({
+                                                                type: "post",
+                                                                url: '@Url.Action("DoTakhfifPrice", "ShopCart")',
+                                                                dataType: 'json',
+                                                                data: { TakhfifCode: TakhfifCode, ClientId: ClientId },
+                                                                success: function (response) {
+                                                                    if (response.success) {
+                                                                        if (response.responseText !== "کد تخفیف صحیح نمیباشد") {
+
+
+
+                                                                            $('#s2s').css("display", "block");
+                                                                            $('#SpanTik').css("display", "block");
+
+                                                                            $('#ImageNormal').css("display", "none");
+                                                                            $('#ImageWarning').css("display", "none");
+                                                                            $('#ImageVerify').css("display", "block");
+                                                                            //...hazineErsalRoBegir
+                                                                            var HazineRSL = document.getElementById("HazineErsal").value;
+
+                                                                            var t = parseFloat(response.responseText) * parseInt(@Html.Raw(ProductsPrices))+parseInt(HazineRSL)
+                                                                            $('#s2s').text(t + " تومان ");
+
+
+
+
+
+                                                                            //hala dg bia kolan input takhfif ro pak kon va darsad ro neshun bede
+                                                                            var q = parseFloat(response.responseText) * parseInt(100);
+                                                                            var end =  parseInt(100) -  parseInt(q);
+                                                                            //hide code takhfif input
+                                                                            $('#Takhfif').css("display", "none");
+
+
+                                                                            $('#ElameTakhfif').css("display", "block");
+                                                                            //hide code takhfif codeEshterak
+                                                                            $('#EshterakCode').css("display", "none");
+
+                                                                            $('#ElameTakhfif').text(end + " درصد تخفیف اعمال شد! ");
+
+
+
+                                                                            $(document).ready(function () {
+                                                                                var arabicNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+                                                                                $('.translate').text(function (i, v) {
+                                                                                    var chars = v.split('');
+                                                                                    for (var i = 0; i < chars.length; i++) {
+                                                                                        if (/\d/.test(chars[i])) {
+                                                                                            chars[i] = arabicNumbers[chars[i]];
+                                                                                        }
+                                                                                    }
+                                                                                    return chars.join('');
+                                                                                })
+
+
+                                                                            });
+
+
+                                                                        }
+
+                                                                        else {
+
+
+                                                                            //$('#s2s').css("display", "none");
+                                                                            //$('#SpanTik').css("display", "none");
+
+                                                                            $('#ImageNormal').css("display", "none");
+                                                                            $('#ImageWarning').css("display", "block");
+                                                                            $('#ImageVerify').css("display", "none");
+
+
+                                                                        }
+
+                                                                    }
+                                                                },
+                                                                error: function (response) {
+                                                                    alert("متاسفانه مشکلی در سیستم پیش آمده");
+                                                                }
+                                                            })
+
+                                                        }
+                                                        else {
+                                                            //$('#s1s').css("display", "none");
+
+                                                            //$('#s2s').css("display", "none");
+
+                                                            //$('#SpanTik').css("display", "none");
+
+
+                                                            $('#ImageNormal').css("display", "block");
+                                                            $('#ImageWarning').css("display", "none");
+                                                            $('#ImageVerify').css("display", "none");
+                                                        }
+                                                    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                }
+
+                                                else {
+                                                    $('#s1s').css("display", "block");
+
+                                                    $('#s2s').css("display", "none");
+                                                    $('#s3s').css("display", "none");
+                                                    $('#SpanTik').css("display", "none");
+
+
+                                                    $('#ImageNormal').css("display", "block");
+                                                    $('#ImageWarning').css("display", "none");
+                                                    $('#ImageVerify').css("display", "none");
+
+                                                }
+
+                                            }
+                                        },
+                                        error: function (response) {
+                                            alert("متاسفانه مشکلی در سیستم پیش آمده");
+                                        }
+                                    })
+
+                                }
+                                else {
+                                    $('#s1s').css("display", "none");
+
+                                    $('#s2s').css("display", "none");
+                                    $('#s3s').css("display", "none");
+                                    $('#SpanTik').css("display", "none");
+
+
+
+                                    $('#ImageNormal').css("display", "block");
+                                    $('#ImageWarning').css("display", "none");
+                                    $('#ImageVerify').css("display", "none");
+                                }
+                            });
+
+
+
+
+
+
+                        </script>
+                    </div>

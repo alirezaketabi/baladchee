@@ -1,0 +1,60 @@
+﻿
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery &amp; Bootstrap 4 Tagsinput.js Plugin Demos</title>
+    <link href="~/MultippleInputTagPlugin/jquerysctipttop.css" rel="stylesheet" />
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+
+    <link href="~/MultippleInputTagPlugin/tagsinput.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+@using (Html.BeginForm("AddMoreProductCategory", "Home", FormMethod.Post, new { enctype = "multipart/form-data", id = "AddProductCategory" }))
+{
+    @Html.AntiForgeryToken();
+        <div class="container">
+
+            <input type="text" data-role="tagsinput"  value="jQuery,Script,Net">
+            <h2>Multi Select</h2>
+            <select name="ProductCategory" multiple data-role="tagsinput">
+                <option value="Amsterdam">Amsterdam</option>
+                <option value="Washington">Washington</option>
+                <option value="Sydney">Sydney</option>
+                <option value="Beijing">Beijing</option>
+                <option value="Cairo">Cairo</option>
+            </select>
+        </div>
+        <center>
+            <button id="mySubmitProduct" type="submit" class="uclas btn btn-default">ثبت</button>
+        </center>
+   }
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+    <script src="~/MultippleInputTagPlugin/tagsinput.js"></script>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+    </script>
+</body>
+</html>

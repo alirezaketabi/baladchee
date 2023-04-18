@@ -1,0 +1,1350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7DFB13B0-5643-4662-8800-BFF03AD2D34E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QRProject</RootNamespace>
+    <AssemblyName>QRProject</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.3.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.3.9\lib\net40\QRCoder.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ShopCartController.cs" />
+    <Compile Include="Core\ApplyingFor.cs" />
+    <Compile Include="Core\baladcheeProduct.cs" />
+    <Compile Include="Core\CategoryWord.cs" />
+    <Compile Include="Core\Client.cs" />
+    <Compile Include="Core\Contacts.cs" />
+    <Compile Include="Core\CustomerClub.cs" />
+    <Compile Include="Core\factor.cs" />
+    <Compile Include="Core\MoreProducts.cs" />
+    <Compile Include="Core\moshtari.cs" />
+    <Compile Include="Core\Opinion.cs" />
+    <Compile Include="Core\PardakhtVitrin.cs" />
+    <Compile Include="Core\Product.cs" />
+    <Compile Include="Core\RizSefareshat.cs" />
+    <Compile Include="Core\SampleContent.cs" />
+    <Compile Include="Core\Sefareshat.cs" />
+    <Compile Include="Core\SMSBox.cs" />
+    <Compile Include="Core\statistic.cs" />
+    <Compile Include="Core\Subjobs.cs" />
+    <Compile Include="FactorViewModel\factorViewModel.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="helper\Replace.cs" />
+    <Compile Include="Migrations\202109232211594_first.cs" />
+    <Compile Include="Migrations\202109232211594_first.Designer.cs">
+      <DependentUpon>202109232211594_first.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110131854583_AddFurushHuzuri.cs" />
+    <Compile Include="Migrations\202110131854583_AddFurushHuzuri.Designer.cs">
+      <DependentUpon>202110131854583_AddFurushHuzuri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110221937421_AddTwoPro.cs" />
+    <Compile Include="Migrations\202110221937421_AddTwoPro.Designer.cs">
+      <DependentUpon>202110221937421_AddTwoPro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112061816002_AddCountToMP.cs" />
+    <Compile Include="Migrations\202112061816002_AddCountToMP.Designer.cs">
+      <DependentUpon>202112061816002_AddCountToMP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BuyerInfoModel.cs" />
+    <Compile Include="Models\CompressFilter.cs" />
+    <Compile Include="Models\forgetModel.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\KalaNamojudViewModel.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\registerModel.cs" />
+    <Compile Include="Models\RemoveSpaceFilter.cs" />
+    <Compile Include="Models\ShopCartItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\melipayamak\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+    <Compile Include="Web References\meli\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\zarinpal\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\layers-2x.png" />
+    <Content Include="Account\layers.png" />
+    <Content Include="Account\marker-icon-2x.png" />
+    <Content Include="Account\marker-icon.png" />
+    <Content Include="Account\marker-shadow.png" />
+    <Content Include="Admin\css\bootstrap.min.css" />
+    <Content Include="Admin\css\font-awesome\font-awesome.min.css" />
+    <Content Include="Admin\css\plugins\dataTables.bootstrap.css" />
+    <Content Include="Admin\css\plugins\metisMenu\metisMenu.css" />
+    <Content Include="Admin\css\plugins\metisMenu\metisMenu.min.css" />
+    <Content Include="Admin\css\plugins\morris.css" />
+    <Content Include="Admin\css\plugins\social-buttons.css" />
+    <Content Include="Admin\css\plugins\timeline.css" />
+    <Content Include="Admin\css\sb-admin-2.css" />
+    <Content Include="Admin\extras\image-samples\buttons.png" />
+    <Content Include="Admin\extras\image-samples\tables.png" />
+    <Content Include="Admin\extras\image-samples\typography.png" />
+    <Content Include="Admin\fonts\fontawesome-webfont-v=4.2.0.svg" />
+    <Content Include="Admin\fonts\fontawesome-webfont.svg" />
+    <Content Include="Admin\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Admin\images\bootstrap\datatables\sort_asc.png" />
+    <Content Include="Admin\images\bootstrap\datatables\sort_asc_disabled.png" />
+    <Content Include="Admin\images\bootstrap\datatables\sort_both.png" />
+    <Content Include="Admin\images\bootstrap\datatables\sort_desc.png" />
+    <Content Include="Admin\images\bootstrap\datatables\sort_desc_disabled.png" />
+    <Content Include="Admin\images\L1.png" />
+    <Content Include="Admin\images\L2.png" />
+    <Content Include="Admin\js\bootstrap.min.js" />
+    <Content Include="Admin\js\bootstrap\bootstrap.min.js" />
+    <Content Include="Admin\js\bootstrap\dataTables.bootstrap.min.js" />
+    <Content Include="Admin\js\flot\excanvas.min.js" />
+    <Content Include="Admin\js\flot\jquery.flot.js" />
+    <Content Include="Admin\js\flot\jquery.flot.pie.js" />
+    <Content Include="Admin\js\flot\jquery.flot.resize.js" />
+    <Content Include="Admin\js\flot\jquery.flot.time.js" />
+    <Content Include="Admin\js\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="Admin\js\jquery-1.11.0.js" />
+    <Content Include="Admin\js\jquery\jquery.dataTables.min.js" />
+    <Content Include="Admin\js\jquery\jquery.min.js" />
+    <Content Include="Admin\js\metisMenu\metisMenu.min.js" />
+    <Content Include="Admin\js\morris\morris.min.js" />
+    <Content Include="Admin\js\raphael\raphael.min.js" />
+    <Content Include="Admin\js\sb-admin-2.js" />
+    <Content Include="AlertJqueryPlugin\css\notifIt.css" />
+    <Content Include="AlertJqueryPlugin\f.txt" />
+    <Content Include="AlertJqueryPlugin\js\notifIt.js" />
+    <Content Include="AlertTest.html" />
+    <Content Include="apks\ErrorAPK.png" />
+    <Content Include="apks\UnderConstruction1.png" />
+    <Content Include="chartTemplate\Chart.bundle.js" />
+    <Content Include="chartTemplate\utils.js" />
+    <Content Include="ckeditor.html" />
+    <Content Include="ckEditor\ckeditor.js" />
+    <Content Include="ckEditor\config.js" />
+    <Content Include="ckEditor\contents.css" />
+    <Content Include="ckEditor\editor.css" />
+    <Content Include="ckEditor\icons.png" />
+    <Content Include="ckEditor\neo.css" />
+    <Content Include="ckEditor\sample.js" />
+    <Content Include="ckEditor\samples.css" />
+    <Content Include="ckEditor\sf.js" />
+    <Content Include="ckEditor\styles.js" />
+    <Content Include="Content\bootstrap-select.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\chosen-sprite.png" />
+    <Content Include="Content\indexCss.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\rocket-loader.min.js" />
+    <Content Include="Content\style.css" />
+    <Content Include="errorPage\css\style.css" />
+    <Content Include="errorPage\img\emoji.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\FiraSans-ExtraLight.svg" />
+    <Content Include="fonts\FiraSans-Light.svg" />
+    <Content Include="fonts\FiraSans-Regular.svg" />
+    <Content Include="fonts\FiraSans-UltraLight.svg" />
+    <Content Include="fonts\fontawesome-webfont93e3.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="footer\footercss.css" />
+    <Content Include="FormTemplate\css\animate.css" />
+    <Content Include="FormTemplate\css\bootstrap.min.css" />
+    <Content Include="FormTemplate\css\bootstrap\mixins\_alert.css" />
+    <Content Include="FormTemplate\css\bootstrap\mixins\_border-radius.css" />
+    <Content Include="FormTemplate\css\bootstrap\mixins\_box-shadow.css" />
+    <Content Include="FormTemplate\css\bootstrap\mixins\_screen-reader.css" />
+    <Content Include="FormTemplate\css\bootstrap\mixins\_visibility.css" />
+    <Content Include="FormTemplate\css\bootstrap\utilities\_stretched-link.css" />
+    <Content Include="FormTemplate\css\bootstrap\utilities\_visibility.css" />
+    <Content Include="FormTemplate\css\bootstrap\_media.css" />
+    <Content Include="FormTemplate\css\style.css" />
+    <Content Include="FormTemplate\js\bootstrap.min.js" />
+    <Content Include="FormTemplate\js\google-map.js" />
+    <Content Include="FormTemplate\js\jquery.min.js" />
+    <Content Include="FormTemplate\js\jquery.validate.min.js" />
+    <Content Include="FormTemplate\js\main.js" />
+    <Content Include="FormTemplate\js\popper.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="images\30percent.jpg" />
+    <Content Include="images\AddContact.png" />
+    <Content Include="images\AddListOfProducts.png" />
+    <Content Include="images\AddProductGif.gif" />
+    <Content Include="images\AndroidApp.png" />
+    <Content Include="images\AndroidApp.svg" />
+    <Content Include="images\AndroidShowApp.png" />
+    <Content Include="images\Arvan.png" />
+    <Content Include="images\b3.jpg" />
+    <Content Include="images\BackTo.png" />
+    <Content Include="images\baladchee.ico" />
+    <Content Include="images\baladcheeapk.gif" />
+    <Content Include="images\baladcheeArt.jpg" />
+    <Content Include="images\baladcheeDelivery.gif" />
+    <Content Include="images\baladcheeDelivery.png" />
+    <Content Include="images\baladcheelogo.ico" />
+    <Content Include="images\baladcheelogo.png" />
+    <Content Include="images\baladcheeQR.gif" />
+    <Content Include="images\befurush.png" />
+    <Content Include="images\BLogin.png" />
+    <Content Include="images\bn1.jpg" />
+    <Content Include="images\bn2.jpg" />
+    <Content Include="images\buy.png" />
+    <Content Include="images\bvlogo.png" />
+    <Content Include="images\cameraSelect.png" />
+    <Content Include="images\cart-icon-resize.png" />
+    <Content Include="images\categoryIcon.png" />
+    <Content Include="images\check.png" />
+    <Content Include="images\clientClub.png" />
+    <Content Include="images\ClubClients.png" />
+    <Content Include="images\colorgif.gif" />
+    <Content Include="images\colorgifs.gif" />
+    <Content Include="images\CommonCode.png" />
+    <Content Include="images\ContactP.png" />
+    <Content Include="images\Contacts.png" />
+    <Content Include="images\CreatAccount.png" />
+    <Content Include="images\CreateVitrin.png" />
+    <Content Include="images\DeletVideo.png" />
+    <Content Include="images\Delevery.png" />
+    <Content Include="images\DeliverySabadeKharid.png" />
+    <Content Include="images\delivey.gif" />
+    <Content Include="images\DleveryReg.png" />
+    <Content Include="images\edalat.svg" />
+    <Content Include="images\emptyBasket.gif" />
+    <Content Include="images\favicon.ico" />
+    <Content Include="images\find--1-.png" />
+    <Content Include="images\forgetPass.png" />
+    <Content Include="images\GoToMoreProduct.gif" />
+    <Content Include="images\ijadkon.png" />
+    <Content Include="images\instaB.png" />
+    <Content Include="images\InstaConnect.gif" />
+    <Content Include="images\instaPng.png" />
+    <Content Include="images\InstaProduct.png" />
+    <Content Include="images\introduction product.png" />
+    <Content Include="images\kllogo.png" />
+    <Content Include="images\L2.png" />
+    <Content Include="images\ListOfProducts.png" />
+    <Content Include="images\login-iconIn.png" />
+    <Content Include="images\mapLoader.gif" />
+    <Content Include="images\meliPayamak.png" />
+    <Content Include="images\mmlogo.png" />
+    <Content Include="images\myBacck.png" />
+    <Content Include="images\myBack.png" />
+    <Content Include="images\Mycustomer.png" />
+    <Content Include="images\MyVitrinShoping.gif" />
+    <Content Include="images\nmlogo.png" />
+    <Content Include="images\NotFound.png" />
+    <Content Include="images\offer.png" />
+    <Content Include="images\opinion %282%29.png" />
+    <Content Include="images\orderGif.gif" />
+    <Content Include="images\Ordesrs.png" />
+    <Content Include="images\PageQRcode.gif" />
+    <Content Include="images\payment.png" />
+    <Content Include="images\PName.png" />
+    <Content Include="images\PointerToUp.png" />
+    <Content Include="images\PostBackGround-min.png" />
+    <Content Include="images\PostPrice.png" />
+    <Content Include="images\QrGifMotion.gif" />
+    <Content Include="images\QrIn.svg" />
+    <Content Include="images\QrIndex.png" />
+    <Content Include="images\QrIndex2.png" />
+    <Content Include="images\QRMyShow.jpg" />
+    <Content Include="images\question.png" />
+    <Content Include="images\RahyabQR.gif" />
+    <Content Include="images\receivedSms.png" />
+    <Content Include="images\refresh.png" />
+    <Content Include="images\register.png" />
+    <Content Include="images\s12.jpg" />
+    <Content Include="images\s13.jpg" />
+    <Content Include="images\s15.jpg" />
+    <Content Include="images\s16.jpg" />
+    <Content Include="images\s17.jpg" />
+    <Content Include="images\Sabade-Kala-Gif.gif" />
+    <Content Include="images\SaleGifTimer.gif" />
+    <Content Include="images\SalePercent.png" />
+    <Content Include="images\SalesInvoice.png" />
+    <Content Include="images\saleTimer.gif" />
+    <Content Include="images\SellerGif.gif" />
+    <Content Include="images\SellerSms.png" />
+    <Content Include="images\sendsms.png" />
+    <Content Include="images\saleCode.png" />
+    <Content Include="images\ShopCart.png" />
+    <Content Include="images\showpasswordimg.png" />
+    <Content Include="images\showPrice.png" />
+    <Content Include="images\SlideName.png" />
+    <Content Include="images\SmartSearch.jpg" />
+    <Content Include="images\smartSearch.png" />
+    <Content Include="images\smsBox.png" />
+    <Content Include="images\SmsS.svg" />
+    <Content Include="images\SmsSents.png" />
+    <Content Include="images\back.png" />
+    <Content Include="images\switchcamera.png" />
+    <Content Include="images\takhfifItem.png" />
+    <Content Include="images\TakhfifPng.png" />
+    <Content Include="images\TakhfifPngIsVeryfy.png" />
+    <Content Include="images\TakhfifPngNotFound.png" />
+    <Content Include="images\tamume.png" />
+    <Content Include="images\telegramPng.png" />
+    <Content Include="images\ThisMonth.png" />
+    <Content Include="images\threePoint.png" />
+    <Content Include="images\timeLess.gif" />
+    <Content Include="images\ToDay.png" />
+    <Content Include="images\unavailable.png" />
+    <Content Include="images\UnderConstruction1.png" />
+    <Content Include="images\uploadVideo.png" />
+    <Content Include="images\videoPic.png" />
+    <Content Include="images\vitrinGift.png" />
+    <Content Include="images\VplayIcon.png" />
+    <Content Include="images\vplayiconPop.png" />
+    <Content Include="images\Vpost.png" />
+    <Content Include="images\Warehousehandling.png" />
+    <Content Include="images\whatsAppB.png" />
+    <Content Include="images\WithOutZarin.png" />
+    <Content Include="images\workshop.png" />
+    <Content Include="images\ZarinPal.png" />
+    <Content Include="inputTag.html" />
+    <Content Include="leafletTest\leaflet.css" />
+    <Content Include="leafletTest\leaflet.js" />
+    <Content Include="leaf\images\layers-2x.png" />
+    <Content Include="leaf\images\layers.png" />
+    <Content Include="leaf\images\marker-icon-2x.png" />
+    <Content Include="leaf\images\marker-icon.png" />
+    <Content Include="leaf\images\marker-shadow.png" />
+    <Content Include="leaf\leaflet-src.esm.js" />
+    <Content Include="leaf\leaflet-src.js" />
+    <Content Include="leaf\leaflet.css" />
+    <Content Include="leaf\leaflet.js" />
+    <Content Include="loginTemplate\css\main.css" />
+    <Content Include="loginTemplate\css\util.css" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="loginTemplate\fonts\iconic\css\material-design-iconic-font.css" />
+    <Content Include="loginTemplate\fonts\iconic\css\material-design-iconic-font.min.css" />
+    <Content Include="loginTemplate\fonts\iconic\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="loginTemplate\images\clientpic.png" />
+    <Content Include="loginTemplate\images\icons\favicon.ico" />
+    <Content Include="loginTemplate\images\telegram.png" />
+    <Content Include="loginTemplate\images\twitter.png" />
+    <Content Include="loginTemplate\js\main.js" />
+    <Content Include="loginTemplate\vendor\animate\animate.css" />
+    <Content Include="loginTemplate\vendor\animsition\css\animsition.css" />
+    <Content Include="loginTemplate\vendor\animsition\css\animsition.min.css" />
+    <Content Include="loginTemplate\vendor\animsition\js\animsition.js" />
+    <Content Include="loginTemplate\vendor\animsition\js\animsition.min.js" />
+    <Content Include="loginTemplate\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="loginTemplate\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="loginTemplate\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="loginTemplate\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="loginTemplate\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="loginTemplate\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="loginTemplate\vendor\bootstrap\css\dt.css" />
+    <Content Include="loginTemplate\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="loginTemplate\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="loginTemplate\vendor\bootstrap\js\popper.js" />
+    <Content Include="loginTemplate\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="loginTemplate\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="loginTemplate\vendor\countdowntime\countdowntime.js" />
+    <Content Include="loginTemplate\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="loginTemplate\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="loginTemplate\vendor\daterangepicker\daterangepicker.css" />
+    <Content Include="loginTemplate\vendor\daterangepicker\daterangepicker.js" />
+    <Content Include="loginTemplate\vendor\daterangepicker\moment.js" />
+    <Content Include="loginTemplate\vendor\daterangepicker\moment.min.js" />
+    <Content Include="loginTemplate\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="loginTemplate\vendor\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="loginTemplate\vendor\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <Content Include="loginTemplate\vendor\select2\select2.css" />
+    <Content Include="loginTemplate\vendor\select2\select2.js" />
+    <Content Include="loginTemplate\vendor\select2\select2.min.css" />
+    <Content Include="loginTemplate\vendor\select2\select2.min.js" />
+    <Content Include="MultippleInputTagPlugin\jquerysctipttop.css" />
+    <Content Include="MultippleInputTagPlugin\popper.min.js" />
+    <Content Include="MultippleInputTagPlugin\tagsinput.css" />
+    <Content Include="MultippleInputTagPlugin\tagsinput.js" />
+    <Content Include="MultippleInputTagPlugin\typeahead.bundle.js" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\css\main.css" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\css\util.css" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\images\icons\favicon.ico" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\index.html" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\js\main.js" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\animate\animate.css" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\animsition\css\animsition.css" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\animsition\css\animsition.min.css" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\animsition\js\animsition.js" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\animsition\js\animsition.min.js" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\bootstrap\js\popper.js" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\countdowntime\countdowntime.js" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\daterangepicker\daterangepicker.css" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\daterangepicker\daterangepicker.js" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\daterangepicker\moment.js" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\daterangepicker\moment.min.js" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\select2\select2.css" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\select2\select2.js" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\select2\select2.min.css" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\select2\select2.min.js" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\._index.html" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\css\._main.css" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\css\._util.css" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\._HELP-US-OUT.txt" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\css\._font-awesome.css" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\css\._font-awesome.min.css" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\fonts\._fontawesome-webfont.svg" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\images\icons\._favicon.ico" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\js\._main.js" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\animate\._animate.css" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\animsition\css\._animsition.css" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\animsition\css\._animsition.min.css" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\animsition\js\._animsition.js" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\animsition\js\._animsition.min.js" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\bootstrap\css\._bootstrap-grid.css" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\bootstrap\css\._bootstrap-grid.min.css" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\bootstrap\css\._bootstrap-reboot.css" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\bootstrap\css\._bootstrap-reboot.min.css" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\bootstrap\css\._bootstrap.css" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\bootstrap\css\._bootstrap.min.css" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\bootstrap\js\._bootstrap.js" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\bootstrap\js\._bootstrap.min.js" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\bootstrap\js\._popper.js" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\bootstrap\js\._popper.min.js" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\bootstrap\js\._tooltip.js" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\countdowntime\._countdowntime.js" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\css-hamburgers\._hamburgers.css" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\css-hamburgers\._hamburgers.min.css" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\daterangepicker\._daterangepicker.css" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\daterangepicker\._daterangepicker.js" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\daterangepicker\._moment.js" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\daterangepicker\._moment.min.js" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\jquery\._jquery-3.2.1.min.js" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\perfect-scrollbar\._perfect-scrollbar.css" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\perfect-scrollbar\._perfect-scrollbar.min.js" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\select2\._select2.css" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\select2\._select2.js" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\select2\._select2.min.css" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\select2\._select2.min.js" />
+    <Content Include="SampleImage\amuzeshi\amuzeshi.jpg" />
+    <Content Include="SampleImage\custom\custom.png" />
+    <Content Include="SampleImage\fastfood\fastfood.jpg" />
+    <Content Include="SampleImage\honari\honari.jpg" />
+    <Content Include="SampleImage\pezeshki\pezeshki.jpg" />
+    <Content Include="SampleImage\supermarket\supermarket-REUT.jpg" />
+    <Content Include="SampleImage\tajhizat\tajhizat.jpg" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="loginTemplate\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="loginTemplate\fonts\iconic\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="loginTemplate\fonts\iconic\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="loginTemplate\fonts\iconic\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="loginTemplate\fonts\iconic\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="loginTemplate\fonts\poppins\Poppins-Black.ttf" />
+    <Content Include="loginTemplate\fonts\poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="loginTemplate\fonts\poppins\Poppins-Bold.ttf" />
+    <Content Include="loginTemplate\fonts\poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="loginTemplate\fonts\poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="loginTemplate\fonts\poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="loginTemplate\fonts\poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="loginTemplate\fonts\poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="loginTemplate\fonts\poppins\Poppins-Italic.ttf" />
+    <Content Include="loginTemplate\fonts\poppins\Poppins-Light.ttf" />
+    <Content Include="loginTemplate\fonts\poppins\Poppins-LightItalic.ttf" />
+    <Content Include="loginTemplate\fonts\poppins\Poppins-Medium.ttf" />
+    <Content Include="loginTemplate\fonts\poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="loginTemplate\fonts\poppins\Poppins-Regular.ttf" />
+    <Content Include="loginTemplate\fonts\poppins\Poppins-SemiBold.ttf" />
+    <Content Include="loginTemplate\fonts\poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="loginTemplate\fonts\poppins\Poppins-Thin.ttf" />
+    <Content Include="loginTemplate\fonts\poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="loginTemplate\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="loginTemplate\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="loginTemplate\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="loginTemplate\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="loginTemplate\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="loginTemplate\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="fonts\FiraSans-ExtraLight.eot" />
+    <Content Include="fonts\FiraSans-ExtraLight.ttf" />
+    <Content Include="fonts\FiraSans-ExtraLight.woff" />
+    <Content Include="fonts\FiraSans-Light.eot" />
+    <Content Include="fonts\FiraSans-Light.ttf" />
+    <Content Include="fonts\FiraSans-Light.woff" />
+    <Content Include="fonts\FiraSans-Regular.eot" />
+    <Content Include="fonts\FiraSans-Regular.ttf" />
+    <Content Include="fonts\FiraSans-Regular.woff" />
+    <Content Include="fonts\FiraSans-UltraLight.eot" />
+    <Content Include="fonts\FiraSans-UltraLight.ttf" />
+    <Content Include="fonts\FiraSans-UltraLight.woff" />
+    <Content Include="fonts\fontawesome-webfont93e3.eot" />
+    <Content Include="fonts\fontawesome-webfont93e3.ttf" />
+    <Content Include="fonts\fontawesome-webfont93e3.woff" />
+    <Content Include="fonts\fontawesome-webfont93e3.woff2" />
+    <Content Include="fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg.readme" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="fonts\iransans-bold.eot" />
+    <Content Include="fonts\iransans-bold.ttf" />
+    <Content Include="fonts\iransans-bold.woff2" />
+    <Content Include="fonts\iransans-light.eot" />
+    <Content Include="fonts\iransans-light.ttf" />
+    <Content Include="fonts\iransans-light.woff2" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\poppins\Poppins-Black.ttf" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\poppins\Poppins-Bold.ttf" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\poppins\Poppins-Italic.ttf" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\poppins\Poppins-Light.ttf" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\poppins\Poppins-LightItalic.ttf" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\poppins\Poppins-Medium.ttf" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\poppins\Poppins-Regular.ttf" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\poppins\Poppins-SemiBold.ttf" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\poppins\Poppins-Thin.ttf" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\fonts\poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="RegisterThempalte\ContactFrom_v4\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="RegisterThempalte\__MACOSX\._ContactFrom_v4" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\._css" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\._fonts" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\._images" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\._js" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\._vendor" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\._font-awesome-4.7.0" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\._poppins" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\._css" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\._fonts" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\._less" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\._scss" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\fonts\._fontawesome-webfont.eot" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\fonts\._fontawesome-webfont.ttf" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\fonts\._fontawesome-webfont.woff" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\fonts\._fontawesome-webfont.woff2" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\fonts\._FontAwesome.otf" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\less\._animated.less" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\less\._bordered-pulled.less" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\less\._core.less" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\less\._fixed-width.less" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\less\._font-awesome.less" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\less\._icons.less" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\less\._larger.less" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\less\._list.less" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\less\._mixins.less" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\less\._path.less" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\less\._rotated-flipped.less" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\less\._screen-reader.less" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\less\._stacked.less" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\less\._variables.less" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\._font-awesome.scss" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\.__animated.scss" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\.__bordered-pulled.scss" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\.__core.scss" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\.__fixed-width.scss" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\.__icons.scss" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\.__larger.scss" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\.__list.scss" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\.__mixins.scss" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\.__path.scss" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\.__rotated-flipped.scss" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\.__screen-reader.scss" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\.__stacked.scss" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\font-awesome-4.7.0\scss\.__variables.scss" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\poppins\._Poppins-Black.ttf" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\poppins\._Poppins-BlackItalic.ttf" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\poppins\._Poppins-Bold.ttf" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\poppins\._Poppins-BoldItalic.ttf" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\poppins\._Poppins-ExtraBold.ttf" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\poppins\._Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\poppins\._Poppins-ExtraLight.ttf" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\poppins\._Poppins-ExtraLightItalic.ttf" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\poppins\._Poppins-Italic.ttf" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\poppins\._Poppins-Light.ttf" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\poppins\._Poppins-LightItalic.ttf" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\poppins\._Poppins-Medium.ttf" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\poppins\._Poppins-MediumItalic.ttf" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\poppins\._Poppins-Regular.ttf" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\poppins\._Poppins-SemiBold.ttf" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\poppins\._Poppins-SemiBoldItalic.ttf" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\poppins\._Poppins-Thin.ttf" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\fonts\poppins\._Poppins-ThinItalic.ttf" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\images\._icons" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\._animate" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\._animsition" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\._bootstrap" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\._countdowntime" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\._css-hamburgers" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\._daterangepicker" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\._jquery" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\._perfect-scrollbar" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\._select2" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\animsition\._css" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\animsition\._js" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\bootstrap\._css" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\bootstrap\._js" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\bootstrap\css\._bootstrap-grid.css.map" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\bootstrap\css\._bootstrap-grid.min.css.map" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\bootstrap\css\._bootstrap-reboot.css.map" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\bootstrap\css\._bootstrap-reboot.min.css.map" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\bootstrap\css\._bootstrap.css.map" />
+    <Content Include="RegisterThempalte\__MACOSX\ContactFrom_v4\vendor\bootstrap\css\._bootstrap.min.css.map" />
+    <Content Include="Admin\fonts\fontawesome-webfont-.eot" />
+    <Content Include="Admin\fonts\fontawesome-webfont-v=4.2.0.eot" />
+    <Content Include="Admin\fonts\fontawesome-webfont-v=4.2.0.ttf" />
+    <Content Include="Admin\fonts\fontawesome-webfont-v=4.2.0.woff" />
+    <Content Include="Admin\fonts\fontawesome-webfont.eot" />
+    <Content Include="Admin\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Admin\fonts\fontawesome-webfont.woff" />
+    <Content Include="Admin\fonts\FontAwesome.otf" />
+    <Content Include="Admin\fonts\glyphicons-halflings-regular-.eot" />
+    <Content Include="Admin\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Admin\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Admin\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Admin\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="leaf\leaflet-src.esm.js.map" />
+    <Content Include="leaf\leaflet-src.js.map" />
+    <Content Include="leaf\leaflet.js.map" />
+    <Content Include="apks\baladcheeManagement.apk" />
+    <Content Include="fonts\tahoma.ttf" />
+    <Content Include="MultippleInputTagPlugin\popper.min.js.map" />
+    <Content Include="FormTemplate\.DS_Store" />
+    <Content Include="FormTemplate\css\.DS_Store" />
+    <Content Include="FormTemplate\css\bootstrap\.DS_Store" />
+    <Content Include="FormTemplate\css\bootstrap\mixins\.DS_Store" />
+    <Content Include="FormTemplate\fonts\.DS_Store" />
+    <Content Include="FormTemplate\images\.DS_Store" />
+    <Content Include="FormTemplate\js\.DS_Store" />
+    <Content Include="FormTemplate\php\.DS_Store" />
+    <Content Include="FormTemplate\php\sendEmail.php" />
+    <Content Include="FormTemplate\scss\.DS_Store" />
+    <Content Include="FormTemplate\scss\bootstrap\.DS_Store" />
+    <Content Include="FormTemplate\scss\bootstrap\bootstrap-grid.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\bootstrap-reboot.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\bootstrap.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_alert.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_badge.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_box-shadow.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_buttons.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_caret.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_deprecate.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_float.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_forms.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_gradients.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_grid.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_hover.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_image.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_list-group.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_lists.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_pagination.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_resize.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_size.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_table-row.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_text-hide.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_transition.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\mixins\_visibility.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\utilities\_align.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\utilities\_background.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\utilities\_borders.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\utilities\_clearfix.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\utilities\_display.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\utilities\_embed.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\utilities\_flex.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\utilities\_float.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\utilities\_overflow.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\utilities\_position.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\utilities\_screenreaders.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\utilities\_shadows.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\utilities\_sizing.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\utilities\_spacing.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\utilities\_stretched-link.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\utilities\_text.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\utilities\_visibility.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\vendor\_rfs.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_alert.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_badge.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_breadcrumb.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_button-group.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_buttons.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_card.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_carousel.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_close.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_code.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_custom-forms.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_dropdown.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_forms.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_functions.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_grid.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_images.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_input-group.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_jumbotron.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_list-group.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_media.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_mixins.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_modal.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_nav.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_navbar.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_pagination.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_popover.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_print.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_progress.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_reboot.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_root.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_spinners.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_tables.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_toasts.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_tooltip.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_transitions.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_type.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_utilities.scss" />
+    <Content Include="FormTemplate\scss\bootstrap\_variables.scss" />
+    <Content Include="FormTemplate\scss\style.scss" />
+    <Content Include="apks\artemis.apk" />
+    <None Include="Properties\PublishProfiles\baladchee.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\chosen.jquery.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\mapbox-gl.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Service References\melipayamak\QRProject.melipayamak.GetMultiDeliveryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\melipayamak\QRProject.melipayamak.MessagesBL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\melipayamak\QRProject.melipayamak.SendSmsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\melipayamak\Send.disco" />
+    <None Include="Service References\melipayamak\configuration91.svcinfo" />
+    <None Include="Service References\melipayamak\configuration.svcinfo" />
+    <None Include="Service References\melipayamak\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="StyleSheet\firstShowStyles.css" />
+    <Content Include="StyleSheet\mapbox-gl.css" />
+    <Content Include="StyleSheet\myStyles.css" />
+    <Content Include="StyleSheet\show1.css" />
+    <Content Include="StyleSheet\show2.css" />
+    <Content Include="StyleSheet\Test.css" />
+    <Content Include="Themplate\css\animate.css" />
+    <Content Include="Themplate\css\bootstrap.min.css" />
+    <Content Include="Themplate\css\linearicons.css" />
+    <Content Include="Themplate\css\magnific-popup.css" />
+    <Content Include="Themplate\css\normalize.css" />
+    <Content Include="Themplate\css\owl.carousel.min.css" />
+    <Content Include="Themplate\css\responsive.css" />
+    <Content Include="Themplate\fonts\Linearicons-Free.svg" />
+    <Content Include="Themplate\images\-اصلی-2 %281%29.gif" />
+    <Content Include="Themplate\images\about-logo.png" />
+    <Content Include="Themplate\images\apple-icon.png" />
+    <Content Include="Themplate\images\apple-touch-icon.png" />
+    <Content Include="Themplate\images\ax5.png" />
+    <Content Include="Themplate\images\baladchee.png" />
+    <Content Include="Themplate\images\baladchee1.png" />
+    <Content Include="Themplate\images\baladcheeLogo.jpg" />
+    <Content Include="Themplate\images\bamdad.jpg" />
+    <Content Include="Themplate\images\bashgah.png" />
+    <Content Include="Themplate\images\Bgif.gif" />
+    <Content Include="Themplate\images\blog-1.jpg" />
+    <Content Include="Themplate\images\blog-2.jpg" />
+    <Content Include="Themplate\images\blog-3.jpg" />
+    <Content Include="Themplate\images\blog-4.jpg" />
+    <Content Include="Themplate\images\blog-5.jpg" />
+    <Content Include="Themplate\images\blog-6.jpg" />
+    <Content Include="Themplate\images\comment-image.jpeg" />
+    <Content Include="Themplate\images\Contact.png" />
+    <Content Include="Themplate\images\content.png" />
+    <Content Include="Themplate\images\CreatAdccountOther.png" />
+    <Content Include="Themplate\images\download-bg.png" />
+    <Content Include="Themplate\images\download-image.png" />
+    <Content Include="Themplate\images\DrJafari.jpg" />
+    <Content Include="Themplate\images\edt.png" />
+    <Content Include="Themplate\images\empty-box.png" />
+    <Content Include="Themplate\images\favicon.ico" />
+    <Content Include="Themplate\images\feature-bg.png" />
+    <Content Include="Themplate\images\feature-image.png" />
+    <Content Include="Themplate\images\gallery-1.jpg" />
+    <Content Include="Themplate\images\gallery-2.jpg" />
+    <Content Include="Themplate\images\gallery-3.jpg" />
+    <Content Include="Themplate\images\gallery-4.jpg" />
+    <Content Include="Themplate\images\Greenp.png" />
+    <Content Include="Themplate\images\greenPoint.png" />
+    <Content Include="Themplate\images\header-bg.jpg" />
+    <Content Include="Themplate\images\header-mobile.png" />
+    <Content Include="Themplate\images\HeaderGif.gif" />
+    <Content Include="Themplate\images\LocationFinder.png" />
+    <Content Include="Themplate\images\logo.png" />
+    <Content Include="Themplate\images\map-marker.png" />
+    <Content Include="Themplate\images\MapLocationFinder.png" />
+    <Content Include="Themplate\images\mapmarker.png" />
+    <Content Include="Themplate\images\Mmarker.svg" />
+    <Content Include="Themplate\images\mobile-screen.png" />
+    <Content Include="Themplate\images\myline.png" />
+    <Content Include="Themplate\images\new2.png" />
+    <Content Include="Themplate\images\opinion.png" />
+    <Content Include="Themplate\images\oranoos.jpg" />
+    <Content Include="Themplate\images\pin.gif" />
+    <Content Include="Themplate\images\play-button.png" />
+    <Content Include="Themplate\images\play-store-icon.png" />
+    <Content Include="Themplate\images\prjahan.jpg" />
+    <Content Include="Themplate\images\progress-bg.jpg" />
+    <Content Include="Themplate\images\progress-phone.png" />
+    <Content Include="Themplate\images\rahyab.jpg" />
+    <Content Include="Themplate\images\sefaresh.png" />
+    <Content Include="Themplate\images\Sents.png" />
+    <Content Include="Themplate\images\SmsS.svg" />
+    <Content Include="Themplate\images\sticky-image.jpg" />
+    <Content Include="Themplate\images\subscribe-bg.jpg" />
+    <Content Include="Themplate\images\Takhfif.png" />
+    <Content Include="Themplate\images\team-1.png" />
+    <Content Include="Themplate\images\team-2.jpg" />
+    <Content Include="Themplate\images\team-3.jpg" />
+    <Content Include="Themplate\images\team-4.jpg" />
+    <Content Include="Themplate\images\telegram.png" />
+    <Content Include="Themplate\images\twitter.png" />
+    <Content Include="Themplate\images\video-bg.jpg" />
+    <Content Include="Themplate\images\video-image.jpg" />
+    <Content Include="Themplate\images\VitrinGif.gif" />
+    <Content Include="Themplate\images\VitrinGif.jpeg" />
+    <Content Include="Themplate\images\vitringif.jpg" />
+    <Content Include="Themplate\images\WhatsAppIcon.png" />
+    <Content Include="Themplate\js\ajaxchimp.js" />
+    <Content Include="Themplate\js\contact-form.js" />
+    <Content Include="Themplate\js\magnific-popup.min.js" />
+    <Content Include="Themplate\js\main.js" />
+    <Content Include="Themplate\js\owl.carousel.min.js" />
+    <Content Include="Themplate\js\scrollUp.min.js" />
+    <Content Include="Themplate\js\vendor\bootstrap.min.js" />
+    <Content Include="Themplate\js\vendor\jquery-1.12.4.min.js" />
+    <Content Include="Themplate\js\vendor\jquery-ui.js" />
+    <Content Include="Themplate\js\vendor\modernizr-2.8.3.min.js" />
+    <Content Include="Themplate\js\wow.min.js" />
+    <Content Include="Themplate\style.css" />
+    <Content Include="Timer\countdown-timer.js" />
+    <Content Include="Timer\countdown-timer.min.js" />
+    <Content Include="Timer\gruntfile.js" />
+    <Content Include="videoTest\baladcheeVideo.mp4" />
+    <Content Include="Web References\meli\MessagesBL.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\meli\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Account\SentBox.cshtml" />
+    <Content Include="Views\Account\SaleCode.cshtml" />
+    <Content Include="Views\Account\BaladcheeQR.cshtml" />
+    <Content Include="Views\Account\Payment.cshtml" />
+    <Content Include="Views\Account\Verify.cshtml" />
+    <Content Include="Views\Account\Reg.cshtml" />
+    <Content Include="Views\Shared\_map.cshtml" />
+    <Content Include="Views\Account\smsPage.cshtml" />
+    <Content Include="Views\Home\smspage.cshtml" />
+    <Content Include="Views\Account\PaymentsList.cshtml" />
+    <Content Include="Views\Account\ManagementApk.cshtml" />
+    <Content Include="Views\Account\Orders.cshtml" />
+    <Content Include="Views\Home\MoreProducts.cshtml" />
+    <Content Include="Views\Home\Workshop.cshtml" />
+    <Content Include="Views\Home\factor.cshtml" />
+    <Content Include="Views\Home\daf.cshtml" />
+    <Content Include="Views\Home\TestSub.cshtml" />
+    <Content Include="Views\ShopCart\myindex.cshtml" />
+    <Content Include="Themplate\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Themplate\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Views\ShopCart\GoPay.cshtml" />
+    <Content Include="Views\ShopCart\Verify.cshtml" />
+    <Content Include="Views\Shared\_NotFoundForPay.cshtml" />
+    <Content Include="Views\Account\DetailsOrders.cshtml" />
+    <Content Include="Views\ShopCart\CommonCode.cshtml" />
+    <Content Include="Views\Shared\_verifyPayError.cshtml" />
+    <Content Include="Views\Account\ReceivedSms.cshtml" />
+    <Content Include="Views\Account\unavailable.cshtml" />
+    <None Include="Web References\meli\Send.disco" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Themplate\fonts\Linearicons-Free.eot" />
+    <Content Include="Themplate\fonts\Linearicons-Free.ttf" />
+    <Content Include="Themplate\fonts\Linearicons-Free.woff" />
+    <Content Include="Themplate\fonts\Linearicons-Free.woff2" />
+    <Content Include="Views\Account\Admins.cshtml" />
+    <Content Include="Views\Account\SuperAdminClient.cshtml" />
+    <Content Include="Views\Account\UserClientWithOutPage.cshtml" />
+    <Content Include="Views\Home\Show.cshtml" />
+    <Content Include="Views\Shared\NotFound.cshtml" />
+    <Content Include="Views\Account\dashboard.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Account\Opinion.cshtml" />
+    <Content Include="Views\Account\ClientClub.cshtml" />
+    <Content Include="Views\Account\Contacts.cshtml" />
+    <Content Include="Views\Account\SmsSend.cshtml" />
+    <None Include="Service References\melipayamak\Send.wsdl" />
+    <None Include="Web References\meli\Send.wsdl" />
+    <None Include="Web References\zarinpal\PaymentGatewayImplementationService.wsdl" />
+    <Content Include="Web References\zarinpal\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="ckEditor\lang\" />
+    <Folder Include="ckEditor\skins\" />
+    <Folder Include="Contents\Pic\" />
+    <Folder Include="Contents\Qrs\" />
+    <Folder Include="QRS\" />
+    <Folder Include="SampleImage\arayeshi\" />
+    <Folder Include="SampleImage\pooshak\" />
+    <Folder Include="SampleImage\SanayeDasti\" />
+    <Folder Include="Views\Handle\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\melipayamak\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://api.payamak-panel.com/post/Send.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\meli\</RelPath>
+      <UpdateFromURL>http://api.payamak-panel.com/post/Send.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>QRProject_meli_Send</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://www.zarinpal.com/pg/services/WebGate/wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\zarinpal\</RelPath>
+      <UpdateFromURL>https://www.zarinpal.com/pg/services/WebGate/wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>QRProject_zarinpal_PaymentGatewayImplementationService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202109232211594_first.resx">
+      <DependentUpon>202109232211594_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110131854583_AddFurushHuzuri.resx">
+      <DependentUpon>202110131854583_AddFurushHuzuri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110221937421_AddTwoPro.resx">
+      <DependentUpon>202110221937421_AddTwoPro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112061816002_AddCountToMP.resx">
+      <DependentUpon>202112061816002_AddCountToMP.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>22904</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:22900/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:22900/</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

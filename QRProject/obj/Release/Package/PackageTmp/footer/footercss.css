@@ -1,0 +1,50 @@
+﻿
+     @font-face {
+            font-family: IranSans;
+            src: url(../../fonts/iransans-bold.woff2);
+        }
+
+        @font-face {
+            font-family: IranSansl;
+            src: url(../../fonts/iransans-light.woff2);
+        }
+
+
+.col_white_amrc { color:#FFF;}
+footer {direction:rtl;text-align:right; font-family: IranSansl;width:100%; background-color:#263238; min-height:250px; padding:10px 0px 25px 0px ;}
+.pt2 {direction:rtl;text-align:right;font-family: IranSansl; padding-top:40px ; margin-bottom:20px ;}
+footer p {direction:rtl;text-align:right; font-family: IranSansl;font-size:13px; color:#CCC; padding-bottom:0px; margin-bottom:8px;}
+.mb10 {direction:rtl;text-align:right;font-family: IranSansl; padding-bottom:15px ;}
+.footer_ul_amrc { direction:rtl;text-align:right;font-family: IranSansl;margin:0px ; list-style-type:none ; font-size:14px; padding:0px 0px 10px 0px ; }
+.footer_ul_amrc li {direction:rtl;text-align:right;padding:0px 0px 5px 0px;font-family: IranSansl;}
+.footer_ul_amrc li a{ direction:rtl;text-align:right;color:#CCC;font-family: IranSansl;}
+.footer_ul_amrc li a:hover{direction:rtl;text-align:right; color:#fff; text-decoration:none;font-family: IranSansl;}
+.fleft {direction:rtl;text-align:right; float:left;font-family: IranSansl;}
+.padding-right {direction:rtl;text-align:right; padding-right:10px; font-family: IranSansl;}
+
+.footer_ul2_amrc {direction:rtl;text-align:right;margin:0px; list-style-type:none; padding:0px;font-family: IranSansl;}
+.footer_ul2_amrc li p {direction:rtl;text-align:right; display:table; font-family: IranSansl;}
+.footer_ul2_amrc li a:hover {direction:rtl;text-align:right; text-decoration:none;font-family: IranSansl;}
+.footer_ul2_amrc li i {direction:rtl;text-align:right; margin-top:5px;font-family: IranSansl;}
+
+.bottom_border {direction:rtl;text-align:right; font-family: IranSansl;border-bottom:1px solid #323f45; padding-bottom:20px;}
+.foote_bottom_ul_amrc {
+    font-family: IranSansl;
+	list-style-type:none;
+	padding:0px;
+	display:table;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-left: auto;
+    direction:rtl;text-align:right;
+}
+.foote_bottom_ul_amrc li {direction:rtl;text-align:right; font-family: IranSansl;display:-webkit-inline-box;}
+.foote_bottom_ul_amrc li a {direction:rtl;text-align:right; font-family: IranSansl;color:#999; margin:12px;}
+
+.social_footer_ul {direction:rtl;text-align:right; font-family: IranSansl;display:table; margin:15px auto 0 auto; list-style-type:none;  }
+.social_footer_ul li {direction:rtl;text-align:right; font-family: IranSansl;padding-left:20px; padding-top:10px; float:left; }
+.social_footer_ul li a {direction:rtl;text-align:right; font-family: IranSansl;color:#CCC; border:1px solid #CCC; padding:8px;border-radius:50%;}
+.social_footer_ul li i { direction:rtl;text-align:right; font-family: IranSansl;width:20px; height:20px; text-align:center;}
+
+

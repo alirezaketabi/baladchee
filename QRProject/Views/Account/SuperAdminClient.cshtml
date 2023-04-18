@@ -1,0 +1,210 @@
+﻿
+
+
+
+
+
+
+
+@using QRProject.Models
+@model RegisterViewModel
+@{
+    Layout = null;
+}
+
+@using QRProject.Core
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/images/baladchee.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/loginTemplate/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/loginTemplate/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/loginTemplate/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/loginTemplate/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/loginTemplate/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/loginTemplate/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/loginTemplate/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/loginTemplate/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/loginTemplate/css/main.css">
+    <!--===============================================================================================-->
+    <script src='https://www.google.com/recaptcha/api.js' type="text/javascript"></script>
+    <script src="~/loginTemplate/vendor/jquery/jquery-3.2.1.min.js"></script>
+
+    <style>
+        .select-style {
+            border: 1px solid #ccc;
+            width: 170px;
+            border-radius: 3px;
+            overflow: hidden;
+            background: #fafafa url("img/icon-select.png") no-repeat 90% 50%;
+        }
+
+            .select-style select {
+                padding: 5px 8px;
+                width: 130%;
+                border: none;
+                box-shadow: none;
+                background: transparent;
+                background-image: none;
+                -webkit-appearance: none;
+            }
+
+                .select-style select:focus {
+                    outline: none;
+                }
+    </style>
+
+
+</head>
+<body>
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <section id="loginForm">
+                    @using (Html.BeginForm("MyRegister", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal login100-form validate-form", role = "form", id = "myform" }))
+                    {
+
+                        @Html.AntiForgeryToken()
+
+
+
+
+                        <span class="login100-form-title p-b-48">
+
+                            <i style="font-size:13pt">
+
+                                ثبت نام کاربر
+                            </i>
+                        </span>
+
+
+
+
+
+                        if (ViewBag.tekrari != null)
+                        {
+                            <span class="login100-form-title p-b-48">
+
+                                <i style="font-size:13pt;color:red">
+
+                                    @ViewBag.tekrari
+                                </i>
+                            </span>
+                        }
+                        <div class="wrap-input100">
+
+                            <input style="font-family:IranSans" class="input100" type="text" name="USRN" oninvalid="this.setCustomValidity('شماره همراهی که ثبت نام کرده اید')" oninput="setCustomValidity('')" required />
+                            <span style="direction:rtl" class="focus-input100" data-placeholder="نام کاربری"></span>
+
+
+
+                        </div>
+
+                        <div style="font-family:IranSans" class="wrap-input100">
+
+                            <input style="font-family:IranSans" class="input100" type="text" name="Password" oninvalid="this.setCustomValidity('رمز عبور را وارد کنید')" oninput="setCustomValidity('')" required />
+                            <span style="direction:rtl" class="focus-input100" data-placeholder="رمز عبور"></span>
+                        </div>
+
+
+                        <div style="font-family:IranSans" class="wrap-input100">
+
+                            <input style="font-family:IranSans" class="input100" type="text" name="ConfirmPassword" oninvalid="this.setCustomValidity('رمز عبور را وارد کنید')" oninput="setCustomValidity('')" required />
+                            <span style="direction:rtl" class="focus-input100" data-placeholder="تکرار رمز عبور"></span>
+                        </div>
+
+
+                        <div style="direction:rtl">
+                            <div class="select-style" style="direction:rtl">
+                                <select name="subjobId">
+
+                                    <optgroup label="حوزه فعالیت">
+
+                                        @foreach (var item in (List<Subjobs>)ViewBag.subjoblist)
+                                        {
+                                            <option value="@item.Id">@item.SubjobName</option>
+                                        }
+                                    </optgroup>
+
+
+
+                                </select>
+                            </div>
+                        </div>
+                        <br />
+
+                        <div class="container-login100-form-btn">
+                            <div class="wrap-login100-form-btn">
+                                <div class="login100-form-bgbtn"></div>
+                                <button type="submit" class="login100-form-btn">
+                                    ورود
+                                </button>
+
+                            </div>
+                        </div>
+
+
+                    }
+
+
+
+                </section>
+
+                <script>
+
+
+                </script>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <script src="~/loginTemplate/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/loginTemplate/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/loginTemplate/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/loginTemplate/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/loginTemplate/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/loginTemplate/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/loginTemplate/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/loginTemplate/js/main.js"></script>
+    <script type="text/javascript">
+
+
+
+
+        window.addEventListener('load',
+      function () {
+          $("select#Jobs").change();
+
+      }, false);
+        console.log("%c Welcome %c  %c (ʘ‿ʘ)", "color: rgb(20,26,17); font-size: 1.5em; font-weight: bolder; text-shadow: #000 1px 1px;font-family:IranSansL;float:", "color: rgb(0,165,213); font-size:2em;font-weight: bolder; text-shadow: #000 1px 1px 1px;font-family:IranSansL", "color: rgb(17,17,17); font-size:1.5em;font-weight: bolder; text-shadow: #000 1px 1px;font-family:IranSansL");
+
+
+
+    </script>
+</body>
+</html>

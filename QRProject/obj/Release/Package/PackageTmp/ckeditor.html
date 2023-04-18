@@ -1,0 +1,97 @@
+﻿
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery countdown-timer.js Demo Page</title>
+
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+
+    <link href="Content/indexCss.css" rel="stylesheet" />
+    <script src="Timer/countdown-timer.js"></script>
+    <style>
+      
+        body {
+ 
+  font-family:IranSans;
+}
+
+    
+
+
+        .countdown-timer-wrapper {
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.6);
+            margin-bottom: 20px;
+            max-width: 250px;
+            margin: 50px auto;
+        }
+
+            .countdown-timer-wrapper h5 {
+                font-size: 14px;
+                letter-spacing: 0.5px;
+                text-align: center;
+                padding-top: 10px;
+                text-shadow: none;
+            }
+
+            .countdown-timer-wrapper .timer {
+                padding: 8px;
+                text-align: center;
+                padding-top: 15px;
+            }
+
+                .countdown-timer-wrapper .timer .timer-wrapper {
+                    display: inline-block;
+                    width: 55px;
+                    height: 45px;
+                }
+
+                    .countdown-timer-wrapper .timer .timer-wrapper .time {
+                        font-size: 18px;
+                        font-weight: bold;
+                        color: #ffffff;
+                    }
+
+                    .countdown-timer-wrapper .timer .timer-wrapper .text {
+                        font-size: 12px;
+                        color: rgba(255, 255, 255, 0.6);
+                    }
+
+    </style>
+</head>
+
+<body>
+   
+        <div class="jquery-script-center">
+            <ul>
+            
+            </ul>
+   
+            <div class="jquery-script-clear"></div>
+        </div>
+
+    <div class="countdown-timer-wrapper">
+        <div class="timer" id="countdown"></div>
+    </div>
+   
+
+     <script>
+
+   $(document).ready(function () {    
+            var myDate = new Date();
+myDate.setDate(myDate.getDate() + 4);
+$("#countdown").countdown(myDate, function (event) {
+                $(this).html(
+                    event.strftime(
+                        '<div class="timer-wrapper"><div class="time translate">%D</div><span class="text">روز</span></div><div class="timer-wrapper"><div class="time translate">%H</div><span class="text">ساعت</span></div><div class="timer-wrapper"><div class="time translate">%M</div><span class="text">دقیقه</span></div><div class="timer-wrapper"><div class="time translate">%S</div><span class="text">ثانیه</span></div>'
+                    )
+                );
+            });
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+﻿
+
+@{
+    Layout = "~/views/shared/_AdminLayout.cshtml";
+}
+<html>
+<head>
+    <script src="~/chartTemplate/Chart.bundle.js"></script>
+    <script src="~/chartTemplate/utils.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+
+    <style>   
+        canvas{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none}.opl{border-radius:5px}.dnldBtn{font-family:IranSansl;font-size:12pt}.dnldBtn2{font-family:IranSans;margin-top:3pt;width:210px;height:120px;font-size:20px}.fnSize{font-size:25px}    
+    
+        .PIMG {
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    border-radius: 5px;
+}
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+
+<body>
+
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#home">دانلود بلدچی کیوآر</a></li>
+        <li><a data-toggle="tab" id="menuss" href="#rahyab">دانلود رهیاب کیوآر </a></li>
+       
+    </ul>
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+            <div class="row">
+              <br />
+                <div  class="col-lg-6 dnldBtn">
+
+                    فایل کیوآر صفحه ویترین خود را از این قسمت دانلود کنید.
+                    <br />
+                    <br />
+                    @using (Html.BeginForm("QrDownload", "Account", FormMethod.Post, new { id = "logoutForm" }))
+            {
+                        @Html.AntiForgeryToken()
+                        <input type="text" class="hidden" name="ClientId" value="@ViewBag.clientid" />
+                        <button type="submit" href="#"  class="btn btn-default dnldBtn2 " data-toggle="modal" data-target="#myModal"><i class="fa fa-download fnSize" aria-hidden="true"></i>&nbsp;دانلود بلدچی کیوآر&nbsp;</button>
+                    }
+                </div>
+
+                <br />              
+                    <img class="PIMG" src="~/images/baladcheeQR.gif" alt="بلدچی" />             
+            </div>
+
+          </div>
+
+
+        @*----------------------------------------------------------rahyab---------------------------------*@
+
+
+
+        <div id="rahyab" class="tab-pane fade">
+            <div class="row">
+                <br />
+                <div  class="col-lg-6 dnldBtn">
+
+                    فایل رهیاب کیوآر خود را از این قسمت دانلود کنید.
+                    <br />
+                    <br />
+                    @using (Html.BeginForm("RahyabQrDownload", "Account", FormMethod.Post, new { id = "logoutForm" }))
+            {
+                        @Html.AntiForgeryToken()
+                        <input type="text" class="hidden" name="ClientId" value="@ViewBag.clientid" />
+                        <button type="submit" href="#"  class="btn btn-default dnldBtn2" data-toggle="modal" data-target="#myModal"><i class="fa fa-download fnSize"  aria-hidden="true"></i>&nbsp;دانلود رهیاب کیوآر&nbsp;</button>
+                    }
+                </div>
+
+                <br />
+                <img class="PIMG" src="~/images/RahyabQR.gif" alt="بلدچی" />
+            </div>
+        </div>
+
+
+    </div>
+   
+     <br />
+    <br />
+  
+
+   
+</body>
+</html>

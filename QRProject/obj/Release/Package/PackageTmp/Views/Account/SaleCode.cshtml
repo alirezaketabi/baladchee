@@ -1,0 +1,186 @@
+﻿
+@{
+    Layout = "~/views/shared/_AdminLayout.cshtml";
+}
+
+<head>
+    <script src="~/chartTemplate/Chart.bundle.js"></script>
+    <script src="~/chartTemplate/utils.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <style>
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .opl {
+            border-radius: 5px;
+        }
+
+        .myInput {
+            background-repeat: no-repeat;
+            width: 40%;
+            font-size: 16px;
+            padding: 12px 20px 12px 40px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        .delCode {
+            font-family: IranSans;
+            margin-top: 3pt;
+            color: red;
+        }
+
+        .rtbt {
+            direction: rtl;
+        }
+
+        .veMe {
+            font-family: IranSansl;
+            font-size: 13pt;
+            color: green;
+        }
+
+        .smsbCss {
+            width: 219pt;
+            color: #000;
+            font-family: IranSansl;
+            font-size: 12pt;
+            border: 2px dashed #d7d7d7;
+            padding: 10pt;
+            background-color: #f5f5f5;
+         border-radius:5px;
+        }
+
+        .swin {
+            width: 120pt;
+        }
+
+        .subSin {
+            font-family: IranSans;
+            margin-top: 3pt;
+        }
+
+        .Bborder {
+            text-align: center;
+            width: 240pt;
+            color: #000;
+            font-family: IranSansl;
+            font-weight: 700;
+            direction: rtl;
+            border: 2px dashed #d7d7d7;
+            padding: 7pt;
+            background-color: #f5f5f5;
+            border-radius: 5%;
+        }
+    </style>
+</head>
+
+<body>
+    @using (Html.BeginForm("DeleteSaleCode", "Account", FormMethod.Post, new { enctype = "multipart/form-data", id = "logoutyFormm" }))
+    {
+        @Html.AntiForgeryToken()
+        <input type="text" class="hidden" name="ClientId" value="@ViewBag.clientid" />
+        <div class="rtbt">
+            <button class="btn btn-default delCode" type="submit">حذف کد تخفیف</button>
+        </div>
+    }
+    @using (Html.BeginForm("AddSaleCode", "Account", FormMethod.Post, new { enctype = "multipart/form-data", id = "logoutyFormm" }))
+    {
+        @Html.AntiForgeryToken()
+        <br />
+        <br />
+        <input type="text" class="hidden" name="ClientId" value="@ViewBag.clientid" />
+        <center>
+
+
+            @if (@ViewBag.ms != null)
+            {
+                <div class="veMe">@ViewBag.ms</div>
+            }
+
+            <br />
+
+            @if (ViewBag.code != null && ViewBag.code != "")
+            {
+                <div class="Bborder translate">
+                    کد تخفیف "@ViewBag.code" ، با @ViewBag.percent درصد تخفیف، برای فروشگاه شما فعال است!
+                </div>
+            }
+            <br />
+
+            <div class="smsbCss">
+                <center>
+                    <img src="~/images/saleCode.png" alt="Alternate Text" />
+                </center>
+                در این قسمت میتوانید با ایجاد یک کد تخفیف ، به هنگام ثبت کردن شماره توسط مشتری در قسمت باشگاه مشتریان ،این کد تخفیف را نیز برایشان ارسال کنید ، توجه داشته باشید با درج کد تخفیف مشتری برای ثبت شماره خود و همین طور مراجعه به شما، بیشتر تشویق میشود
+                @if (@ViewBag.code != null || @ViewBag.code != "")
+                {
+                    <input type="text" name="SaleCode" id="myInput" class="myInput swin" value="@ViewBag.code" placeholder="برای مثال:u25" maxlength="6" oninvalid="this.setCustomValidity('لطفا کد تخفیف را وارد نمایید ، حداکثر 6 کارکتر')" oninput="setCustomValidity('')" required="">
+                    <br />
+                    <input name="Percent" value="@ViewBag.percent" id="myInputs" class="myInput swin" placeholder="درصد تخفیف" @*oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type="number" maxlength="2"*@ oninvalid="this.setCustomValidity('درصد تخفیف را وارد کنید')">
+                    <br />
+                }
+                else
+                {
+                    <input type="text" name="SaleCode" id="myInput" class="myInput" placeholder="برای مثال : aral20" maxlength="6" oninvalid="this.setCustomValidity('لطفا کد تخفیف را وارد نمایید ، حداکثر 6 کارکتر')" oninput="setCustomValidity('')" required="">
+                    <br />
+                    <input name="Percent" id="myInputs" class="myInput" placeholder="درصد تخفیف" @*oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(1, this.maxLength);" type="number" maxlength="2"*@ oninvalid="this.setCustomValidity('درصد تخفیف را وارد کنید')">
+                    <br />
+                }
+                <center>
+                    <button href="#" class="btn btn-default subSin" type="submit"> ثبت کد تخفیف</button>
+                </center>
+
+            </div>
+        </center>
+    }
+    <br />
+</body>
+
+
+<script>
+    function setInputFilter(textbox, inputFilter) {
+        ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function (event) {
+            textbox.addEventListener(event, function () {
+                if (inputFilter(this.value)) {
+                    this.oldValue = this.value;
+                    this.oldSelectionStart = this.selectionStart;
+                    this.oldSelectionEnd = this.selectionEnd;
+                } else if (this.hasOwnProperty("oldValue")) {
+                    this.value = this.oldValue;
+                    this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+                } else {
+                    this.value = "";
+                }
+            });
+        });
+    }
+
+
+    setInputFilter(document.getElementById("myInputs"), function (value) {
+        return /^\d*$/.test(value) && (value === "" || parseInt(value) <= 99);
+    });
+
+
+
+    //3-farsi kardane adad dar div hamzaman
+    $(document).ready(function () {
+        var arabicNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+        $('.translate').text(function (i, v) {
+            var chars = v.split('');
+            for (var i = 0; i < chars.length; i++) {
+                if (/\d/.test(chars[i])) {
+                    chars[i] = arabicNumbers[chars[i]];
+                }
+            }
+            return chars.join('');
+        })
+
+
+    });
+</script>

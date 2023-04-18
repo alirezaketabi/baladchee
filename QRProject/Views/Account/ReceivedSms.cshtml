@@ -1,0 +1,128 @@
+﻿
+
+@{
+    Layout = "~/views/shared/_AdminLayout.cshtml";
+}
+@using QRProject.Core
+@using QRProject.helper
+<style>
+    .tblCnb {
+      direction:rtl;
+  
+    }
+
+    .myInput {
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        width: 260px;
+        font-size: 16px;
+        padding: 12px 20px 12px 40px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    .Bborder {
+    text-align: center;
+    color: #000;
+    font-family: IranSansl;
+    direction: rtl;
+    border: 2px dashed #d7d7d7;
+    padding: 7pt;
+    background: radial-gradient(#7d7bff, transparent);
+    border-radius:5px;
+}
+
+</style>
+<br />
+@using (Html.BeginForm("ChangeReceivedSms", "Account", FormMethod.Post, new { id = "logoutForm" }))
+{
+    @Html.AntiForgeryToken()
+<center>
+    <img src="~/images/receivedSms.png" />
+    @if (ViewBag.l!=null)
+    {
+        <center>
+            <div>
+                ⚠  @ViewBag.l
+            </div>
+            <br />
+        </center>
+    }
+    <div class="Bborder">
+        <div class="tblCnb">
+  
+                <span><input id="group1" type="checkbox" style="transform: scale(2); margin-left: 8pt;margin-right: 6px;" name="LaghvPayamak" value="1">دریافت پیامک فروش</span>
+    
+            <br /><br />
+            @if (ViewBag.supportPhone == null || ViewBag.supportPhone == "")
+            {
+
+                    <input id="mobileInput" style="font-family:IranSansl;font-size:10pt" class="input100 myInput" type="text" name="PhoneNumber" pattern="09[0-9]{9}" placeholder="شماره موبایل را لاتین وارد کنید 09xx" oninvalid="this.setCustomValidity('لطفا شماره موبایل وارد نمایید')" oninput="setCustomValidity('')" required="">
+
+
+
+            }
+            else
+            {
+
+                <input value="@ViewBag.supportPhone" id="mobileInput" style="font-family:IranSansl;font-size:10pt" class="input100 myInput" type="text" name="PhoneNumber" pattern="09[0-9]{9}" placeholder="شماره موبایل را لاتین وارد کنید 09xx" oninvalid="this.setCustomValidity('لطفا شماره موبایل وارد نمایید')" oninput="setCustomValidity('')" required="">
+
+
+            }
+            <input type="text" class="hidden" name="ClientId" value="@ViewBag.clientid" />
+            <br /><br />
+            <input type="submit" value="ثبت تغییرات" class="btn btn-default">
+        </div>
+        <br />
+        ⚠ با برداشتن تیکِ "دریافت پیامک فروش" میتوانید پیامکِ اطلاع رسانیِ فروش را لغو، و یا با تغییر شماره، پیامک را به شماره ی دیگری انتقال دهید.
+    </div>
+</center>
+}
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+@*farsi kardane adad*@
+<script type="text/javascript">
+    $(document).ready(function () {
+        var arabicNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+        $('.translate').text(function (i, v) {
+            var chars = v.split('');
+            for (var i = 0; i < chars.length; i++) {
+                if (/\d/.test(chars[i])) {
+                    chars[i] = arabicNumbers[chars[i]];
+                }
+            }
+            return chars.join('');
+        })
+
+
+    });
+
+
+    $(function () {
+        enable_cb();
+        $("#group1").click(enable_cb);
+    });
+
+    function enable_cb() {
+        if (this.checked) {
+            $("input.myInput").removeAttr("disabled");
+        } else {
+            $("input.myInput").attr("disabled", true);
+        }
+    }
+
+
+</script>
+
+@if (ViewBag.isLaghv == "1")
+{
+<script>
+
+    $(document).ready(function () {
+        $("#group1").attr('checked', true)
+        $("input.myInput").removeAttr("disabled");
+    });
+</script>
+
+}

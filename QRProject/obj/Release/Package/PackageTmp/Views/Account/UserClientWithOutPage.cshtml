@@ -1,0 +1,323 @@
+﻿
+@{
+    Layout = null;
+}
+
+@using QRProject.Core
+@model Client
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        @@font-face {
+  font-family: IranSans;
+  src: url(../../fonts/iransans-bold.woff2);
+            }
+                @@font-face {
+  font-family: IranSansl;
+  src: url(../../fonts/iransans-light.woff2);
+            }
+
+                .upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btnn {
+  border: 2px solid gray;
+  color: gray;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+.newline{
+
+    white-space: pre-wrap;
+}
+    </style>
+    <title>بازیابی ثبت نام</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/RegisterThempalte/ContactFrom_v4/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/css/main.css">
+    <!--===============================================================================================-->
+  
+</head>
+<body>
+
+
+    <div class="container-contact100">
+        <div class="wrap-contact100">
+           @using (Html.BeginForm("AddPage", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal login100-form validate-form", role = "form", id = "myform" }))
+           {
+
+            @Html.AntiForgeryToken()
+            <div id='recaptcha' class="g-recaptcha"
+                 data-sitekey="6Lf3e8oUAAAAALNDfgQzIxlpSUo6BkHdqxll9An-"
+                 data-callback="onCompleted"
+                 data-size="invisible"></div>
+
+                <h3 style="font-family:IranSansl;font-weight:bold" class="contact100-form-title">
+                    اطلاعات صفحه خود را وارد کنید:)
+                </h3>
+                <div style="font-family:IranSansl;color:rgb(52,152,219)">به دلایلی اطلاعات صفحه شما کامل ثبت نشده است. با تکمیل اطلاعات زیر، ایجاد صفحه خود را نهایی کنید. </div>
+            <div style="font-family:IranSans;color:red">
+                @ViewBag.e
+            </div>
+                <div class="wrap-input100">
+                    <span style="font-family:IranSans" class="label-input100">نام</span>
+                    <input style="font-family:IranSansl;font-size:12pt" class="input100" type="text" name="ownerName" placeholder="نام خود را وارد کنید" oninvalid="this.setCustomValidity('نام خود را وارد کنید')" oninput="setCustomValidity('')" required="">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100">
+                    <span style="font-family:IranSans" class="label-input100">عنوان</span>
+                    <input style="font-family:IranSansl;font-size:12pt" class="input100" type="text" name="Title" placeholder="عنوان صفحه خود را وارد کنید برای مثال : فروشگاه آناهیتا " oninvalid="this.setCustomValidity('عنوان را وارد کنید')" oninput="setCustomValidity('')" required="">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100">
+                    <center>
+                        <img id="adImage" style="width:80pt;height:80pt;display:none" src="" />
+                        <br />
+                    </center>
+                    <div class="upload-btn-wrapper">
+                        <button style="font-family:IranSansl" class="btnn">آپلود تصویر</button>
+                        <input id="RootAddres" name="RootAddres" type="file" accept="image/x-png,image/jpg,image/jpeg" />
+                    </div>
+                </div>
+
+             
+
+                <div class="wrap-input100">
+                    <span style="font-family:IranSans" class="label-input100">شماره موبایل</span>
+                    <input style="font-family:IranSansl;font-size:12pt" class="input100" type="text" name="PhonNumber" pattern="09[0-9]{9}" placeholder="شماره موبایل" oninvalid="this.setCustomValidity('لطفا شماره موبایل وارد نمایید')" oninput="setCustomValidity('')" required="">
+                    <span class="focus-input100"></span>
+                </div>
+
+
+                <div class="wrap-input100">
+                    <span style="font-family:IranSans" class="label-input100">شناسه یکتا</span>
+                    <input style="font-family:IranSansl" class="input100" type="text" name="Id" placeholder="شناسه یکتا وارد کنید">
+                    <span class="focus-input100"></span>
+                </div>
+                @*<div class="wrap-input100 input100-select">
+                    <span class="label-input100">Needed Services</span>
+                    <div>
+                        <select class="selection-2" name="service">
+                            <option>Choose Services</option>
+                            <option>Online Store</option>
+                            <option>eCommerce Bussiness</option>
+                            <option>UI/UX Design</option>
+                            <option>Online Services</option>
+                        </select>
+                    </div>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 input100-select">
+                    <span class="label-input100">Budget</span>
+                    <div>
+                        <select class="selection-2" name="budget">
+                            <option>Select Budget</option>
+                            <option>1500 $</option>
+                            <option>2000 $</option>
+                            <option>2500 $</option>
+                        </select>
+                    </div>
+                    <span class="focus-input100"></span>
+                </div>*@
+                <div style="font-family:IranSansl;font-size:12pt" class="wrap-input100 validate-input" data-validate="محتوای اولیه">
+                   <span style="font-family:IranSans;" class="label-input100">محتوای اولیه</span>
+                    <textarea style="font-family:IranSansl;font-size:12pt" data-length=150 class="input100 char-textarea" name="Content" placeholder="برای مثال: بازرگاني بهرنگ در سال 1380 با هدف توليد و عرضه لوازم ساختماني و بهداشتي تاسيس گرديده است  ..."></textarea>
+
+                    @*<textarea name="Tozihat" data-length=250 class="char-textarea IransansFont form-control" placeholder="توضیحات مربوط به آگهی" title="حداکثر 250 کارکتر مجاز میباشد" oninvalid="this.setCustomValidity(' قسمت توضیحات آگهی نباید خالی بماند. حداکثر 250 کارکتر مجاز میباشد')"></textarea>*@
+
+                    <h4 style="font-size:11pt;color:rgb(52,152,219);font-family:IranSansl"><span style="font-family:IranSansL;color:rgb(52,152,219)" class="char-count translate">150</span> حرف مجاز است</h4>
+
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="container-contact100-form-btn">
+                    <div class="wrap-contact100-form-btn">
+                        <div class="contact100-form-bgbtn"></div>
+                        <button id="mySubmitt" class="contact100-form-btn">
+                            <span style="font-family:IranSans">
+                                <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                                 ثبت
+                              
+                            </span>
+                        </button>
+                    </div>
+                </div>
+          }
+
+
+
+        </div>
+    </div>
+
+
+
+    <div id="dropDownSelect1"></div>
+    <script src='https://www.google.com/recaptcha/api.js' type="text/javascript"></script>
+    <!--===============================================================================================-->
+    <script src="~/RegisterThempalte/ContactFrom_v4/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/RegisterThempalte/ContactFrom_v4/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/RegisterThempalte/ContactFrom_v4/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/RegisterThempalte/ContactFrom_v4/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/RegisterThempalte/ContactFrom_v4/vendor/select2/select2.min.js"></script>
+    <script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+    </script>
+    <!--===============================================================================================-->
+    <script src="~/RegisterThempalte/ContactFrom_v4/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/RegisterThempalte/ContactFrom_v4/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/RegisterThempalte/ContactFrom_v4/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/RegisterThempalte/ContactFrom_v4/js/main.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+   
+    <script>
+
+                          $('#myform').submit(function (event) {
+                              //console.log('form submitted.');
+
+                              if (!grecaptcha.getResponse()) {
+                                  //console.log('captcha not yet completed.');
+
+                                  event.preventDefault(); //prevent form submit
+                                  grecaptcha.execute();
+                              } else {
+                                  //console.log('form really submitted.');
+                              }
+                          });
+
+                          onCompleted = function () {
+                              console.log('captcha completed.');
+                              $('#myform').submit();
+
+                          }
+    </script>
+    
+     <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+
+
+
+
+
+
+  $("#RootAddres").on('change', function () {
+      var ext = $('#RootAddres').val().split('.').pop().toLowerCase();
+      if ($.inArray(ext, ['png', 'jpg', 'jpeg']) == -1) {
+          alert('تنها فرمت های jpeg jpg png قابل قبول است');
+          $('#mySubmitt').css("display", "none");
+
+
+
+
+      }
+      else {
+
+          $('#adImage').css("display", "block");
+          $('#mySubmitt').css("display", "block");
+          showPreview(this);
+      }
+
+  });
+
+  function showPreview(input) {
+
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+              $('#adImage').attr('src', e.target.result);
+          }
+
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
+
+
+
+
+
+  function checkSpecialKeys(e) {
+      if (e.keyCode != 8 && e.keyCode != 46 && e.keyCode != 37 && e.keyCode != 38 && e.keyCode != 39 && e.keyCode != 40)
+          return false;
+      else
+          return true;
+  }
+
+
+
+
+
+
+  $(".char-textarea").on("keyup", function (event) {
+      checkTextAreaMaxLength(this, event);
+  });
+
+
+
+
+  function checkTextAreaMaxLength(textBox, e) {
+
+      var maxLength = parseInt($(textBox).data("length"));
+
+      if (!checkSpecialKeys(e)) {
+          if (textBox.value.length > maxLength - 1) textBox.value = textBox.value.substring(0, maxLength);
+      }
+      $(".char-count").html(maxLength - textBox.value.length);
+      return true;
+  }
+
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,399 @@
+﻿@{
+    Layout = null;
+}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        @@font-face {
+            font-family: IranSans;
+            src: url(../../fonts/iransans-bold.woff2);
+        }
+
+        @@font-face {
+            font-family: IranSansl;
+            src: url(../../fonts/iransans-light.woff2);
+        }
+
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .btnn {
+            border: 2px solid gray;
+            color: gray;
+            background-color: white;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .upload-btn-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
+
+        .newline {
+            white-space: pre-wrap;
+        }
+
+        .myfilter-option {
+            display: inline-block;
+            overflow: hidden;
+            width: 100%;
+            text-align: center;
+        }
+
+        .SelectJob {
+            font-family: 'IranSans';
+            padding: 5px;
+            border-radius: 5px;
+            margin: 5px;
+            text-align: right;
+        }
+
+        .er {
+            padding: 5pt;
+            margin: 20pt;
+            font-family: IranSansl;
+            direction: rtl;
+            color: #000;
+            border: 2px dashed #d7d7d7;
+            border-radius: 5px;
+            text-align: right;
+        }
+    </style>
+    <title>Register</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/images/baladchee.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/css/main.css">
+    <!--===============================================================================================-->
+    <script src="~/RegisterThempalte/ContactFrom_v4/vendor/jquery/jquery-3.2.1.min.js"></script>
+
+
+
+    @*<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />*@
+    <link href="~/Content/bootstrap-select.min.css" rel="stylesheet" />
+    <script src='https://www.google.com/recaptcha/api.js' type="text/javascript"></script>
+</head>
+<body>
+
+
+    <div class="container-contact100">
+
+        <div class="wrap-contact100">
+
+            @using (Html.BeginForm("SetCommonCode", "ShopCart", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal login100-form validate-form", role = "form", id = "myform" }))
+            {
+
+                @Html.AntiForgeryToken()
+                <div id='recaptcha' class="g-recaptcha"
+                     data-sitekey="6Lf3e8oUAAAAALNDfgQzIxlpSUo6BkHdqxll9An-"
+                     @*local :6LeRqhYaAAAAACXordAmvhGsEe-XfuP_YvW42HgM*@
+                     @*Website: 6Lf3e8oUAAAAALNDfgQzIxlpSUo6BkHdqxll9An-*@
+                     data-callback="onCompleted"
+                     data-size="invisible"></div>
+
+                    <img src="~/images/CommonCode.png" alt="CommonCode" />
+
+
+                    <span class="login100-form-title p-b-48">
+                        <i style="float:left">
+                            <a href="@Url.Action("myindex","shopcart",new {ClientId=ViewBag.clientid })"><img src="~/images/myBacck.png" alt="بازگشت" /></a>
+                        </i>
+                        <br />
+
+                    </span>
+
+                    <div class="er">کاربر گرامی برای حفظ حریم خصوصی شما و همینطور اطلاعات تماس و محل سکونت شما، این اطلاعات فقط یک بار از شما دریافت میشود و دیگر به هیچ وجه نمایش داده نخواهد شد، پس لطفا با دقت کافی این فرم را تکمیل فرمایید و کد اشتراک خود را به خاطر بسپارید.</div>
+
+
+                    <input type="text" class="hidden" name="clientid" value="@ViewBag.clientid" />
+                    <div class="wrap-input100">
+                        <span style="font-family:IranSans" class="label-input100">شماره موبایل</span>
+                        <input style="font-family:IranSansl;font-size:12pt" class="input100" type="text" name="PhoneNumber" pattern="09[0-9]{9}" placeholder=" شماره را به لاتین وارد کنید برای مثال 0938xxxxxxxx" oninvalid="this.setCustomValidity('لطفا شماره موبایل وارد نمایید')" oninput="setCustomValidity('')" required="">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100">
+                        <span id="s1" name="s1" style="display:none;color:red;font-family:IranSansl" class="label-input100">نام و نام خانوادگی</span>
+                        <span style="font-family:IranSans" id="url" class="label-input100"> نام و نام خانوادگی<span id="s2" name="s2" style="display:none;color:green;font-family:IranSansl" class="label-input100">✓</span> </span>
+                        <input style="font-family:IranSansl;font-size:12pt" class="input100" type="text" id="Name" name="Name" oninvalid="this.setCustomValidity('لطفا نام خود را وارد نمایید')" oninput="setCustomValidity('')" required="">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100">
+                        <span id="s1" name="s1" style="display:none;color:red;font-family:IranSansl" class="label-input100">آدرس</span>
+                        <span style="font-family:IranSans" id="url" class="label-input100"> آدرس<span id="s2" name="s2" style="display:none;color:green;font-family:IranSansl" class="label-input100">✓</span> </span>
+                        <input style="font-family:IranSansl;font-size:12pt" class="input100" type="text" id="Address" name="Address" oninvalid="this.setCustomValidity('لطفا آدرس خود را وارد نمایید ')" oninput="    setCustomValidity('')" required="">
+                        <span class="focus-input100"></span>
+                    </div>
+
+
+                    <span style="font-family:IranSans;display:none;color:red" id="CityValidation" class="label-input100">شهر خود را انتخاب کنید</span>
+
+                    <span style="font-family:IranSans" class="label-input100">شهر</span>
+                    <div style="font-family:IranSans;padding:5px">
+
+
+
+
+
+                        <div class="container">
+
+
+                            <div class="row-fluid">
+                                <select tabindex="2" name="city" id="city" style="font-family:IranSans;text-align:center" class="selectpicker" data-show-subtext="true" data-live-search="true" required>
+
+
+                                    <option style="font-family:IranSans" value="">..شهر خود را انتخاب کنید..</option>
+                                    <option style="font-family:IranSans" value="تهران">تهران</option>
+                                    <option style="font-family:IranSans" value="کرج">کرج</option>
+                                    <option style="font-family:IranSans" value="قزوین">قزوین</option>
+                                    <option style="font-family:IranSans" value="تبریز">تبریز</option>
+                                    <option style="font-family:IranSans" value="مشهد">مشهد</option>
+                                    <option style="font-family:IranSans" value="قم">قم</option>
+                                    <option style="font-family:IranSans" value="زنجان">زنجان</option>
+                                    <option style="font-family:IranSans" value="رشت">رشت</option>
+                                    <option style="font-family:IranSans" value="اردبیل">اردبیل</option>
+                                    <option style="font-family:IranSans" value="گرگان">گرگان</option>
+                                    <option style="font-family:IranSans" value="اراک">اراک</option>
+                                    <option style="font-family:IranSans" value="کاشان">کاشان</option>
+                                    <option style="font-family:IranSans" value="اصفهان">اصفهان</option>
+                                    <option style="font-family:IranSans" value="یزد">یزد</option>
+                                    <option style="font-family:IranSans" value="اهواز">اهواز</option>
+                                    <option style="font-family:IranSans" value="شیراز">شیراز</option>
+                                    <option style="font-family:IranSans" value="بندرعباس">بندرعباس</option>
+                                    <option style="font-family:IranSans" value="کرمان">کرمان</option>
+                                    <option style="font-family:IranSans" value="بجنورد">بجنورد</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+                        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+                        <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+
+
+
+
+
+                    </div>
+                    <cenetr style="display:none;font-family:IranSans" id="loadingImg">
+                        <br />
+                        <img src="~/Themplate/images/pin.gif" alt="waiting" />
+
+                    </cenetr>
+
+
+
+
+
+
+                    <div class="wrap-input100">
+                        <div id="Seccond">
+                        </div>
+                    </div>
+
+
+
+
+                        <div class="container">
+                            <style>
+                            </style>
+                            <div class="row-fluid" style="font-family: IranSans">
+
+                            </div>
+                        </div>
+
+                        <br />
+                        <div class="wrap-input100">
+                            <span style="font-family:IranSans" class="label-input100">کد پستی</span>
+
+                            <input style="font-family:IranSansl" class="input100" name="PostalCode" oninvalid="this.setCustomValidity('کد پستی خودرا وارد نمایید')" pattern=".{6,}" placeholder="کد پستی خود را اینجا بنویسید" oninput="setCustomValidity('')" required />
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div id="btnTitle" class="container-contact100-form-btn">
+                            <div class="wrap-contact100-form-btn">
+                                <div class="contact100-form-bgbtn"></div>
+                                <button style="font-family:IranSans" onclick="Validate()" id="button" class="contact100-form-btn">
+                                    <span style="font-family:IranSans">
+                                        <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                                        دریافت کد اشتراک
+
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+            }
+
+            <script>
+
+                $('#myform').submit(function (event) {
+                    //console.log('form submitted.');
+
+                    if (!grecaptcha.getResponse()) {
+                        //console.log('captcha not yet completed.');
+
+                        event.preventDefault(); //prevent form submit
+                        grecaptcha.execute();
+                    } else {
+                        //console.log('form really submitted.');
+                    }
+                });
+
+                onCompleted = function () {
+                    console.log('captcha completed.');
+                    $('#myform').submit();
+
+
+                }
+
+
+            </script>
+
+        </div>
+    </div>
+
+
+
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <script src="~/RegisterThempalte/ContactFrom_v4/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/RegisterThempalte/ContactFrom_v4/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/RegisterThempalte/ContactFrom_v4/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/RegisterThempalte/ContactFrom_v4/vendor/select2/select2.min.js"></script>
+
+    <script src="~/RegisterThempalte/ContactFrom_v4/js/main.js"></script>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+
+
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+
+
+
+
+        function checkSpecialKeys(e) {
+            if (e.keyCode != 8 && e.keyCode != 46 && e.keyCode != 37 && e.keyCode != 38 && e.keyCode != 39 && e.keyCode != 40)
+                return false;
+            else
+                return true;
+        }
+
+
+
+
+
+
+        function checkTextAreaMaxLength(textBox, e) {
+
+            var maxLength = parseInt($(textBox).data("length"));
+
+            if (!checkSpecialKeys(e)) {
+                if (textBox.value.length > maxLength - 1) textBox.value = textBox.value.substring(0, maxLength);
+            }
+            $(".char-count").html(maxLength - textBox.value.length);
+            return true;
+        }
+
+
+
+    </script>
+
+
+    <script type="text/javascript">
+
+        $('#city').on('change', function () {
+            $("#loadingImg").css("display", "block");
+            $("#Seccond").html("");
+            var jobid = document.getElementById("city").value;
+
+            $.ajax({
+                type: "post",
+                url: "/Account/mapload",
+                dataType: 'html',
+                data: { jobid: jobid },
+                success: function (result) {
+                    //////$("loadimg").slideUp();
+                    $("#Seccond").html(result);
+                    $("#loadingImg").css("display", "none");
+                    $("#forms").css("display", "block");
+
+
+
+                },
+
+
+            }
+             )
+        });
+
+
+
+
+
+        //select validation
+        function Validate() {
+
+            var CityValidation = document.getElementById("city");
+
+            if (CityValidation.value == "") {
+
+                $("#CityValidation").css("display", "block");
+
+
+            }
+            else {
+                $("#CityValidation").css("display", "none");
+            }
+
+        }
+
+    </script>
+
+
+
+</body>
+</html>

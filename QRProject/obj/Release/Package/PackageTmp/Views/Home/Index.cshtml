@@ -1,0 +1,983 @@
+﻿@{
+
+    Layout = null;
+
+
+}
+
+
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="بلدچی | baladchee">
+    <meta name="description" content="به سرعت، مشتریانتان را به سمت خود بیاورید، کسب و کار خود را با بلدچی هوشمند کنید و ارسال پیامک تبلیغاتی داشته باشید">
+    <meta name="keywords" content="فروشگاه اینترنتی، کارت ویزیت دیجیتال، مسیریاب، پنل پیامکی، ویترین">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:title" content="بلدچی - ساخت رایگان وبسایت ، مسیریابی و ارسال پیامک تبلیغاتی" />
+    <meta property="og:description" content="به سرعت، مشتریانتان را به سمت خود بیاورید، کسب و کار خود را با بلدچی هوشمند کنید" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fa" />
+    <meta property="og:site_name" content="بلدچی" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="بلدچی - ساخت رایگان وبسایت ، مسیریابی و ارسال پیامک" />
+    <meta name="twitter:site" content="baladchee" />
+
+    <!-- Title -->
+    <title>بلدچی</title>
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" href="~/Themplate/images/apple-touch-icon.png">
+    <link rel="shortcut icon" type="image/ico" href="~/images/baladchee.ico" />
+    <!-- Plugin-CSS -->
+    <link rel="stylesheet" href="~/Themplate/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Themplate/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Themplate/css/linearicons.css">
+    <link rel="stylesheet" href="~/Themplate/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/Themplate/css/animate.css">
+    <!-- Main-Stylesheets -->
+    <link rel="stylesheet" href="~/Themplate/css/normalize.css">
+    <link rel="stylesheet" href="~/Themplate/style.css">
+    <link rel="stylesheet" href="~/Themplate/css/responsive.css">
+    <script src="~/Themplate/js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173558032-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-173558032-1');
+    </script>
+
+
+    <script src='https://www.google.com/recaptcha/api.js' type="text/javascript"></script>
+
+
+    @*css haye in safhe*@
+    <link href="~/Content/indexCss.css" rel="stylesheet" />
+    <style>
+        .BfFont {
+            font-family: IranSansl;
+            direction: rtl;
+        }
+
+         .BfFont2 {
+            font-family: IranSansl;
+            direction: rtl;
+            font-size:22px;
+            color:black;
+            font-weight:bold;
+            }
+
+        p {
+            font-family: IranSansl;
+        }
+
+        .imgg {
+            -webkit-filter: contrast(200%) brightness(100%); /* Safari 6.0 - 9.0 */
+            filter: contrast(200%) brightness(280%);
+        }
+
+        input[type=text] {
+            border: 2px solid rgb(0, 148, 255);
+            border-radius: 4px;
+        }
+
+        .bborder {
+            border: 2px solid #fff !important;
+            border-radius: 15pt;
+            font-family: IranSans;
+        }
+
+        .bborders {
+            border: 2px solid black !important;
+            margin-bottom: 3pt;
+            border-radius: 15pt;
+            font-family: IranSans;
+            color: black;
+        }
+
+        .bbordersm {
+            border: 2px solid #4f4bc9 !important;
+            border-radius: 15pt;
+            font-family: IranSans;
+            color: black;
+            background-color: white;
+        }
+
+
+        .bbordersmb {
+            border: 2px dashed #ca24a6 !important;
+            margin-top: 2pt;
+            font-family: IranSans;
+            color: black;
+            background-color: white;
+        }
+
+
+        #primary_menu {
+            border-radius: 25px;
+        }
+
+        .slPop {
+            font-family: IranSansl;
+            direction: rtl;
+            margin-bottom: 3pt;
+        }
+
+        .playV {
+            max-width: 100%;
+            height: auto;
+            box-shadow: 8px 8px 10px #888;
+            border-radius: 20px;
+        }
+
+        .Bborder {
+            text-align: center;
+            width: 245pt;
+            font-family: IranSansl;
+            font-weight: 700;
+            direction: rtl;
+            border: 2px dashed #d7d7d7;
+            padding: 10pt;
+            border-radius: 5px;
+        }
+
+        .opx{
+              background-image: linear-gradient(rgb(75,56,195), rgb(91,129,218));
+        font-weight:bold;
+            }
+               .PIMG{
+                   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                   border-radius:5px;
+                    }
+    </style>
+</head>
+<body data-spy="scroll" data-target=".mainmenu-area">
+
+    <center>
+        <nav class="mainmenu-area" data-spy="affix" data-offset-top="200">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" id="nbva" class="navbar-toggle" data-toggle="collapse" data-target="#primary_menu">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+                <div class="collapse navbar-collapse" id="primary_menu" style="background:rgb(91, 129, 218);width:112%">
+
+
+                    <ul style="font-family:IranSansl;font-weight:bold" class="nav navbar-nav mainmenu">
+                        <li>  <a class="bborder" style="padding:8pt;" href=@Url.Action("Admins", "Account")>بلدچی من&nbsp;<img src="~/images/BLogin.png" alt="Login" /></a></li>
+
+                        <li><a class="bborder" style="padding:8pt;" href=@Url.Action("Reg", "Account")>ایجاد حساب&nbsp;<img src="~/images/CreatAccount.png" alt="Login" /></a></li>
+
+
+                        <li><a class="hidden-xs hidden-md hidden-sm" href=""></a></li>
+                        <li><a class="hidden-xs hidden-md hidden-sm" href=""></a></li>
+                        <li><a class="hidden-xs hidden-md hidden-sm" href=""></a></li>
+                        <li><a class="hidden-xs hidden-md hidden-sm" href=""></a></li>
+                        <li><a class="hidden-xs hidden-md hidden-sm" href=""></a></li>
+                        <li><a class="hidden-xs hidden-md hidden-sm" href=""></a></li>
+                        <li><a class="hidden-xs hidden-md hidden-sm" href=""></a></li>
+                        <li><a class="hidden-xs hidden-md hidden-sm" href=""></a></li>
+                        <li><a class="hidden-xs hidden-md hidden-sm" href=""></a></li>
+                        @*<li><a href="#contact_page">تماس با ما</a></li>*@
+
+
+                        <li><a class="tls1" href="#features_page">ویترین</a></li>
+                        <li><a class="tls2" href="#progress_page">رهیاب</a></li>
+                        <li><a class="tls3" href="#sms_page">قاصدک</a></li>
+
+
+                        <li><a href=@Url.Action("workshop", "Home")>کارگاه بلدچی</a></li>
+
+                        <li><a href="@Url.Action("index","home")"><img src="~/images/baladcheelogo.png" class="nn imgg" alt="Logo"></a></li>
+
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </nav>
+    </center>
+    <!-- MainMenu-Area-End -->
+    <!---Register Modal -->
+    <!---End Register Modal-->
+    <!-- Home-Area -->
+    <header class="home-area overlay" id="home_page">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 hidden-sm col-md-5">
+                    <figure class="mobile-image wow fadeInUp" data-wow-delay="0.2s">
+                        <img src="~/Themplate/images/Bgif.gif" alt="مسیریابی بلدچی">
+                    </figure>
+                </div>
+                <div class="col-xs-12 col-md-7">
+                    <div class="space-80 hidden-xs"></div>
+                    <br />
+                    <br />
+                    <h2 class="wow fadeInUp custom1" data-wow-delay="0.4s">شبکه های اجتماعی به تنهایی برای فروش، کافی نیستند!</h2>
+                  
+                    <div class="desc wow fadeInUp" data-wow-delay="0.6s">
+                        @*<p class="custom1" style="font-size:21px">کسب و کارت رو هوشمند کن</p>*@
+                        <p class="custom1" style="font-size:21px"> فروشگاهت رو به بلدچی متصل کن، فروش در دایرکتِ اینستاگرام و تلگرام، حرفه ای نیست :|</p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Home-Area-End -->
+    <!-- About-Area -->
+    <section class="section-padding" id="about_page">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-10 col-md-offset-1">
+                    <div style="text-align:center" class="page-title text-center">
+                        @*<img class="nnm" src="~/images/mmlogo.png" alt="About Logo">*@
+                        <div class="space-20"></div>
+                        <h5 class="title">baladchee.COM</h5>
+                        <div class="space-30"></div>
+                        <h3 class="blue-color BfFont">بلدچی چگونه کار میکنه؟</h3>
+                        <div class="space-20"></div>
+
+                        <div>
+                            <div class="space-10"></div>
+                            <h3 class="BfFont2">۱. ایجاد کن!</h3>
+                        </div>
+                     
+                        <p class="custom2">شبکه های اجتماعی برای فروش طراحی نشده اند. نبود امکاناتی همچون دسته بندی محصولات، قابلیت جستجو، پرداخت آنلاین و صدور فاکتور بصورت خودکار و ...، همواره فروشنده را به چالش کشیده است تا با گفت و گوهای پینگ پُنگی با خریدار در دایرکت، فروش خود را تکمیل نماید.</p>
+
+                        <div>
+                            <div class="space-10"></div>
+                            <h3 class="BfFont2">۲. بفروش!</h3>
+                        </div>
+                     
+                        <p class="custom2"> از طرفی ایجاد یک وبسایت برای کسب و کارهای کوچک و متوسط علاوه بر هزینه های مضاعف، مشکلاتی نیز برای آنها به همراه دارد. مشکلاتی همچون متکی بودن به شرکت ارائه دهنده وبسایت، نیاز به ادمین و یا شاید هم اندکی علم برنامه نویسی که فروشنده را با چالش های متعدد روبرو خواهد کرد.</p>
+
+                        <div>
+                   
+                             <h3 class="BfFont2">۳. تمومه!</h3>
+                        </div>
+                    
+                        <p class="custom2">بلدچی با ارائه بستری شبیه به یک وبسایت شخصی، علاوه بر رفع نواقص فروش در شبکه های اجتماعی و مدیریت بسیار راحت، امکاناتی ویژه ای نیز برای فروش بهتر و مکانیزه تر فراهم کرده است  . </p>
+
+                    </div>
+
+                </div>
+                <div class="space-10"></div>
+
+
+                <center>
+                    <div>
+                        <video class="playV" title="بلدچی" id="ClinetV" width="500" controls>
+                            <source src="~/videoTest/baladcheeVideo.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <br />
+                    <a class="bborders" style="padding:8pt;" href=@Url.Action("Reg", "Account")>ایجاد حساب&nbsp;<img src="~/Themplate/images/CreatAdccountOther.png" alt="Login" /></a>
+
+
+                </center>
+            </div>
+    </section>
+    <!-- About-Area-End -->
+    <!-- Feature-Area -->
+    <section class="feature-area section-padding-top" id="features_page">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                    <div style="text-align: center" class="page-title text-center">
+                        <h5 class="title">baladchee.COM</h5>
+                        <div class="space-10"></div>
+                        <h2 class="BfFont">امکانات ویترین</h2>
+                        <div class="space-60"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="service-box wow fadeInUp" data-wow-delay="0.2s">
+                        @*<div class="box-icon">
+                                <i class="lnr lnr-paperclip"></i>
+                            </div>*@
+                        <div class="custom3"><span class="lnr lnr-thumbs-up"></span>نظر سنجی و باشگاه مشتریان</div>
+                        <p class="custom4">  دارای سرویس نظر سنجی برای عملکرد بهتر صاحب ویترین و باشگاه مشتریان برای ارتباط با مراجعه کنندگان</p>
+                    </div>
+                    <div class="space-60"></div>
+                    <div class="service-box wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="custom3"><span class="lnr lnr-gift"></span> امکان ایجاد کد تخفیف</div>
+
+                        <p class="custom4">با ایجاد کد تخفیف به همراه درصد دلخواه خود، انگیزه خرید در مشتری ها را بالا ببرید  </p>
+
+                    </div>
+                    <div class="space-60"></div>
+
+                    <div class="service-box wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="custom3"><span class="lnr lnr-map-marker"></span>امکان مسیریابی</div>
+
+                        <p class="custom4">قابلیت اتصال به نرم افزار های مسیریاب برای فروشگاه هایی که فروش حضوری نیز دارند</p>
+
+                    </div>
+                    <div class="space-60"></div>
+
+                    <div class="service-box wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="custom3"><span class="lnr lnr-layers"></span>قابلیت دسته بندی و جستجو</div>
+
+                        <p class="custom4">امکان جستجوی محصولات و دسته بندی آنها، دسترسی مشتری به محصول مورد نظر را، آسان میکند</p>
+
+                    </div>
+                    <div class="space-60"></div>
+
+
+                    <div class="service-box wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="custom3"><span class="lnr lnr-smile"></span>قابلیت اتصال به اینستاگرام</div>
+
+                        <p class="custom4"> علاوه بر اتصال کلی فروشگاه، برای تعامل بیشتر مشتری ها، هر کالا نیز بصورت مجزا به پست مربوط به خود قابلیت اتصال دارد  </p>
+
+                    </div>
+                    <div class="space-60"></div>
+
+                </div>
+
+                <div class="hidden-xs hidden-sm col-md-4">
+                   <br /><br /><br /><br /><br /><br /><br />
+                     <figure class="mobile-image">
+                        <img class="PIMG" src="~/Themplate/images/vitringif.jpg" alt="Feature Photo">
+                    </figure>
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="service-box wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="custom3"><span class="lnr lnr-link"></span>بدون وارد کردن آدرس در مرورگر</div>
+
+                        <p class="custom4">دسترسی سریع مشتریان به صفحه ویترین شما، تنها با اسکن QR code</p>
+
+                    </div>
+                    <div class="space-60"></div>
+                    <div class="service-box wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="custom3"><span class="lnr lnr-pencil"></span> فضای زیاد برای متن و تصویر</div>
+
+
+                        <p class="custom4"> امکان درج متن و تصویر بدون محدودیت، راجع به تاریخچه، خدمات،محصولات و...  </p>
+
+                    </div>
+                    <div class="space-60"></div>
+                    <div class="service-box wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="custom3"><span class="lnr lnr-bullhorn"></span>اطلاع رسانی به بازار هدف</div>
+
+                        <p class="custom4">امکان ارسال  پیامک تخفیف و تبلیغاتی به باشگاه مشتریان و مخاطبین، از طریق پنل پیامکی</p>
+
+                    </div>
+                    <div class="space-60"></div>
+
+
+                    <div class="service-box wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="custom3"><span class="lnr lnr-store"></span>فروش بی واسطه</div>
+
+                        <p class="custom4">با اطمینان خاطر و بدون پرداخت هیچگونه درصد از فروش، با درگاه شخصی خودتان بفروشید</p>
+
+                    </div>
+                    <div class="space-60"></div>
+
+                    <div class="service-box wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="custom3"><span class="lnr lnr-tablet"></span>نرم افزار اندروید</div>
+
+                        <p class="custom4">دارای نرم افزار اندروید، برای دسترسی بهتر و سریعتر مشتریان به صفحه فروشگاه شما </p>
+
+                    </div>
+                    <div class="space-60"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Feature-Area-End -->
+    <!-- QRcaption-Area -->
+    <section class="progress-area gray-bg" id="progress_page">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xs-12 col-md-6">
+                    <figure class="mobile-image">
+                        <img src="~/images/QrIndex.png" class="wow fadeInUp" data-wow-delay="0.8s" alt="بلدچی" />
+                    </figure>
+                </div>
+
+                <div class="col-xs-12 col-md-6">
+                    <div class="page-title section-padding">
+                        <h5 class="title wow fadeInUp" data-wow-delay="0.2s">baladchee.COM</h5>
+                        <div class="space-10"></div>
+                        <h3 class="dark-color wow fadeInUp customTilt" data-wow-delay="0.4s">! SCAN ME</h3>
+                        <div class="space-20"></div>
+                        <div class="desc wow fadeInUp" style="direction:rtl" data-wow-delay="0.6s">
+                            <p class="custom1">بلدچی بر پایه QR Code طراحی شده است.این عملکرد نوآورانه باعث تعجب افراد و انگیزه در اسکن کد میشود، از سویی دیگر همگام شدن با تکنولوژی جذابیت بیشتری برای آنها دارد.</p>
+                        </div>
+                        <div class="space-50"></div>
+                        <img src="~/images/QrIn.svg" class="wow fadeInUp" data-wow-delay="0.8s" alt="بلدچی" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- QRcaption-Area-End -->
+    <!-- Progress-Area -->
+    <section class="progress-area gray-bg" id="progress_page">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <figure class="mobile-image">
+                        <img src="~/Themplate/images/new2.png" alt="مسیریابی بلدچی">
+                    </figure>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <div class="page-title section-padding">
+                        <h5 class="title wow fadeInUp" data-wow-delay="0.2s">baladchee.COM</h5>
+                        <div class="space-10"></div>
+                        <h3 class="dark-color wow fadeInUp customTilt" data-wow-delay="0.4s">رهیاب</h3>
+                        <div class="space-20"></div>
+                        <div class="desc wow fadeInUp" style="direction:rtl" data-wow-delay="0.6s">
+                            <p class="custom1">کسب و کار خود را هوشمند کنید و با ایجاد حس بهتر در مشتریانتان، به کسب و کار خود رونق دهید.نگران موقعیت کسب و کار خود نباشید،دیگر بهترین دسترسی را خواهید داشت</p>
+                        </div>
+                        <div class="space-50"></div>
+                        @*<a href="#" class="bttn-default wow fadeInUp" data-wow-delay="0.8s">Learn More</a>*@
+                        <img src="~/Themplate/images/Mmarker.svg" class="wow fadeInUp" data-wow-delay="0.8s" alt="بلدچی" />
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Progress-Area-End -->
+    <!-- smsBox-Area -->
+    <section class="progress-area gray-bg" id="sms_page">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <figure class="mobile-image">
+                        <img src="~/images/smsBox.png" style="margin-left:9pt" alt="پیامک تبلیغاتی">
+                    </figure>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <div class="page-title section-padding">
+                        <h5 class="title wow fadeInUp" data-wow-delay="0.2s">baladchee.COM</h5>
+                        <div class="space-10"></div>
+                        <h3 class="dark-color wow fadeInUp customTilt" data-wow-delay="0.4s">قاصدک</h3>
+                        <div class="space-20"></div>
+                        <div class="desc wow fadeInUp" style="direction:rtl" data-wow-delay="0.6s">
+                            <p class="custom1"> با وجود شبکه‌های اجتماعی و اپلیکیشن‌های پیام‌رسان، ارسال پیامک‌های تبلیغاتی، همچنان یکی از موثرترین و به‌صرفه‌ترین روش‌های بازاریابی و تبلیغات در جهان به حساب می‌آید. </p>
+                            @*<p class="custom1"> درست است که شبکه‌های اجتماعی و اپلیکیشن‌های پیام‌رسان روزبه‌روز بیشتر از سر و کول ما بالا می‌روند، اما با این وجود پیامک هنوز هم مسیر ارتباطی دوجانبه و قدرتمندی را برای انواع اپلیکیشن‌ها، وب‌سایت‌ها و کسب‌و‌کارهای آنلاین با مخاطبانشان را شکل می‌دهد.</p>*@
+
+                        </div>
+                        <div class="space-50"></div>
+                        <img src="~/images/SmsS.svg" class="wow fadeInUp" data-wow-delay="0.8s" alt="بلدچی" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <!-- smsBox-Area-End -->
+
+
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xs-12 col-md-5 col-md-offset-1">
+                    <div class="space-60 hidden visible-xs"></div>
+                    <div class="page-title">
+                        <br />
+
+
+
+                        <div class="space-10"></div>
+                        <h3 class="dark-color wow fadeInUp custom1" data-wow-delay="0.4s">با گوشی خود مدیریت کنید!</h3>
+                        <div class="space-20"></div>
+                        <div class="desc wow fadeInUp" data-wow-delay="0.6s">
+                            <p class="custom1">در هر نقطه و زمان با نرم افزار اختصاصی خود، پنل خود را مدیریت کنید.نظرات مراجعه کنندگان را مطالعه کنید، سفارش محصولات خود را ببینید، ارسال پیامک های انبوه تبلیغاتی و مدیریت کامل بلدچی را در گوشی شخصی خود داشته باشید.</p>
+                        </div>
+                        <div class="space-50"></div>
+                        @*<a href="#" class="bttn-default wow fadeInUp" data-wow-delay="0.8s">Learn More</a>*@
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-6">
+                    @*<div class="video-photo">
+                            <img src="~/Themplate/images/video-image.jpg" alt="">
+
+
+                            <a href="https://www.namasha.com/embed/iltijWmT" class="popup video-button">
+                                <img src="~/Themplate/images/play-button.png" alt="">
+                            </a>
+                        </div>*@
+                    <img src="~/images/AndroidApp.svg" class="wow fadeInUp" data-wow-delay="0.8s" alt="بلدچی" />
+                </div>
+
+            </div>
+        </div>
+
+        <center>
+            <div class="opx">
+                <div class="white-color wow fadeInUp" data-wow-delay="0.4s">
+                    <img src="~/images/edalat.svg" alt="individual" />
+                    <div class="space-20"></div>
+                    <p class="bborder1">*** حفظ حقوق فروشندگان و خدمات دهندگان ***</p>                 
+                    <br />
+                    <p class="bborder1">*** عدم دریافت هیچ گونه درصد در فروش ***</p>
+                    <br />          
+                     <p class="bborder1">*** عدم درج هیچ گونه آگهی هم صنف در صفحه فروشگاه ***</p>
+                    <br />
+                    <p class="bborder1">*** !امکان یک هفته تست رایگان ***</p>
+
+
+                </div>
+                <br />
+                <br />
+
+            </div>
+           
+            <a class="bbordersmb" style="padding:8pt;" href=@Url.Action("Reg", "Account")>ایجاد حساب&nbsp;<img src="~/Themplate/images/CreatAdccountOther.png" alt="Login" /></a>
+
+        </center>
+
+    </section>
+
+
+
+    <!-- Gallery-Area-End -->
+    <!-- Testimonial-Area -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="page-title text-center" style="text-align: center">
+                    <h5 class="title">baladchee.COM</h5>
+                    <div class="space-20"></div>
+                    <h3 class="dark-color custom1">برخی از کاربران محترم بلدچی</h3>
+                    <div class="space-60"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="team-slide">
+                    <div class="team-box">
+                        <div class="team-image">
+                            <img src="~/Themplate/images/bamdad.jpg" style="height:70px" alt="بلدچی">
+                        </div>
+                        <h4 class="custom1"> امیر تیموری</h4>
+                        <h6 class="position custom5">داروخانه بامداد</h6>
+                        <p class="custom5">خدمات خیلی جالبی هست، با توجه به کاربردی بودن سرویس رهیاب، محصولات جدید آرایشی رو هم روی ویترین قرار دادیم و خیلی راحت مدیریت میکنیم.</p>
+                    </div>
+                    <div class="team-box">
+                        <div class="team-image">
+                            <img src="~/Themplate/images/DrJafari.jpg" style="height:70px" alt="بلدچی">
+
+                        </div>
+                        <h4 class="custom1">مریم جعفری</h4>
+                        <h6 class="position custom5">پزشک متخصص زنان</h6>
+                        <p class="custom5">در عین سادگی کاربرد خیلی زیادی دارد،بیماران برای پیداکردن مطب اغلب از رهیاب استفاده کرده و خیلی راحت به مطب دسترسی پیدا کرده بودند.</p>
+                    </div>
+                    <div class="team-box">
+                        <div class="team-image">
+                            <img src="~/Themplate/images/prjahan.jpg" style="height:70px" alt="بلدچی">
+                        </div>
+                        <h4 class="custom1">حسین پیرجهان</h4>
+                        <h6 class="position custom5">تاسیسات ساختمانی</h6>
+                        <p class="custom5">یک سالی هست که از امکانات بلدچی استفاده میکنم،فروش خیلی بهتری داریم، برای مشتری ها خیلی جالب ،یک ابتکار بسیار هوشمندانه که مطمئنا کاربرد های بیشتری هم دارد مخصوصا رهیاب.</p>
+                    </div>
+                    <div class="team-box">
+                        <div class="team-image">
+                            <img src="~/Themplate/images/oranoos.jpg" alt="انگشتر">
+                        </div>
+                        <h4 class="custom1">رضا مرتضوی</h4>
+                        <h6 class="position custom5">گالری جواهرات اورانوس</h6>
+                        <p class="custom5">ما از این امکانات روی جعبه جواهراتمون استفاده کردیم همین طور طرح های جدید رو روی ویترین قرار میدهیم.بنظر من کار فوق العاده ای است.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial-Area-End -->
+    <!-- How-To-Use -->
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="row BfFont">
+
+                <div class="col-xs-12 col-sm-5 col-md-5 col-md-offset-1 pull-right">
+
+                    <div class="service-box wow fadeInUp" data-wow-delay="0.2s">
+
+
+                    </div>
+
+                    <div class="service-box wow fadeInUp" data-wow-delay="0.2s">
+
+                        <h4>سامانه‌ی امنیت ابری ابر آروان</h4>
+
+                        <a href="https://www.arvancloud.com/fa">
+                            <img src="~/images/Arvan.png" alt="ArvanCloud" />
+                        </a>
+
+                    </div>
+                    <div class="space-50"></div>
+                    <div class="service-box wow fadeInUp" data-wow-delay="0.2s">
+
+                        <h4>ملی پیامک، پیشرفته ترین سامانه پیامکی</h4>
+                        <a href="https://www.melipayamak.com/">
+                            <img src="~/images/meliPayamak.png" alt="MeliPayamak" />
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-5 pull-left">
+                    <div class="page-title">
+                        <h5 class="title wow fadeInUp" data-wow-delay="0.2s">baladchee.COM</h5>
+                        <div class="space-10"></div>
+                        <h3 class="dark-color wow fadeInUp" data-wow-delay="0.4s">شرکت های تامین کننده سرویس برای بلدچی</h3>
+                    </div>
+                    <div class="space-20"></div>
+                    <div class="desc wow fadeInUp" data-wow-delay="0.6s">
+                        <p>ما همواره در تلاش هستیم که از برترین و موفق ترین استارت آپ ها و سرویس دهنده های کشور، برای راهبرد اهداف خود و راحتی شما عزیزان بهره مند شویم.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <br />
+    <!-- How-To-Use-End -->
+    <!-- Download-Area -->
+    <!-- Download-Area-End -->
+    <!--Price-Area -->
+    @*<section class="section-padding price-area" id="price_page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="page-title text-center">
+                            <h5 class="title">Pricing Plan</h5>
+                            <h3 class="dark-color">Our Awesome Pricing Plan</h3>
+                            <div class="space-60"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="price-box">
+                            <div class="price-header">
+                                <div class="price-icon">
+                                    <span class="lnr lnr-rocket"></span>
+                                </div>
+                                <h4 class="upper">Free</h4>
+                            </div>
+                            <div class="price-body">
+                                <ul>
+                                    <li>Easy Installations</li>
+                                    <li>Unlimited support</li>
+                                    <li>Uniqe Elements</li>
+                                </ul>
+                            </div>
+                            <div class="price-rate">
+                                <sup>&#36;</sup> <span class="rate">0</span> <small>/Month</small>
+                            </div>
+                            <div class="price-footer">
+                                <a href="#" class="bttn-white">Purchase</a>
+                            </div>
+                        </div>
+                        <div class="space-30 hidden visible-xs"></div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="price-box">
+                            <div class="price-header">
+                                <div class="price-icon">
+                                    <span class="lnr lnr-diamond"></span>
+                                </div>
+                                <h4 class="upper">Medium</h4>
+                            </div>
+                            <div class="price-body">
+                                <ul>
+                                    <li>Easy Installations</li>
+                                    <li>Unlimited support</li>
+                                    <li>Free Forever</li>
+                                </ul>
+                            </div>
+                            <div class="price-rate">
+                                <sup>&#36;</sup> <span class="rate">49</span> <small>/Month</small>
+                            </div>
+                            <div class="price-footer">
+                                <a href="#" class="bttn-white">Purchase</a>
+                            </div>
+                        </div>
+                        <div class="space-30 hidden visible-xs"></div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="price-box">
+                            <div class="price-header">
+                                <div class="price-icon">
+                                    <span class="lnr lnr-pie-chart"></span>
+                                </div>
+                                <h4 class="upper">Business</h4>
+                            </div>
+                            <div class="price-body">
+                                <ul>
+                                    <li>Easy Installations</li>
+                                    <li>Unlimited support</li>
+                                    <li>Free Forever</li>
+                                </ul>
+                            </div>
+                            <div class="price-rate">
+                                <sup>&#36;</sup> <span class="rate">99</span> <small>/Month</small>
+                            </div>
+                            <div class="price-footer">
+                                <a href="#" class="bttn-white">Purchase</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>*@
+    <!--Price-Area-End -->
+    <!--Questions-Area -->
+    <!--Questions-Area-End -->
+    <!-- Subscribe-Form -->
+    @*<div class="subscribe-area section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                        <div class="subscribe-form text-center">
+                            <h3 class="blue-color">Subscribe for More Features</h3>
+                            <div class="space-20"></div>
+                            <form id="mc-form">
+                                <input type="email" class="control" placeholder="Enter your email" required="required" id="mc-email">
+                                <button class="bttn-white active" type="submit"><span class="lnr lnr-location"></span> Subscribe</button>
+                                <label class="mt10" for="mc-email"></label>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    <!-- Subscribe-Form-Area -->
+    <!-- Footer-Area -->
+    <!-- Footer-Area -->
+    @*<footer class="footer-area" style="margin-top:-50pt" id="contact_page">
+            <div class="section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <center>
+                                <div class="page-title text-center">
+                                    <div class="space-40"></div>
+                                       <h3 class="dark-color custom1">تماس با ما</h3>
+                                    <div class="space-60"></div>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="footer-box">
+                                <div class="box-icon">
+                                    <span class="lnr lnr-map-marker"></span>
+                                </div>
+                                <p class="custom5">تهران ، خیابان اشرفی اصفهانی ، برج مهر</p>
+                            </div>
+                            <div class="space-30 hidden visible-xs"></div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="footer-box">
+                                <div class="box-icon">
+                                    <span class="lnr lnr-phone-handset"></span>
+                                </div>
+                                <p>۰۲۱ ۴۴۶۰۷۷۱۹<br /> ۰۲۱ ۴۴۶۰۷۷۱۸</p>
+                            </div>
+                            <div class="space-30 hidden visible-xs"></div>
+
+                         </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="footer-box">
+                                <div class="box-icon">
+                                    <span class="lnr lnr-envelope"></span>
+                                </div>
+                                <p>
+                                    bldchee@gmail.com
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>*@
+
+    <link href="~/footer/footercss.css" rel="stylesheet" />
+    <!--footer starts from here-->
+    <footer class="footer">
+        <div class="container bottom_border">
+            <div class="row">
+                <div class=" col-sm-3 col-md col-sm-4  col-12 col">
+                    <h5 class="headin5_amrc col_white_amrc pt2">آدرس ما</h5>
+                    <!--headin5_amrc-->
+                    <p class="mb10">تهران-خیابان اشرفی اصفهانی-خیابان ناطق نوری-برج مهرگان-طبقه دوم-واحد۱ </p>
+                    <p><a href="https://www.instagram.com/bldchee/" target="_blank"><img src="~/images/instaB.png" alt="instagram" /></a> <a href="https://wa.me/+989300719627" target="_blank"><img src="~/images/whatsAppB.png" alt="whatsApp" /></a> </p>
+                      <p><i class="fa fa-phone"></i>  ۰۲۱-۴۴۶۰۷۷۱۹ </p>
+                    <p><i class="fa fa fa-envelope"></i> bldchee@gmail.com  </p>
+
+
+                </div>
+
+
+                <div class=" col-sm-3 col-md  col-6 col">
+                    <h5 class="headin5_amrc col_white_amrc pt2">دانلود نرم افزار اندروید</h5>
+                    <!--headin5_amrc-->
+                    @using (Html.BeginForm("ApkDownload", "home", FormMethod.Post, new { id = "download" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <input type="text" class="hidden" name="ClientId" value="@ViewBag.clientid" />
+                        <a href="javascript:{}" onclick="document.getElementById('download').submit();" class="bttn-white sq custom1"><img src="~/Themplate/images/android-logo-png.png" alt="Play Store Icon">  اندروید</a>
+                    }
+
+                    <!--footer_ul_amrc ends here-->
+                </div>
+
+
+                <div class=" col-sm-3 col-md  col-6 col">
+                    <h5 class="headin5_amrc col_white_amrc pt2"> دانلود نرم افزار ios  </h5>
+                    <!--headin5_amrc-->
+                    <a href="javascript:{}" onclick="" class="bttn-white sq custom1"><img src="~/Themplate/images/apple-icon.png" alt="apple icon"> به زودی</a>
+
+                    <!--footer_ul_amrc ends here-->
+                </div>
+
+
+                <div class=" col-sm-3 col-md  col-12 col">
+                    <h5 class="headin5_amrc col_white_amrc pt2">گواهینامه</h5>
+                    <!--headin5_amrc ends here-->
+                    <a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=224812&amp;Code=Nl8FnVzGi6trqEnD6KwG"><img referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=224812&amp;Code=Nl8FnVzGi6trqEnD6KwG" alt="" style="cursor:pointer" id="Nl8FnVzGi6trqEnD6KwG"></a>
+
+                    <!--footer_ul2_amrc ends here-->
+                </div>
+
+
+                <div class=" col-sm-3 col-md  col-12 col">
+                    <h5 class="headin5_amrc col_white_amrc pt2">ساماندهی محتوای فضای مجازی</h5>
+                    <!--headin5_amrc ends here-->
+                    <img referrerpolicy='origin' id='nbqeapfuesgtrgvjwlaorgvj' style='cursor:pointer' onclick='window.open("https://logo.samandehi.ir/Verify.aspx?id=250343&p=uiwkdshwobpdxlaoaodsxlao", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")' alt='logo-samandehi' src='https://logo.samandehi.ir/logo.aspx?id=250343&p=odrfujynlymaqftishwlqfti' />
+                    <!--footer_ul2_amrc ends here-->
+                </div>
+
+                <div class=" col-sm-3 col-md  col-12 col">
+                    <h5 class="headin5_amrc col_white_amrc pt2">گواهی احراز هویت زرین پال</h5>
+                    <!--headin5_amrc ends here-->
+                    <script src="https://www.zarinpal.com/webservice/TrustCode" type="text/javascript"></script>
+                    <!--footer_ul2_amrc ends here-->
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <ul class="foote_bottom_ul_amrc">
+                <li><a href=@Url.Action("workshop", "Home")>کارگاه بلدچی</a></li>
+                <li><a href="#features_page">ویترین</a></li>
+                <li><a href="#progress_page">رهیاب</a></li>
+                <li><a href="#sms_page">قاصدک</a></li>
+                @*<li><a href="http://webenlance.com">Blog</a></li>
+                    <li><a href="http://webenlance.com">Contact</a></li>*@
+            </ul>
+            <!--foote_bottom_ul_amrc ends here-->
+            <p class="text-center">
+                ساخته شده با ❤️ توسط تیم بلدچی.
+
+                @*<ul class="social_footer_ul">
+                        <li><a href="http://webenlance.com"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="http://webenlance.com"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="http://webenlance.com"><i class="fab fa-linkedin"></i></a></li>
+                        <li><a href="http://webenlance.com"><i class="fab fa-instagram"></i></a></li>
+                    </ul>*@
+                <!--social_footer_ul ends here-->
+        </div>
+
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+    <!-- Footer-Area-End -->
+    <!--Vendor-JS-->
+    <script src="~/Themplate/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="~/Themplate/js/vendor/jquery-ui.js"></script>
+    <script src="~/Themplate/js/vendor/bootstrap.min.js"></script>
+    <!--Plugin-JS-->
+    <script src="~/Themplate/js/owl.carousel.min.js"></script>
+    <script src="~/Themplate/js/contact-form.js"></script>
+    <script src="~/Themplate/js/ajaxchimp.js"></script>
+    <script src="~/Themplate/js/scrollUp.min.js"></script>
+    <script src="~/Themplate/js/magnific-popup.min.js"></script>
+    <script src="~/Themplate/js/wow.min.js"></script>
+    <!--Main-active-JS-->
+    <script src="~/Themplate/js/main.js"></script>
+    <script>
+        $(".tls1").click(function (e) {
+            $(this).removeClass("show").removeClass("in");
+            $('#nbva').attr("aria-expanded", "false");
+            $('#nbva').addClass("collapsed");
+            $('#primary_menu').attr("aria-expanded", "false");
+            $('#primary_menu').removeClass("show").removeClass("in");
+
+        });
+
+        $(".tls2").click(function (e) {
+            $(this).removeClass("show").removeClass("in");
+            $('#nbva').attr("aria-expanded", "false");
+            $('#nbva').addClass("collapsed");
+            $('#primary_menu').attr("aria-expanded", "false");
+            $('#primary_menu').removeClass("show").removeClass("in");
+
+        });
+
+
+        $(".tls3").click(function (e) {
+            $(this).removeClass("show").removeClass("in");
+            $('#nbva').attr("aria-expanded", "false");
+            $('#nbva').addClass("collapsed");
+            $('#primary_menu').attr("aria-expanded", "false");
+            $('#primary_menu').removeClass("show").removeClass("in");
+
+        });
+        console.log("%c Welcome  %c To %c baladchee (ʘ‿ʘ)", "color: rgb(20,26,17); font-size: 1.5em; font-weight: bolder; text-shadow: #000 1px 1px;font-family:IranSansL;float:", "color: rgb(0,165,213); font-size:2em;font-weight: bolder; text-shadow: #000 1px 1px 1px;font-family:IranSansL", "color: rgb(17,17,17); font-size:1.5em;font-weight: bolder; text-shadow: #000 1px 1px;font-family:IranSansL");
+
+    </script>
+</body>
+</html>

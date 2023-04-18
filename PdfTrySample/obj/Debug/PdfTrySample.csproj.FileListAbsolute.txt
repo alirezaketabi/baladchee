@@ -1,0 +1,21 @@
+D:\IdentityDemo\QRProject\PdfTrySample\bin\Debug\PdfTrySample.exe.config
+D:\IdentityDemo\QRProject\PdfTrySample\bin\Debug\PdfTrySample.exe
+D:\IdentityDemo\QRProject\PdfTrySample\bin\Debug\PdfTrySample.pdb
+D:\IdentityDemo\QRProject\PdfTrySample\obj\Debug\PdfTrySample.csprojResolveAssemblyReference.cache
+D:\IdentityDemo\QRProject\PdfTrySample\obj\Debug\PdfTrySample.exe
+D:\IdentityDemo\QRProject\PdfTrySample\obj\Debug\PdfTrySample.pdb
+E:\My baladcheeProject\BaladCheeServerDevelop\PdfTrySample\bin\Debug\PdfTrySample.exe.config
+E:\My baladcheeProject\BaladCheeServerDevelop\PdfTrySample\bin\Debug\PdfTrySample.exe
+E:\My baladcheeProject\BaladCheeServerDevelop\PdfTrySample\bin\Debug\PdfTrySample.pdb
+E:\My baladcheeProject\BaladCheeServerDevelop\PdfTrySample\obj\Debug\PdfTrySample.csprojResolveAssemblyReference.cache
+E:\My baladcheeProject\BaladCheeServerDevelop\PdfTrySample\obj\Debug\PdfTrySample.exe
+E:\My baladcheeProject\BaladCheeServerDevelop\PdfTrySample\obj\Debug\PdfTrySample.pdb
+E:\BaladCheeServerDevelop\PdfTrySample\bin\Debug\PdfTrySample.exe.config
+E:\BaladCheeServerDevelop\PdfTrySample\bin\Debug\PdfTrySample.exe
+E:\BaladCheeServerDevelop\PdfTrySample\bin\Debug\PdfTrySample.pdb
+E:\BaladCheeServerDevelop\PdfTrySample\obj\Debug\PdfTrySample.csproj.CoreCompileInputs.cache
+E:\BaladCheeServerDevelop\PdfTrySample\obj\Debug\PdfTrySample.csproj.CopyComplete
+E:\BaladCheeServerDevelop\PdfTrySample\obj\Debug\PdfTrySample.exe
+E:\BaladCheeServerDevelop\PdfTrySample\obj\Debug\PdfTrySample.pdb
+E:\BaladCheeServerDevelop\PdfTrySample\obj\Debug\PdfTrySample.csproj.AssemblyReference.cache
+E:\BaladCheeServerDevelop\PdfTrySample\obj\Debug\PdfTrySample.csproj.SuggestedBindingRedirects.cache

@@ -1,0 +1,252 @@
+D:\IdentityDemo\QRProject\QRProject\bin\roslyn\csc.exe
+D:\IdentityDemo\QRProject\QRProject\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\IdentityDemo\QRProject\QRProject\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\IdentityDemo\QRProject\QRProject\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\IdentityDemo\QRProject\QRProject\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\IdentityDemo\QRProject\QRProject\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\IdentityDemo\QRProject\QRProject\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\IdentityDemo\QRProject\QRProject\bin\roslyn\System.Collections.Immutable.dll
+D:\IdentityDemo\QRProject\QRProject\bin\roslyn\System.Reflection.Metadata.dll
+D:\IdentityDemo\QRProject\QRProject\bin\roslyn\vbc.exe
+D:\IdentityDemo\QRProject\QRProject\bin\roslyn\VBCSCompiler.exe
+D:\IdentityDemo\QRProject\QRProject\bin\roslyn\VBCSCompiler.exe.config
+D:\IdentityDemo\QRProject\QRProject\bin\QRProject.dll.config
+D:\IdentityDemo\QRProject\QRProject\bin\QRProject.dll
+D:\IdentityDemo\QRProject\QRProject\bin\QRProject.XmlSerializers.dll
+D:\IdentityDemo\QRProject\QRProject\bin\QRProject.pdb
+D:\IdentityDemo\QRProject\QRProject\bin\Antlr3.Runtime.dll
+D:\IdentityDemo\QRProject\QRProject\bin\EntityFramework.dll
+D:\IdentityDemo\QRProject\QRProject\bin\EntityFramework.SqlServer.dll
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.AspNet.Identity.Core.dll
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.Owin.dll
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.Owin.Security.Cookies.dll
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.Owin.Security.dll
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.Owin.Security.Facebook.dll
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.Owin.Security.Google.dll
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.Owin.Security.OAuth.dll
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.Owin.Security.Twitter.dll
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.Web.Infrastructure.dll
+D:\IdentityDemo\QRProject\QRProject\bin\Newtonsoft.Json.dll
+D:\IdentityDemo\QRProject\QRProject\bin\Owin.dll
+D:\IdentityDemo\QRProject\QRProject\bin\System.Web.Helpers.dll
+D:\IdentityDemo\QRProject\QRProject\bin\System.Web.Mvc.dll
+D:\IdentityDemo\QRProject\QRProject\bin\System.Web.Optimization.dll
+D:\IdentityDemo\QRProject\QRProject\bin\System.Web.Razor.dll
+D:\IdentityDemo\QRProject\QRProject\bin\System.Web.WebPages.Deployment.dll
+D:\IdentityDemo\QRProject\QRProject\bin\System.Web.WebPages.dll
+D:\IdentityDemo\QRProject\QRProject\bin\System.Web.WebPages.Razor.dll
+D:\IdentityDemo\QRProject\QRProject\bin\WebGrease.dll
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\IdentityDemo\QRProject\QRProject\bin\System.Web.Helpers.xml
+D:\IdentityDemo\QRProject\QRProject\bin\System.Web.Mvc.xml
+D:\IdentityDemo\QRProject\QRProject\bin\System.Web.Optimization.xml
+D:\IdentityDemo\QRProject\QRProject\bin\System.Web.Razor.xml
+D:\IdentityDemo\QRProject\QRProject\bin\System.Web.WebPages.xml
+D:\IdentityDemo\QRProject\QRProject\bin\System.Web.WebPages.Deployment.xml
+D:\IdentityDemo\QRProject\QRProject\bin\System.Web.WebPages.Razor.xml
+D:\IdentityDemo\QRProject\QRProject\bin\Antlr3.Runtime.pdb
+D:\IdentityDemo\QRProject\QRProject\bin\Newtonsoft.Json.xml
+D:\IdentityDemo\QRProject\QRProject\bin\EntityFramework.xml
+D:\IdentityDemo\QRProject\QRProject\bin\EntityFramework.SqlServer.xml
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.AspNet.Identity.Core.xml
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.Owin.xml
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.Owin.Security.xml
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.Owin.Security.Facebook.xml
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.Owin.Security.Cookies.xml
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.Owin.Security.OAuth.xml
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.Owin.Security.Google.xml
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.Owin.Security.Twitter.xml
+D:\IdentityDemo\QRProject\QRProject\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\IdentityDemo\QRProject\QRProject\obj\Release\QRProject.csprojResolveAssemblyReference.cache
+D:\IdentityDemo\QRProject\QRProject\obj\Release\QRProject.dll
+D:\IdentityDemo\QRProject\QRProject\obj\Release\QRProject.pdb
+D:\IdentityDemo\QRProject\QRProject\obj\Release\QRProject.XmlSerializers.dll
+D:\IdentityDemo\QRProject\QRProject\bin\QRCoder.dll
+D:\IdentityDemo\QRProject\QRProject\bin\PagedList.dll
+D:\IdentityDemo\QRProject\QRProject\bin\PagedList.Mvc.dll
+D:\IdentityDemo\QRProject\QRProject\bin\PagedList.xml
+D:\IdentityDemo\QRProject\QRProject\bin\PagedList.Mvc.xml
+D:\IdentityDemo\QRProject\QRProject\bin\BouncyCastle.Crypto.dll
+D:\IdentityDemo\QRProject\QRProject\bin\itextsharp.dll
+D:\IdentityDemo\QRProject\QRProject\bin\itextsharp.xml
+D:\IdentityDemo\QRProject\QRProject\obj\Release\QRProject.Migrations.addIsOnline.resources
+D:\IdentityDemo\QRProject\QRProject\obj\Release\QRProject.csproj.GenerateResource.Cache
+D:\IdentityDemo\QRProject\QRProject\obj\Release\QRProject.Migrations.AddAppAddress.resources
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\roslyn\csc.exe
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\roslyn\System.Collections.Immutable.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\roslyn\System.Reflection.Metadata.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\roslyn\vbc.exe
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\roslyn\VBCSCompiler.exe
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\roslyn\VBCSCompiler.exe.config
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\QRProject.dll.config
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\QRProject.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\QRProject.XmlSerializers.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\QRProject.pdb
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Antlr3.Runtime.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\BouncyCastle.Crypto.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\EntityFramework.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\EntityFramework.SqlServer.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\itextsharp.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.AspNet.Identity.Core.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.Cookies.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.Facebook.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.Google.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.OAuth.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.Twitter.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.Web.Infrastructure.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Newtonsoft.Json.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Owin.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\PagedList.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\PagedList.Mvc.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\QRCoder.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\System.Web.Helpers.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\System.Web.Mvc.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\System.Web.Optimization.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\System.Web.Razor.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\System.Web.WebPages.Deployment.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\System.Web.WebPages.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\System.Web.WebPages.Razor.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\WebGrease.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\EntityFramework.xml
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\itextsharp.xml
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\PagedList.xml
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\PagedList.Mvc.xml
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\System.Web.Helpers.xml
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\System.Web.Mvc.xml
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\System.Web.Optimization.xml
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\System.Web.Razor.xml
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\System.Web.WebPages.xml
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\System.Web.WebPages.Deployment.xml
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\System.Web.WebPages.Razor.xml
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Antlr3.Runtime.pdb
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Newtonsoft.Json.xml
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\EntityFramework.SqlServer.xml
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.AspNet.Identity.Core.xml
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.xml
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.xml
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.Facebook.xml
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.Cookies.xml
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.OAuth.xml
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.Google.xml
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.Twitter.xml
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\obj\Release\QRProject.csprojResolveAssemblyReference.cache
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\obj\Release\QRProject.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\obj\Release\QRProject.pdb
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\obj\Release\QRProject.XmlSerializers.dll
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\obj\Release\QRProject.Migrations.first.resources
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\obj\Release\QRProject.csproj.GenerateResource.Cache
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\obj\Release\QRProject.Migrations.AddFurushHuzuri.resources
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\obj\Release\QRProject.Migrations.AddTwoPro.resources
+E:\My baladcheeProject\BaladCheeServerDevelop\QRProject\obj\Release\QRProject.Migrations.AddCountToMP.resources
+E:\BaladCheeServerDevelop\QRProject\bin\roslyn\csc.exe
+E:\BaladCheeServerDevelop\QRProject\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\BaladCheeServerDevelop\QRProject\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\BaladCheeServerDevelop\QRProject\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\BaladCheeServerDevelop\QRProject\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\BaladCheeServerDevelop\QRProject\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\BaladCheeServerDevelop\QRProject\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\BaladCheeServerDevelop\QRProject\bin\roslyn\System.Collections.Immutable.dll
+E:\BaladCheeServerDevelop\QRProject\bin\roslyn\System.Reflection.Metadata.dll
+E:\BaladCheeServerDevelop\QRProject\bin\roslyn\vbc.exe
+E:\BaladCheeServerDevelop\QRProject\bin\roslyn\VBCSCompiler.exe
+E:\BaladCheeServerDevelop\QRProject\bin\roslyn\VBCSCompiler.exe.config
+E:\BaladCheeServerDevelop\QRProject\bin\QRProject.dll.config
+E:\BaladCheeServerDevelop\QRProject\bin\QRProject.dll
+E:\BaladCheeServerDevelop\QRProject\bin\QRProject.XmlSerializers.dll
+E:\BaladCheeServerDevelop\QRProject\bin\QRProject.pdb
+E:\BaladCheeServerDevelop\QRProject\bin\Antlr3.Runtime.dll
+E:\BaladCheeServerDevelop\QRProject\bin\BouncyCastle.Crypto.dll
+E:\BaladCheeServerDevelop\QRProject\bin\EntityFramework.dll
+E:\BaladCheeServerDevelop\QRProject\bin\EntityFramework.SqlServer.dll
+E:\BaladCheeServerDevelop\QRProject\bin\itextsharp.dll
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.AspNet.Identity.Core.dll
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.dll
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.Cookies.dll
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.dll
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.Facebook.dll
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.Google.dll
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.OAuth.dll
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.Twitter.dll
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.Web.Infrastructure.dll
+E:\BaladCheeServerDevelop\QRProject\bin\Newtonsoft.Json.dll
+E:\BaladCheeServerDevelop\QRProject\bin\Owin.dll
+E:\BaladCheeServerDevelop\QRProject\bin\PagedList.dll
+E:\BaladCheeServerDevelop\QRProject\bin\PagedList.Mvc.dll
+E:\BaladCheeServerDevelop\QRProject\bin\QRCoder.dll
+E:\BaladCheeServerDevelop\QRProject\bin\System.Web.Helpers.dll
+E:\BaladCheeServerDevelop\QRProject\bin\System.Web.Mvc.dll
+E:\BaladCheeServerDevelop\QRProject\bin\System.Web.Optimization.dll
+E:\BaladCheeServerDevelop\QRProject\bin\System.Web.Razor.dll
+E:\BaladCheeServerDevelop\QRProject\bin\System.Web.WebPages.Deployment.dll
+E:\BaladCheeServerDevelop\QRProject\bin\System.Web.WebPages.dll
+E:\BaladCheeServerDevelop\QRProject\bin\System.Web.WebPages.Razor.dll
+E:\BaladCheeServerDevelop\QRProject\bin\WebGrease.dll
+E:\BaladCheeServerDevelop\QRProject\bin\EntityFramework.xml
+E:\BaladCheeServerDevelop\QRProject\bin\itextsharp.xml
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\BaladCheeServerDevelop\QRProject\bin\PagedList.xml
+E:\BaladCheeServerDevelop\QRProject\bin\PagedList.Mvc.xml
+E:\BaladCheeServerDevelop\QRProject\bin\System.Web.Helpers.xml
+E:\BaladCheeServerDevelop\QRProject\bin\System.Web.Mvc.xml
+E:\BaladCheeServerDevelop\QRProject\bin\System.Web.Optimization.xml
+E:\BaladCheeServerDevelop\QRProject\bin\System.Web.Razor.xml
+E:\BaladCheeServerDevelop\QRProject\bin\System.Web.WebPages.xml
+E:\BaladCheeServerDevelop\QRProject\bin\System.Web.WebPages.Deployment.xml
+E:\BaladCheeServerDevelop\QRProject\bin\System.Web.WebPages.Razor.xml
+E:\BaladCheeServerDevelop\QRProject\bin\Antlr3.Runtime.pdb
+E:\BaladCheeServerDevelop\QRProject\bin\Newtonsoft.Json.xml
+E:\BaladCheeServerDevelop\QRProject\bin\EntityFramework.SqlServer.xml
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.AspNet.Identity.Core.xml
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.xml
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.xml
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.Facebook.xml
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.Cookies.xml
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.OAuth.xml
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.Google.xml
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.Twitter.xml
+E:\BaladCheeServerDevelop\QRProject\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\BaladCheeServerDevelop\QRProject\obj\Release\QRProject.Migrations.first.resources
+E:\BaladCheeServerDevelop\QRProject\obj\Release\QRProject.Migrations.AddFurushHuzuri.resources
+E:\BaladCheeServerDevelop\QRProject\obj\Release\QRProject.Migrations.AddTwoPro.resources
+E:\BaladCheeServerDevelop\QRProject\obj\Release\QRProject.Migrations.AddCountToMP.resources
+E:\BaladCheeServerDevelop\QRProject\obj\Release\QRProject.csproj.GenerateResource.cache
+E:\BaladCheeServerDevelop\QRProject\obj\Release\QRProject.csproj.CoreCompileInputs.cache
+E:\BaladCheeServerDevelop\QRProject\obj\Release\QRProject.csproj.CopyComplete
+E:\BaladCheeServerDevelop\QRProject\obj\Release\QRProject.dll
+E:\BaladCheeServerDevelop\QRProject\obj\Release\QRProject.pdb
+E:\BaladCheeServerDevelop\QRProject\obj\Release\QRProject.XmlSerializers.dll
+E:\BaladCheeServerDevelop\QRProject\obj\Release\QRProject.csproj.AssemblyReference.cache

@@ -1,0 +1,649 @@
+﻿@{
+    Layout = null;
+}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        @@font-face {
+            font-family: IranSans;
+            src: url(../../fonts/iransans-bold.woff2);
+        }
+
+        @@font-face {
+            font-family: IranSansl;
+            src: url(../../fonts/iransans-light.woff2);
+        }
+        .SCs{
+            margin-bottom: -37px;
+        }
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .btnn {
+            border: 2px solid gray;
+            color: gray;
+            background-color: white;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .upload-btn-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
+
+        .newline {
+            white-space: pre-wrap;
+        }
+
+        .myfilter-option {
+            display: inline-block;
+            overflow: hidden;
+            width: 100%;
+            text-align: center;
+        }
+
+        .SelectJob {
+            font-family: 'IranSans';
+            padding: 5px;
+            border-radius: 5px;
+            margin: 5px;
+            text-align: right;
+        }
+               .DeliveryPrice{
+                        border:1px solid gray;padding :10pt ;
+                        border-radius:5%;
+                        background-image:url("../../images/PostBackGround-min.png")
+                    }
+    </style>
+    <title>Register</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/images/baladchee.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/css/main.css">
+    <!--===============================================================================================-->
+    <script src="~/RegisterThempalte/ContactFrom_v4/vendor/jquery/jquery-3.2.1.min.js"></script>
+
+
+
+    @*<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />*@
+    <link href="~/Content/bootstrap-select.min.css" rel="stylesheet" />
+    <script src='https://www.google.com/recaptcha/api.js' type="text/javascript"></script>
+</head>
+<body>
+
+
+    <div class="container-contact100">
+
+        <div class="wrap-contact100">
+            @if (ViewBag.error != null)
+            {
+                <center style="font-family:IranSansl;font-weight:bold;color:red">
+                    @ViewBag.error
+                </center>
+                <br />
+
+            }
+            @using (Html.BeginForm("setPhone", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal login100-form validate-form", role = "form", id = "myform" }))
+            {
+
+                @Html.AntiForgeryToken()
+                <div id='recaptcha' class="g-recaptcha"
+                     data-sitekey="6Lf3e8oUAAAAALNDfgQzIxlpSUo6BkHdqxll9An-"
+                     @*local :6LeRqhYaAAAAACXordAmvhGsEe-XfuP_YvW42HgM*@
+                     @*Website: 6Lf3e8oUAAAAALNDfgQzIxlpSUo6BkHdqxll9An-*@
+                     data-callback="onCompleted"
+                     data-size="invisible"></div>
+
+                    <div style="font-family:IranSansl;font-weight:bold" class="contact100-form-title">
+                        <img class="SCs" src="~/images/CreateVitrin.png"  alt="Create Vitrin" />
+                    </div>
+
+                    <span class="login100-form-title p-b-48">
+                        <i style="float:left">
+                            <a href="@Url.Action("Index","Home")"><img src="~/images/myBacck.png" alt="بازگشت" /></a>
+                        </i>
+                        <br />
+                        <i style="font-size:10pt;font-size:16pt;font-weight:bold"></i>
+
+                    </span>
+
+                    <div style="font-family:IranSans;color:red">
+                        @ViewBag.e
+                    </div>
+                    <div class="wrap-input100">
+                        <span style="font-family:IranSans" class="label-input100">شماره موبایل</span>
+                        <input style="font-family:IranSansl;font-size:12pt" class="input100" type="text" name="PhoneNumber" pattern="09[0-9]{9}" placeholder="شماره موبایل را به لاتین وارد کنید 09xx" oninvalid="this.setCustomValidity('لطفا شماره موبایل وارد نمایید')" oninput="setCustomValidity('')" required="">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100">
+                        <span id="s1" name="s1" style="display:none;color:red;font-family:IranSansl" class="label-input100">این دامنه قبلا ثبت شده است</span>
+
+                        <span style="font-family:IranSans" id="url" class="label-input100"> عنوان آدرس اینترنتی<span id="s2" name="s2" style="display:none;color:green;font-family:IranSansl" class="label-input100">✓</span> </span>
+                        <input style="font-family:IranSansl;font-size:12pt" class="input100" type="text" id="urlName" name="urlName" placeholder="یک نام به لاتین برای مثال myshop" oninvalid="this.setCustomValidity('یک نام لاتین وارد نمایید')" oninput="setCustomValidity('')" required="">
+                        <span class="focus-input100"></span>
+                    </div>
+
+
+                    <div class="wrap-input100">
+                        <span id="e1" name="e1" style="display:none;color:red;font-family:IranSansl" class="label-input100">نام کاربری قبلا ثبت شده است</span>
+
+
+
+                        <span style="font-family:IranSans" id="karbari" class="label-input100">نام کاربری   <span id="e2" name="e2" style="display:none;color:green;font-family:IranSansl" class="label-input100">✓</span>  </span>
+                        <input style="font-family:IranSansl" class="input100" type="text" id="userName" name="userName" placeholder="نام کاربری" oninvalid="this.setCustomValidity('نام کاربری خالی است!')" oninput="setCustomValidity('')" required>
+
+                    </div>
+
+
+
+
+                //...............
+                <div class="wrap-input100">
+                    <span style="font-family:IranSans"><input type="checkbox" style="transform: scale(2); margin-left: 8pt;" name="FurushHuzuri" value="1" />فروش حضوری دارم</span> 
+                    <span class="focus-input100"></span>
+                </div>
+                //...............
+
+
+
+                    <span style="font-family:IranSans;display:none;color:red" id="CityValidation" class="label-input100">شهر خود را انتخاب کنید</span>
+
+                    <span style="font-family:IranSans" class="label-input100">شهر</span>
+                        <div style="font-family:IranSans;padding:5px">
+
+
+
+
+
+                            <div class="container">
+
+
+                                <div class="row-fluid">
+                                    <select tabindex="2" name="city" id="city" style="font-family:IranSans;text-align:center" class="selectpicker" data-show-subtext="true" data-live-search="true" required>
+
+
+                                        <option style="font-family:IranSans" value="">..شهر خود را انتخاب کنید..</option>
+                                        <option style="font-family:IranSans" value="تهران">تهران</option>
+                                        <option style="font-family:IranSans" value="کرج">کرج</option>
+                                        <option style="font-family:IranSans" value="قزوین">قزوین</option>
+                                        <option style="font-family:IranSans" value="تبریز">تبریز</option>
+                                        <option style="font-family:IranSans" value="مشهد">مشهد</option>
+                                        <option style="font-family:IranSans" value="قم">قم</option>
+                                        <option style="font-family:IranSans" value="زنجان">زنجان</option>
+                                        <option style="font-family:IranSans" value="رشت">رشت</option>
+                                        <option style="font-family:IranSans" value="اردبیل">اردبیل</option>
+                                        <option style="font-family:IranSans" value="گرگان">گرگان</option>
+                                        <option style="font-family:IranSans" value="اراک">اراک</option>
+                                        <option style="font-family:IranSans" value="کاشان">کاشان</option>
+                                        <option style="font-family:IranSans" value="اصفهان">اصفهان</option>
+                                        <option style="font-family:IranSans" value="یزد">یزد</option>
+                                        <option style="font-family:IranSans" value="اهواز">اهواز</option>
+                                        <option style="font-family:IranSans" value="شیراز">شیراز</option>
+                                        <option style="font-family:IranSans" value="بندرعباس">بندرعباس</option>
+                                        <option style="font-family:IranSans" value="کرمان">کرمان</option>
+                                        <option style="font-family:IranSans" value="بجنورد">بجنورد</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+                            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+                            <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+
+
+
+
+
+                        </div>
+                        <cenetr style="display:none;font-family:IranSans" id="loadingImg">
+                            <br />
+                            <img src="~/Themplate/images/pin.gif" alt="waiting" />
+
+                        </cenetr>
+
+
+
+
+
+
+                        <div class="wrap-input100">
+                            <div id="Seccond">
+                            </div>
+                        </div>
+
+                        <span style="font-family:IranSans;display:none;color:red" id="JobValidation" class="label-input100">نوع کسب و کار خود را انتخاب کنید</span>
+
+                        <span style="font-family:IranSans" class="label-input100">نوع کسب و کار</span>
+
+                        <div class="container">
+                            <style>
+
+                            </style>
+                            <div class="row-fluid" style="font-family: IranSans">
+                                <select tabindex="2" name="subJob" id="subJob" class="SelectJob" data-show-subtext="true" data-live-search="true" required>
+                                    <option style="font-family:IranSans" value="">..انتخاب کنید..</option>
+
+                                    @foreach (var item in ViewBag.listOfJobs)
+                                    {
+
+                                        <option style="font-family:IranSans" value="@item.SubjobName">@item.SubjobName</option>
+                                    }
+
+                                </select>
+                            </div>
+                        </div>
+
+
+
+                //....hazineyeErsal
+
+                <div class="wrap-input100">
+                    <div id="Seccond">
+
+                    </div>
+                </div>
+
+                <div class="DeliveryPrice">
+
+                    <img style="float:left" src="~/images/DleveryReg.png" alt="delivery-Price-baladchee" />
+                    <br /><br /><br />
+                    <div style="font-family:IranSansL;font-weight:bold"> چنانچه میخواهید در ویترین خود، فروش محصول داشته باشید، لطفا هزینه های ارسال خود را با توجه به اینکه خریدار در شهر شما و یا در شهر دیگری هست، انتخاب کنید :</div>
+
+                    <span style="font-family:IranSans" class="label-input100">هزینه ارسال درون شهری</span>
+
+                    <div class="container">
+
+                        <div class="row-fluid" style="font-family: IranSans">
+                            <select tabindex="2" name="DarunshahriPrice" id="DarunshahriPrice" class="SelectJob" data-show-subtext="true" data-live-search="true">
+                                <option style="font-family:IranSans" value="">.رایگان.</option>
+                                <option style="font-family:IranSans" value="10000">۱۰ هزار تومان</option>
+                                <option style="font-family:IranSans" value="15000">۱۵ هزار تومان</option>
+                                <option style="font-family:IranSans" value="20000">۲۰ هزار تومان</option>
+                                <option style="font-family:IranSans" value="25000">۲۵ هزار تومان</option>
+                                <option style="font-family:IranSans" value="30000">۳۰ هزار تومان</option>
+                                <option style="font-family:IranSans" value="35000">۳۵ هزار تومان</option>
+                                <option style="font-family:IranSans" value="40000">۴۰ هزار تومان</option>
+                                <option style="font-family:IranSans" value="50000">۵۰ هزار تومان</option>
+
+                            </select>
+                        </div>
+                    </div>
+
+
+
+                    @*//.............................................*@
+
+
+                    <span style="font-family:IranSans" class="label-input100">هزینه ارسال برون شهری</span>
+
+                    <div class="container">
+
+                        <div class="row-fluid" style="font-family: IranSans">
+                            <select tabindex="2" name="BorunshahriPrice" id="BorunshahriPrice" class="SelectJob" data-show-subtext="true" data-live-search="true">
+                                <option style="font-family:IranSans" value="">.رایگان.</option>
+                                <option style="font-family:IranSans" value="15000">۱۵ هزار تومان</option>
+                                <option style="font-family:IranSans" value="20000">۲۰ هزار تومان</option>
+                                <option style="font-family:IranSans" value="25000">۲۵ هزار تومان</option>
+                                <option style="font-family:IranSans" value="30000">۳۰ هزار تومان</option>
+                                <option style="font-family:IranSans" value="35000">۳۵ هزار تومان</option>
+                                <option style="font-family:IranSans" value="40000">۴۰ هزار تومان</option>
+                                <option style="font-family:IranSans" value="50000">۵۰ هزار تومان</option>
+                                <option style="font-family:IranSans" value="60000">۶۰ هزار تومان</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="font-family:IranSansL;font-weight:bold">*عدم انتخاب مبلغ در هر مورد، ارسال در آن بخش، رایگان در نظر گرفته میشود. اگر قصد فروش محصولی در ویترین خود ندارید، این قسمت را نادیده بگیرید. </div>
+
+
+
+                </div>
+
+                //....EndHazineyeErsal
+
+
+
+
+
+
+
+                        <br />
+                        <div class="wrap-input100">
+                            <span style="font-family:IranSans" class="label-input100">رمز</span>
+
+                            <input style="font-family:IranSansl" class="input100" name="password" id="password" oninvalid="this.setCustomValidity('یک رمز حداقل 6 کارکتری وارد کنید')" pattern=".{6,}" placeholder="رمز ورود ویترین" oninput="setCustomValidity('')" required type="password" />
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100">
+                            <span style="font-family:IranSans" class="label-input100">تکرار رمز</span>
+
+                            <span style="font-family:IranSans" id='message'></span>
+                            <input style="font-family:IranSansl" class="input100" name="confirm_password" id="confirm_password" oninvalid="this.setCustomValidity('رمز انتخاب شده را مجدد وارد نمایید')" pattern=".{6,}" placeholder="تکرار رمز ورود ویترین" oninput="setCustomValidity('')" required type="password" />
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div id="btnTitle" style="display:none" class="container-contact100-form-btn">
+                            <div class="wrap-contact100-form-btn">
+                                <div class="contact100-form-bgbtn"></div>
+                                <button style="font-family:IranSans" onclick="Validate()" id="button" class="contact100-form-btn">
+                                    <span style="font-family:IranSans">
+                                        <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                                        ثبت
+
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+            }
+
+            <script>
+
+                $('#myform').submit(function (event) {
+                    //console.log('form submitted.');
+
+                    if (!grecaptcha.getResponse()) {
+                        //console.log('captcha not yet completed.');
+
+                        event.preventDefault(); //prevent form submit
+                        grecaptcha.execute();
+                    } else {
+                        //console.log('form really submitted.');
+                    }
+                });
+
+                onCompleted = function () {
+                    console.log('captcha completed.');
+                    $('#myform').submit();
+                    var userName = document.getElementById("userName").value;
+                    alert(userName + " نام کاربری خود را به یاد داشته باشید ");
+
+                }
+
+                //select validation
+                function Validate() {
+
+                    var subjob = document.getElementById("subJob");
+                    var CityValidation = document.getElementById("city");
+
+                    if (subjob.value == "") {
+
+
+                        $("#JobValidation").css("display", "block");
+
+
+                    }
+                    else {
+                        $("#JobValidation").css("display", "none");
+                    }
+
+
+                    if (CityValidation.value == "") {
+
+
+                        $("#CityValidation").css("display", "block");
+
+
+                    }
+                    else {
+                        $("#CityValidation").css("display", "none");
+                    }
+
+                }
+
+
+                //hide submit button
+                $("#myform").submit(function (e) {
+                    e.preventDefault();
+                    $("button").hide();
+                });
+
+
+            </script>
+
+        </div>
+    </div>
+
+
+
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <script src="~/RegisterThempalte/ContactFrom_v4/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/RegisterThempalte/ContactFrom_v4/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/RegisterThempalte/ContactFrom_v4/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/RegisterThempalte/ContactFrom_v4/vendor/select2/select2.min.js"></script>
+
+
+    <!--===============================================================================================-->
+    @*<script src="~/RegisterThempalte/ContactFrom_v4/vendor/daterangepicker/moment.min.js"></script>*@
+    @*<script src="~/RegisterThempalte/ContactFrom_v4/vendor/daterangepicker/daterangepicker.js"></script>*@
+    <!--===============================================================================================-->
+    @*<script src="~/RegisterThempalte/ContactFrom_v4/vendor/countdowntime/countdowntime.js"></script>*@
+    <!--===============================================================================================-->
+    <script src="~/RegisterThempalte/ContactFrom_v4/js/main.js"></script>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+
+
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+
+
+
+
+        function checkSpecialKeys(e) {
+            if (e.keyCode != 8 && e.keyCode != 46 && e.keyCode != 37 && e.keyCode != 38 && e.keyCode != 39 && e.keyCode != 40)
+                return false;
+            else
+                return true;
+        }
+
+
+
+
+
+
+        function checkTextAreaMaxLength(textBox, e) {
+
+            var maxLength = parseInt($(textBox).data("length"));
+
+            if (!checkSpecialKeys(e)) {
+                if (textBox.value.length > maxLength - 1) textBox.value = textBox.value.substring(0, maxLength);
+            }
+            $(".char-count").html(maxLength - textBox.value.length);
+            return true;
+        }
+
+
+
+    </script>
+
+    @*<script src="~/Scripts/jquery-1.10.2.min.js"></script>*@
+    <script type="text/javascript">
+
+        $('#city').on('change', function () {
+            $("#loadingImg").css("display", "block");
+            $("#Seccond").html("");
+            var jobid = document.getElementById("city").value;
+
+            $.ajax({
+                type: "post",
+                url: "/Account/mapload",
+                dataType: 'html',
+                data: { jobid: jobid },
+                success: function (result) {
+                    //////$("loadimg").slideUp();
+                    $("#Seccond").html(result);
+                    $("#loadingImg").css("display", "none");
+                    $("#forms").css("display", "block");
+
+
+
+                },
+
+
+            }
+             )
+        });
+
+
+        //confirm pass
+        $('#password, #confirm_password').on('keyup', function () {
+            if ($('#password').val() == $('#confirm_password').val()) {
+                $('#message').html('✓').css('color', 'green');
+                $("#btnTitle").css('display', 'block');
+
+            }
+            else {
+                $('#message').html('عدم تطابق رمز').css('color', 'red');
+                $("#btnTitle").css('display', 'none');
+
+
+            }
+        });
+
+
+
+
+
+        //check username realTime
+        $('#userName').on('keyup', function () {
+
+            if ($('#userName').val() !== "") {
+
+
+                var userName = document.getElementById("userName").value;
+
+                $.ajax({
+                    type: "post",
+                    url: '@Url.Action("testuserName", "Account")',
+                    dataType: 'json',
+                    data: { userName: userName },
+                    success: function (response) {
+                        if (response.success) {
+                            if (response.responseText !== "نام کاربری قبلا ثبت شده است") {
+
+                                $('#e1').css("display", "none");
+                                $('#karbari').css("display", "block");
+                                $('#e2').css("display", "block");
+
+
+                            }
+
+                            else {
+                                $('#e1').css("display", "block");
+                                $('#karbari').css("display", "none");
+                                $('#e2').css("display", "none");
+
+
+                            }
+
+                        }
+                    },
+                    error: function (response) {
+                        alert("متاسفانه مشکلی در سیستم پیش آمده");
+                    }
+                })
+
+            }
+            else {
+                $('#e2').css("display", "none");
+            }
+        });
+
+
+
+        //check urlName realTime
+        $('#urlName').on('keyup', function () {
+
+            if ($('#urlName').val() !== "") {
+
+
+                var url = document.getElementById("urlName").value;
+
+                $.ajax({
+                    type: "post",
+                    url: '@Url.Action("testUrl", "Account")',
+                    dataType: 'json',
+                    data: { url: url },
+                    success: function (response) {
+                        if (response.success) {
+                            if (response.responseText !== "آدرس قبلا ثبت شده است") {
+
+                                $('#s1').css("display", "none");
+                                $('#url').css("display", "block");
+                                $('#s2').css("display", "block");
+
+
+                            }
+
+                            else {
+                                $('#s1').css("display", "block");
+                                $('#url').css("display", "none");
+                                $('#s2').css("display", "none");
+
+
+                            }
+
+                        }
+                    },
+                    error: function (response) {
+                        alert("متاسفانه مشکلی در سیستم پیش آمده");
+                    }
+                })
+
+            }
+            else {
+                $('#s2').css("display", "none");
+            }
+        });
+
+
+
+    </script>
+
+
+
+</body>
+</html>

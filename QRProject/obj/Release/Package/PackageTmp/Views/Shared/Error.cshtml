@@ -1,0 +1,50 @@
+﻿
+@{
+    Layout = null;
+}
+
+<style>
+    .responsive {
+        width: 75%;
+        height: auto;
+    }
+
+    .lSize {
+        font-size: 20pt;
+        font-weight: bold;
+    }
+
+    body {
+        background-color: rgb(243, 243, 243);
+    }
+
+    .button {
+        background-color: rgb(31, 125, 226); /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+    .button1 {
+        background-color: white;
+        color: black;
+        border: 2px solid rgb(31, 125, 226);
+        border-radius: 5px;
+    }
+</style>
+<br />
+<center>
+    <a class="lSize button button1" href="@Url.Action("Index","Home")">بازگشت به صفحه اصلی</a>
+
+    <br />
+    <br />
+    <br />
+    <img src="~/images/NotFound.png" class="responsive" alt="notFound" />
+
+</center>

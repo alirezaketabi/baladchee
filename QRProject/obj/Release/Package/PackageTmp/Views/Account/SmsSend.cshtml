@@ -1,0 +1,180 @@
+﻿@{
+    Layout = "~/views/shared/_AdminLayout.cshtml";
+}
+@using QRProject.Core
+@using QRProject.helper
+<style>
+
+    input[type=checkbox] {
+        /* Double-sized Checkboxes */
+        -ms-transform: scale(2); /* IE */
+        -moz-transform: scale(2); /* FF */
+        -webkit-transform: scale(2); /* Safari and Chrome */
+        -o-transform: scale(2); /* Opera */
+        transform: scale(2);
+        padding: 10px;
+    }
+
+    /* Might want to wrap a span around your checkbox text */
+    .checkboxtext {
+        /* Checkbox text */
+        font-size: 110%;
+        display: inline;
+    }
+    .SaleSv{
+        font-family:IranSans;margin-top: 3pt;
+    }
+    .ChkSm{
+        width:12pt;height:12pt;
+    }
+    .SalSm{width: 90%;font-family:IranSans;margin-top: 3pt}
+    .Smhcss{
+        color:green;font-family:IranSansl;font-weight:bold;
+    }
+    .imgns{
+        margin-left:5pt
+    }
+    .EndSco{
+        color:red;font-family:IranSansl;font-weight:bold
+    }
+    .SmBcss{
+        width:250pt;color:black;font-family:IranSansl;font-weight:bold;border:2px dashed #d7d7d7;padding:10pt;background-color:#f5f5f5; background: radial-gradient(#7d7bff, transparent);  border-radius: 5px;margin-bottom:10px;
+    }
+    .ConSsend{
+        font-family:IranSansl;font-weight:bold;width:300px;height:100px;
+    }
+    .SbMe{
+        font-family:IranSans;margin-top: 3pt;
+    }
+</style>
+<br />
+
+<div style="direction:rtl">
+    <a href="#" class="btn btn-default SaleSv" type="button" data-toggle="modal" data-target="#myModalRegister">خرید پیامک</a>
+    <!---sale sms Modal -->
+    <div class="modal fade" id="myModalRegister" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                    <center>
+                        <img src="~/images/SmsSents.png" alt="بلدچی" />
+
+                    </center>
+                </div>
+                @using (Html.BeginForm("Payment", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="modal-body">
+
+                        @foreach (var item in ViewBag.list)
+                        {
+                            <input type="radio" id="@item.Id" class="ChkSm" name="bProductId" value="@item.Id" checked>
+                            <label for="male" class="translate">@item.Name &nbsp; @item.Price تومان</label><br>
+                        }
+
+
+                        <input type="text" class="hidden" name="ClientId" value="@ViewBag.clientid" />
+                    
+
+                    </div>
+
+                    <div style="text-align:center">
+
+                        <button  href="#"  class="btn btn-default SalSm" type="submit">پرداخت</button>
+
+                    </div>
+
+                }
+      
+                <div class="modal-footer">
+            
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+<center>
+    <div style="font-family:IranSansl;font-weight:bold" class="translate">موجودی : @ViewBag.ClientSmsCount پیامک &nbsp;&nbsp;&nbsp;&nbsp;  مخاطبین : @ViewBag.ContactList شماره &nbsp;&nbsp;&nbsp;&nbsp; باشگاه مشتریان : @ViewBag.ClubList شماره &nbsp;&nbsp;&nbsp;&nbsp; مجموع شماره ها : @ViewBag.sum</div>
+    <br />
+    <div style="font-family:IranSansl;font-weight:bold">⚠ گذاشتن لینک در پیامک، بر خلاف قوانین سرویس ملی پیامک است و گذاشتن آن در متن، باعث عدم ارسال پیامک خواهد شد. </div>
+    <br />
+    @using (Html.BeginForm("SendEvent", "Account", FormMethod.Post, new { id = "logoutForm" }))
+    {
+
+        @Html.AntiForgeryToken()
+
+        <input type="text" class="hidden" name="ClientId" value="@ViewBag.clientid" />
+        if (ViewBag.e1 != null)
+        {
+            <div style="font-family:IranSansl;font-weight:bold;color:red">@ViewBag.e1</div>
+
+        }
+
+        if (ViewBag.sent == "sent")
+        {
+
+            <h4 class="Smhcss">  <img class="imgns" src="~/images/check.png" /><span>با موفقیت ارسال شد</span></h4>
+
+        }
+
+        if (ViewBag.sent == "Inventory")
+        {
+
+            <h5 class="EndSco"> <span>موجودی پیامک شما کم میباشد ، لطفا شارژ بفرمایید</span></h5>
+
+        }
+
+        <div class="SmBcss">
+            <img src="~/images/sendsms.png" alt="Alternate Text" />
+            <center>
+                <textarea placeholder="متن پیامک" name="Content" class="ConSsend" maxlength="70" oninvalid="this.setCustomValidity('متن پیامک را بنویسید حد اکثر 70 کارکتر')" oninput="setCustomValidity('')" required></textarea>
+            </center>
+            <div style="text-align:right">
+                <br />
+                <label>
+
+                    <input type="checkbox" name="checkClub" checked="checked">
+                    <span class="checkmark"></span>
+                    &nbsp;&nbsp;باشگاه مشتریان&nbsp;&nbsp;
+                </label>
+                <br />
+                <label>
+
+                    <input type="checkbox" name="checkContact" checked="checked">
+                    <span class="checkmark"></span>
+                    &nbsp;&nbsp;مخاطبین&nbsp;&nbsp;
+                </label>
+                <br />
+            </div>
+            <center>
+                <button onclick="return confirm('آیا از ارسال پیامک مطمئن هستید؟');" href="#"  class="btn btn-default SbMe" data-toggle="modal" data-target="#myModal"> ارسال پیامک</button>
+            </center>
+        </div>
+    }
+</center>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var arabicNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+        $('.translate').text(function (i, v) {
+            var chars = v.split('');
+            for (var i = 0; i < chars.length; i++) {
+                if (/\d/.test(chars[i])) {
+                    chars[i] = arabicNumbers[chars[i]];
+                }
+            }
+            return chars.join('');
+        })
+
+
+    });
+
+</script>

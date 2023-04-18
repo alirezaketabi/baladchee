@@ -1,0 +1,130 @@
+﻿
+@{
+    Layout = "~/views/shared/_AdminLayout.cshtml";
+}
+
+@using QRProject.helper
+@using QRProject.Core
+@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<Sefareshat>
+<style>
+    .tblCnb {
+        width: 100%;
+        font-family: IranSansl;
+        font-weight: bold;
+    }
+
+    .CSize {
+        font-size: 15pt;
+    }
+</style>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#factors">فاکتور های فروش</a></li>
+    <li><a data-toggle="tab" id="menuss"  href="#Amar">آمار فروش</a></li>
+
+</ul>
+<div class="tab-content">
+    <div id="factors" class="tab-pane fade in active">
+
+        <br />
+        <center>
+            <img src="~/images/Ordesrs.png" alt="order" />
+            <br /><br />
+            <div> این لیست، شامل تمامی فاکتور های خرید مشتریان شما میباشد. در قسمت جزییات، ریز فاکتور آن خرید را میتوانید مشاهده فرمایید.</div>
+        </center>
+        <br />
+        <div class="pre-scrollable">
+            <table id="myOpinion" class="table table-striped table-bordered tblCnb">
+                <thead>
+                    <tr>
+                        <th>تاریخ</th>
+                        <th>کد رهگیری</th>
+                        <th>کد پیگیری بانک</th>
+                        <th>توضیحات</th>
+                        <th>جزییات خرید</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tbody>
+                    @foreach (var item in Model)
+            {
+                        <tr>
+
+                            <td class="translate">
+                                @Replace.ToShamsi(item.CreateDate)
+                            </td>
+                            <td class="translate">@item.Tracking_Code</td>
+                            <td class="translate">@item.RefId</td>
+                            <td class="translate">@item.Tozihat</td>
+
+                            <td>
+
+                                @Html.ActionLink(" جزییات ", "DetailsOrders", "Account", new { orderid = item.Id, ClientId = ViewBag.clientid, Page = ViewBag.pageCount }, null)
+
+
+                            </td>
+                        </tr>
+                    }
+
+                    <tr class="CSize container">
+                        @Html.PagedListPager(Model, Page => Url.Action("Orders", new { Page, ClientId = ViewBag.clientid }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded })
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+    <div id="Amar" class="ssn tab-pane fade">
+        <br />
+        <div class="row">
+            <div style="font-size:17px" class="col-lg-6">
+                <img src="~/images/ToDay.png"  alt="ToDaySale" />
+                فروش امروز : 
+                <span class="Day translate" style="font-weight:bold">@ViewBag.TodayListSale.ToString("#,0 ")</span>
+          تومان
+              </div>
+            <br />
+            <div style="font-size:17px" class="col-lg-6">
+                <img src="~/images/ThisMonth.png"  alt="ThisMonthSale" />
+                فروش این ماه : 
+                 <span class="Month translate"style="font-weight:bold">@ViewBag.ThisMonthListSale.ToString("#,0 ")</span>
+          تومان
+              </div>
+
+        </div>
+
+        
+        
+     </div>
+
+    </div>
+
+
+    @*farsi kardane adad*@
+    <script type="text/javascript">
+
+
+
+        $(document).ready(function () {
+            var arabicNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+            $('.translate').text(function (i, v) {
+                var chars = v.split('');
+                for (var i = 0; i < chars.length; i++) {
+                    if (/\d/.test(chars[i])) {
+                        chars[i] = arabicNumbers[chars[i]];
+                    }
+                }
+                return chars.join('');
+            })
+        });
+
+  
+    </script>
+@*//namayeshe animate furushe emruz*@
+

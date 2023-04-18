@@ -1,0 +1,108 @@
+﻿
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www.jqueryscript.net/demo/Simple-Easy-jQuery-Notification-Plugin-NotifIt/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 08 Jun 2021 20:35:09 GMT -->
+<head>
+    <meta charset="utf-8">
+    <style>
+  
+
+        button {
+            width: 100%;
+            padding: 10px;
+            color: #444;
+            background-color: #f4f4f4;
+            cursor: pointer;
+            border: none;
+            margin: 2px;
+        }
+
+    
+   
+
+        .title {
+            font-size: 57px;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 0;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #999;
+            margin-top: -10px;
+            margin-bottom: 20px;
+        }
+
+        .comment {
+            color: #AAA;
+        }
+
+        .string {
+            color: teal;
+        }
+
+        .tag {
+            color: blue;
+        }
+
+        .attr {
+            color: green;
+        }
+
+        .button_download {
+            display: block;
+            font-family: sans-serif;
+            cursor: pointer;
+            width: 60px;
+            padding: 10px 30px 10px 30px;
+            font-weight: bold;
+            font-size: 20px;
+            text-decoration: none;
+            text-align: center;
+            margin: 0 auto;
+            background-color: #444;
+            color: #EEE;
+            transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            -webkit-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            -ms-transition: all 0.3s;
+        }
+
+            .button_download:hover {
+                width: 480px;
+                background-color: yellowgreen;
+                color: #444;
+            }
+
+        .step {
+            color: #AAA;
+        }
+    </style>
+    <title>jQuery NotifIt Plugin Examples</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ 
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="AlertJqueryPlugin/js/notifIt.js"></script>
+    <link rel="stylesheet" type="text/css" href="AlertJqueryPlugin/css/notifIt.css">
+</head>
+<body>
+
+        <button onclick="not1()">NotifIt! 1 (Default position, Success)</button>
+     
+  
+    <script>
+        function not1(){
+            notif({
+				msg: "<b>محصول به سبد خرید اضافه شد</b>",
+				type: "success"
+			});
+        }
+
+    </script>
+ 
+</body>
+
+</html>

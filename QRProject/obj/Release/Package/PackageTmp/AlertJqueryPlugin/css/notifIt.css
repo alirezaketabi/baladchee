@@ -1,0 +1,57 @@
+    @font-face {
+            font-family: IranSans;
+            src: url(../../fonts/iransans-bold.woff2);
+        }
+
+        @font-face {
+            font-family: IranSansl;
+            src: url(../../fonts/iransans-light.woff2);
+        }
+
+
+#ui_notifIt{
+    position: fixed;
+    top: 10px;
+      z-index: 6;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
+    -o-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+      font-family:IranSansl;
+       margin-right:-30pt;
+}
+#ui_notifIt p{
+    text-align: center;
+     font-family:IranSansl;
+    font-size: 14px;
+  
+ 
+}
+
+/* Color setup */
+/* Configure this if you want */
+.success{
+   
+    margin-top:80pt;
+    background-color: yellowgreen;
+    color: white;
+  
+}
+.error{
+    background-color: orangered;
+    color: white;
+}
+.warning{
+    background-color: orange;
+    color: white;
+}
+.info{
+    background-color: deepskyblue;
+    color: white;
+}
+.default{
+    background-color: #EEE;
+    color: #444;
+}

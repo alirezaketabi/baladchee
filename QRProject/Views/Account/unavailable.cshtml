@@ -1,0 +1,96 @@
+﻿
+@{
+    Layout = "~/views/shared/_AdminLayout.cshtml";
+}
+@using QRProject.Core
+@using QRProject.helper
+
+@using QRProject.Models
+<style>
+    .tblCnb {
+        width: 100%;
+        font-family: IranSansl;
+        font-weight: bold;
+            }
+</style>
+<br />
+<center>
+    <img src="~/images/unavailable.png" alt="opinion" />
+    <br />
+    <div> برای شارژ هرکالا و افزایش موجودی، روی گزینه "مشاهده کالا" بزنید و در صفحه مربوطه کالا را پیدا کنید سپس در قسمت ویرایش کالا، موجودی را افزایش دهید. </div>  
+    <br />
+</center>
+
+
+<table id="myClub" class="table table-striped table-bordered tblCnb">
+    <thead>
+        <tr>
+            <th>تصویر</th>
+            <th>نام کالا</th>
+            <th>مشاهده محصول</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tbody>
+
+
+        @foreach (var item in (List<KalaNamojudViewModel>)ViewBag.ListeNamujud)
+        {
+            <tr>
+                <td ><img style="width:60pt" src="@Url.Content(item.PicAddress)" alt="@item.KalaName" /></td>
+                <td class="translate">
+                    @item.KalaName
+                </td>
+                @if (item.MoreProduct != null&& item.Product == null)
+                {
+                    <td>
+
+                        @Html.ActionLink(" مشاهده کالا ", "MoreProducts", "Home", new { id = item.ClientId, search=item.KalaName },null)
+
+
+                    </td>
+
+                }
+
+
+                @if (item.MoreProduct == null && item.Product != null)
+                {
+                    <td>
+
+                        @Html.ActionLink(" مشاهده کالا ", "show", "Home", new { id = item.ClientId},null)
+
+
+                    </td>
+                }
+
+
+            </tr>
+        }
+
+
+
+    </tbody>
+</table>
+@*farsi kardane adad*@
+<script type="text/javascript">
+        $(document).ready(function () {
+            var arabicNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+            $('.translate').text(function (i, v) {
+                var chars = v.split('');
+                for (var i = 0; i < chars.length; i++) {
+                    if (/\d/.test(chars[i])) {
+                        chars[i] = arabicNumbers[chars[i]];
+                    }
+                }
+                return chars.join('');
+            })
+
+
+        });
+
+
+
+
+
+</script>
+

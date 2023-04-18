@@ -1,0 +1,281 @@
+﻿
+
+
+
+@{
+    Layout = null;
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        @@font-face {
+            font-family: IranSans;
+            src: url(../../fonts/iransans-bold.woff2);
+        }
+
+        @@font-face {
+            font-family: IranSansl;
+            src: url(../../fonts/iransans-light.woff2);
+        }
+
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .btnn {
+            border: 2px solid gray;
+            color: gray;
+            background-color: white;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .upload-btn-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
+
+        .newline {
+            white-space: pre-wrap;
+        }
+    </style>
+    <title>VerifyCode</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/RegisterThempalte/ContactFrom_v4/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/RegisterThempalte/ContactFrom_v4/css/main.css">
+    <!--===============================================================================================-->
+   
+</head>
+<body>
+
+
+    <div class="container-contact100">
+        <div class="wrap-contact100">
+            @using (Html.BeginForm("ClientRegister", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new {@class = "form-horizontal login100-form validate-form", role = "form", id = "myform" }))
+            {
+
+                @Html.AntiForgeryToken()
+              
+
+                <div style="font-family:IranSansl;font-weight:bold" >
+                    <center>
+                        @if (ViewBag.error!=null)
+                        {
+                         <div style="color:red">@ViewBag.error</div>
+                        }
+                        <img src="~/images/L2.png" />
+                    </center>
+                    <br />
+                    <center class="translate">
+                        کد فعال سازی به شماره @ViewBag.tell ارسال گردید ،
+                        این فرآیند ممکن است چند دقیقه به طول بیانجامد
+                    </center>
+                </div>
+              <br />
+            <br />
+                <div class="wrap-input100">
+                    <span style="font-family:IranSans" class="label-input100">کد پیامک شده را بصورت اعداد لاتین وارد نمایید</span>
+                    <input style="font-family:IranSansl;font-size:12pt" class="input100" type="text" name="RegCode" placeholder="مثال : 12345" oninvalid="this.setCustomValidity('کد فعالسازی را وارد نمایید')" oninput="setCustomValidity('')" required="">
+                    <span class="focus-input100"></span>
+                </div>
+
+
+                <div class="container-contact100-form-btn">
+                    <div class="wrap-contact100-form-btn">
+                        <div class="contact100-form-bgbtn"></div>
+                        <button id="mySubmitt" class="contact100-form-btn">
+                            <span style="font-family:IranSans">
+                                <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                                ثبت
+
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            }
+
+
+
+        </div>
+    </div>
+
+
+
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <script src="~/RegisterThempalte/ContactFrom_v4/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/RegisterThempalte/ContactFrom_v4/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/RegisterThempalte/ContactFrom_v4/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/RegisterThempalte/ContactFrom_v4/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/RegisterThempalte/ContactFrom_v4/vendor/select2/select2.min.js"></script>
+    <script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+    </script>
+    <!--===============================================================================================-->
+    <script src="~/RegisterThempalte/ContactFrom_v4/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/RegisterThempalte/ContactFrom_v4/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/RegisterThempalte/ContactFrom_v4/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/RegisterThempalte/ContactFrom_v4/js/main.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+
+    <script>
+
+                          $('#myform').submit(function (event) {
+                              //console.log('form submitted.');
+
+                              if (!grecaptcha.getResponse()) {
+                                  //console.log('captcha not yet completed.');
+
+                                  event.preventDefault(); //prevent form submit
+                                  grecaptcha.execute();
+                              } else {
+                                  //console.log('form really submitted.');
+                              }
+                          });
+
+                          onCompleted = function () {
+                              console.log('captcha completed.');
+                              $('#myform').submit();
+
+                          }
+    </script>
+
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+
+
+
+
+
+
+  $("#RootAddres").on('change', function () {
+      var ext = $('#RootAddres').val().split('.').pop().toLowerCase();
+      if ($.inArray(ext, ['png', 'jpg', 'jpeg']) == -1) {
+          alert('تنها فرمت های jpeg jpg png قابل قبول است');
+          $('#mySubmitt').css("display", "none");
+
+
+
+
+      }
+      else {
+
+          $('#adImage').css("display", "block");
+          $('#mySubmitt').css("display", "block");
+          showPreview(this);
+      }
+
+  });
+
+  function showPreview(input) {
+
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+              $('#adImage').attr('src', e.target.result);
+          }
+
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
+
+
+
+
+
+  function checkSpecialKeys(e) {
+      if (e.keyCode != 8 && e.keyCode != 46 && e.keyCode != 37 && e.keyCode != 38 && e.keyCode != 39 && e.keyCode != 40)
+          return false;
+      else
+          return true;
+  }
+
+
+
+
+
+
+  $(".char-textarea").on("keyup", function (event) {
+      checkTextAreaMaxLength(this, event);
+  });
+
+
+
+
+  function checkTextAreaMaxLength(textBox, e) {
+
+      var maxLength = parseInt($(textBox).data("length"));
+
+      if (!checkSpecialKeys(e)) {
+          if (textBox.value.length > maxLength - 1) textBox.value = textBox.value.substring(0, maxLength);
+      }
+      $(".char-count").html(maxLength - textBox.value.length);
+      return true;
+  }
+
+
+$(document).ready(function () {
+    var arabicNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+    $('.translate').text(function (i, v) {
+        var chars = v.split('');
+        for (var i = 0; i < chars.length; i++) {
+            if (/\d/.test(chars[i])) {
+                chars[i] = arabicNumbers[chars[i]];
+            }
+        }
+        return chars.join('');
+    })
+
+
+});
+
+    </script>
+ 
+
+</body>
+</html>

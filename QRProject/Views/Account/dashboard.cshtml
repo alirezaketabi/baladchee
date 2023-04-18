@@ -1,0 +1,123 @@
+﻿
+
+@{
+    Layout = "~/views/shared/_AdminLayout.cshtml";
+}
+<html>
+<head>
+    <script src="~/chartTemplate/Chart.bundle.js"></script>
+    <script src="~/chartTemplate/utils.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <style>
+
+    
+    canvas{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none}.opl{border-radius:5px}.responsive{width:70%;height:auto;margin:11pt}.responsive2{width:85%;height:auto;margin:10pt;direction:rtl;color:#000;font-family:IranSansl;font-size:12pt;direction:rtl;text-align:right}.klm{direction:rtl;color:#000;font-family:IranSansl;direction:rtl;font-weight:700;text-align:right;margin-right:7pt;font-size:18pt}.nemoudarCss{text-align:center;width:250pt;color:#000;font-family:IranSansl;font-weight:700;direction:rtl;border:2px dashed #d7d7d7;padding:10pt;background-color:#f5f5f5}.maxN{max-width:100%;font-family:IranSansl}
+    </style>
+</head>
+
+<body>
+    <br />
+    <div  class="maxN">
+        <div class="opl container translate nemoudarCss"> تعداد کل بازدید ها : @ViewBag.sum</div>
+        <canvas id="canvas"></canvas>
+    </div>
+    <hr />
+    <h3 class="klm">نکاتی مختصر برای بالا بردن آمار بازدید شما و فروش بیشتر</h3>
+    <div class="responsive2">
+        بی تردید هر چه صفحه ویترین شما بازدید بیشتری داشته باشد، درآمد بیشتری را تجربه خواهید کرد.<br />اشاره ای به چند نکته برای بالا بردن میزان بازدید صفحه ویترین شما :
+         
+    </div>
+    <img src="~/images/bn1.jpg" class="responsive" alt="بلدچی" />
+    <div class="klm">
+        استفاده خلاقانه از بلدچی کیوآر
+    </div>
+    <div  class="responsive2"  >
+میتوانید از بلدچی کیوآر بصورت برچسب روی محصولات خود استفاده کنید و یا بصورت جا کلیدی به مشتریان خود هدیه دهید. این بستگی به خلاقیت شما دارد که چطور نگاه مشتری را بیشتر به بلدچی کیوآر سوق دهید.
+    </div>
+    <img src="~/images/bn2.jpg" class="responsive" alt="بلدچی" />
+     <div class="klm">
+       حفظ رضایت مشتری 
+    </div>
+    <div  class="responsive2" >
+همواره این را به یاد داشته باشید که یک مشتری راضی در طول پنج سال ،پنجاه مشتری جدید را برا شما میفرستد و هزینه ی به دست آوردن یک مشتری حداقل پنج برابر هزینه ی خشنود نگه داشتن مشتریان کنونی هست.او همواره میخواهد به او اهمیت داده شود. پس از خوشحال ساختن و رضایت مشتری اطمینان حاصل کنید که مشتری همچنان شاد و راضی میماند. فروشندگان موفق میدانند که مشتری چه خواسته ای دارد پس حتما به محتوای ویترین دقت کنید.محتوای آگهی از آنچه که مشتریان میخواهند ،دقیقا مبنای موفقیت است.    
+     </div>
+
+    <img src="~/images/b3.jpg" class="responsive" alt="بلدچی" />
+    <div class="klm">
+        حفظ ارتباط با مشتری 
+    </div>
+    <div class="responsive2" >
+مشتری را همواره از تخفیف ها و رویداد ها آگاه کنید یکی از بهترین راه هایی که پیشنهاد میشود استفاده از باشگاه مشتریان و پنل پیامکی میباشد که بلدچی در اختیار شما قرار داده است. 
+    </div>
+    <br />
+        <script>
+            var config = {
+                type: 'line',
+                data: {
+                    //labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July']
+                    labels: [@Html.Raw(ViewBag.ObjectName)],
+                    datasets: [{
+                        label: 'میزان بازدید',
+                        fontSize: 20,
+                        backgroundColor: window.chartColors.red,
+                        borderColor: window.chartColors.red,
+                        data: [@ViewBag.Data],
+                        fontFamily:"IranSans",
+                        fill: false,
+
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    title: {
+
+                        display: true,
+                        text: 'نمودار بازدید های یک ماه اخیر ویترین شما',
+                        fontSize: 15,
+
+
+                    },
+
+                    scales: {
+                        yAxes: [{
+                            gridLines: {
+                                drawBorder: false,
+                                color: ['pink', 'blue']
+                            },
+                            ticks: {
+                                min: 0,
+                                max: @ViewBag.max,
+                                stepSize: 10,
+                                //fontSize:15
+
+                            }
+                        }]
+                    }
+                }
+            };
+
+            window.onload = function () {
+                var ctx = document.getElementById('canvas').getContext('2d');
+                window.myLine = new Chart(ctx, config);
+            };
+        </script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                var arabicNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+                $('.translate').text(function (i, v) {
+                    var chars = v.split('');
+                    for (var i = 0; i < chars.length; i++) {
+                        if (/\d/.test(chars[i])) {
+                            chars[i] = arabicNumbers[chars[i]];
+                        }
+                    }
+                    return chars.join('');
+                })
+
+
+            });
+        </script>
+
+</body>
+</html>

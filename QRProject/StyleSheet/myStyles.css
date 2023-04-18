@@ -1,0 +1,142 @@
+﻿
+        @font-face {
+            font-family: IranSans;
+            src: url(../../fonts/iransans-bold.woff2);
+        }
+
+        @font-face {
+            font-family: IranSansl;
+            src: url(../../fonts/iransans-light.woff2);
+        }
+
+        input[type=text], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .newline {
+            white-space: pre-line;
+        }
+
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+            .upload-btn-wrapper input[type=file] {
+                font-size: 100px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                opacity: 0;
+            }
+
+        .imageradius {
+            border-radius: 50%;
+        }
+
+        .myimg {
+            opacity: 0.25;
+        }
+
+        .cke_textarea_inline {
+            border: 1px solid #ccc;
+            padding: 10px;
+            min-height: 300px;
+            background: #fff;
+            color: #000;
+        }
+
+        .opl {
+            border-radius: 5px;
+        }
+
+        .n1 {
+            font-family: IranSans;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            font-size: 6vw;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+            display: inline-block;
+            background-size: 120% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -moz-background-clip: text;
+            -moz-text-fill-color: transparent;
+            -ms-background-clip: text;
+            -ms-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            background-image: linear-gradient(45deg, #4f4eca, #44107A, #3f83c5, #4C3FC5);
+            animation: 2.9s shake /*infinite*/ alternate;
+        }
+
+        @keyframes shake {
+            20% {
+                transform: skewX(-3deg);
+            }
+
+            5% {
+                transform: skewX(1deg);
+            }
+
+            3% {
+                transform: skewX(-1deg);
+            }
+
+            3% {
+                transform: skewX(2deg);
+            }
+
+            3% {
+                transform: skewX(5deg);
+            }
+
+            5% {
+                transform: skewX(2deg);
+            }
+        }
+
+
+        .mybtn {
+            border-radius: 5px;
+            border: none;
+            color: white;
+            padding: 5px 5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .button3
+         {
+
+            background-color: none;
+            color: black;
+            border: 2px solid #000000;
+        }
+        input[type="color"] {
+	-webkit-appearance: none;
+
+	width: 120px;
+	height: 32px;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+}
+ 

@@ -1,0 +1,284 @@
+﻿@model IEnumerable<QRProject.Models.FactorVM>
+    @using QRProject.helper
+@using QRProject.Core
+    @{Layout = null;
+        ViewBag.Title = " جزییات فاکتور ";
+        int row = 1;
+    
+    }
+    <title>سبد فاکتور مربوطه</title>
+    <style>
+        .Bborder {
+    text-align: center;
+    width: 250pt;
+    color: #000;
+    font-family: IranSansl;
+    font-weight: 700;
+    direction: rtl;
+    border: 2px dashed #d7d7d7;
+    padding: 10pt;
+    background-color: #f5f5f5;
+}
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: right;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        th {
+            background-color: #0e52f6;
+            color: white;
+        }
+
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
+
+        .button2:hover {
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+    </style>
+    <style>
+        @@font-face {
+            font-family: IranSans;
+            src: url(../../fonts/iransans-bold.woff2);
+        }
+
+        @@font-face {
+            font-family: IranSansl;
+            src: url(../../fonts/iransans-light.woff2);
+        }
+
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .btnn {
+            border: 2px solid gray;
+            color: gray;
+            background-color: white;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .upload-btn-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
+
+        .newline {
+            white-space: pre-wrap;
+        }
+
+        .myfilter-option {
+            display: inline-block;
+            overflow: hidden;
+            width: 100%;
+            text-align: center;
+        }
+
+        .titleShop {
+            text-align: center;
+            margin: 12px;
+            font-size: 16px;
+        }
+       .scrollmenu {
+
+  overflow: auto;
+  white-space: nowrap;
+}
+
+    </style>
+
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/FormTemplate/css/style.css">
+
+
+    <link href="~/Themplate/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/StyleSheet/myStyles.css" rel="stylesheet" />
+@{
+
+    moshtari mymoshtari = new moshtari();
+    mymoshtari = (moshtari)ViewBag.moshtari;
+
+}  
+  <div class="container" style="direction:rtl;font-family:IranSans">
+
+    <div class="titleShop">
+        جزییات فاکتور @ViewBag.tracking_code
+        <img style="margin-left:4pt" src="~/images/SalesInvoice.png"  alt="ShopCart" />
+    </div>
+ 
+    <i style="float:left;font-family:IranSansl">
+        <a href="@Url.Action("Orders", "Account", new { ClientId = ViewBag.Client,Page=ViewBag.pageCount  })">بازگشت به سفارشات<img src="~/images/myBacck.png" alt="بازگشت" /></a>
+    </i>
+      <br />
+      <br />
+      <div class="row">
+          <div class="Bborder">
+              <img src="~/images/Mycustomer.png" alt="customer" />
+              <div> نام: @mymoshtari.Name </div>
+              <div class="translate"> تلفن: @mymoshtari.PhoneNumber </div>
+              <div> آدرس: @mymoshtari.Address </div>
+              <div class="translate"> کدپستی: @mymoshtari.PostalCode </div>
+          </div>
+         <div class="Bborder pull-left" id="MapLocation" style="height: 260px;width:210pt"></div>
+
+      </div>
+      <div class="scrollmenu">
+          <table style="direction:rtl" class="table table-bordered">
+              <tr>
+                  <th>#</th>
+                  <th>تصویر</th>
+                  <th>کالا</th>
+                  <th>تعداد</th>
+                  <th>قیمت(تومان)</th>
+                  <th>جمع(تومان)</th>
+                  <th>وضعیت</th>
+              </tr>
+
+              @foreach (var item in Model)
+            {
+                  <tr>
+                      <td>@row</td>
+                      <td>
+                          <img class="thumbnail" style="max-width: 120px" src="@Url.Content(item.ImageAddress)" />
+                      </td>
+                      <td>@item.Title</td>
+                      <td class="translate">@item.Count</td>
+                      <td class="translate">@item.Price.ToString("#,0 ")</td>
+                      <td class="translate">@item.Sum.ToString("#,0 ")</td>
+                      <td style="color:green">
+                          پرداخت شده
+                      </td>
+                  </tr>
+
+                  row++;
+              }
+              <tr>
+                  <td colspan="3" class="text-left">
+                      جمع تعداد :
+                  </td>
+                  <td class="translate">
+                      @Model.Sum(p => p.Count)
+                  </td>
+                  <td class="text-left">
+                      جمع پرداختی :
+                  </td>
+                  <td  colspan="2" class="text-center translate">
+                      <p class="text-success">@Model.Sum(p => p.Sum).ToString("#,0 تومان")</p>
+                  </td>
+              </tr>
+          </table>
+      </div>
+</div>
+
+
+
+
+
+@*...................................................................map*@
+
+
+<link href="~/leaf/leaflet.css" rel="stylesheet" />
+
+<script src="~/leaf/leaflet.js"></script>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+
+
+
+    $(function () {
+
+
+        var curLocation = @Html.Raw(ViewBag.tt);
+        // use below if you have a model
+        zoom: 15;
+
+        if (curLocation[0] == 0 && curLocation[1] == 0) {
+            curLocation = @Html.Raw(ViewBag.tt);
+        }
+
+        var map = L.map('MapLocation').setView(curLocation, 14);
+
+
+
+        L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+            attribution: 'baladchee.com'
+        }).addTo(map);
+
+        map.attributionControl.setPrefix(false);
+
+        var marker = new L.marker(curLocation, {
+        
+
+        });
+
+
+        $("#Latitude, #Longitude").change(function () {
+            var position = [parseInt($("#Latitude").val()), parseInt($("#Longitude").val())];
+            marker.setLatLng(position, {
+                draggable: 'false'
+            }).bindPopup(position).update();
+            map.panTo(position);
+        });
+
+        map.addLayer(marker);
+    })
+</script>
+<script type="text/javascript">
+            $(document).ready(function () {
+                var arabicNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+                $('.translate').text(function (i, v) {
+                    var chars = v.split('');
+                    for (var i = 0; i < chars.length; i++) {
+                        if (/\d/.test(chars[i])) {
+                            chars[i] = arabicNumbers[chars[i]];
+                        }
+                    }
+
+
+                    return chars.join('');
+                })
+
+
+            });
+
+</script>
