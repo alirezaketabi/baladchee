@@ -917,6 +917,7 @@
     }
     <!-- Add-Product-End -->
     <!--Products-Start -->
+    <span id="scrollAfterSearch"></span>
     @foreach (var product in Model)
     {
         <div id="@product.MoreProductId.ToString()" role="dialog">
@@ -955,69 +956,72 @@
                         var EditId = product.MoreProductId.ToString() + "E";
                         var order = product.MoreProductId.ToString() + "order";
                     }
-                    <center>
-                        @if (ViewBag.flag == "yes")
+                <center>
+                    @if (ViewBag.flag == "yes")
+                    {
+
+                        if (ViewContext.HttpContext.User.IsInRole("User") || ViewContext.HttpContext.User.IsInRole("SuperAdmin"))
+                        {
+
+                            <a data-toggle="modal" data-target="#@EditId" class="uclas btn btn-default">ویرایش</a>
+                        }
+                    }
+                    @if (ViewBag.flag == "yes")
+                    {
+
+                        if (ViewContext.HttpContext.User.IsInRole("User") || ViewContext.HttpContext.User.IsInRole("SuperAdmin"))
+                        {
+                            //agar  sefaresh darad in no peygham ro bede baraye hazv
+                            if (product.SefareshMahsool != null && Replace.MoreProductHasOrder(product.MoreProductId))
+                            {
+                                <a href="@Url.Action("DeleteMoreProduct", "Home", new { pId = product.MoreProductId, userId = (ViewBag.SelectPage as Client).UserId })" class="uclas btn btn-default" onclick="return confirm('برای این مورد سفارش ثبت شده است! یعنی این محصول دارای مشتری میباشد، آیا برای حذف آن مطمئن هستید؟');" data-text="حذف آگهی"><span>حذف</span></a>
+
+                            }
+                            //agar ghabeliate sefaresh nadasht peyghame sade bede baraye hazv
+                            else
+                            {
+                                <a href="@Url.Action("DeleteMoreProduct", "Home", new { pId = product.MoreProductId, userId = (ViewBag.SelectPage as Client).UserId })" class="uclas btn btn-default" onclick="return confirm('برای حذف این مورد مطمئن هستید!؟');" data-text="حذف آگهی"><span>حذف</span></a>
+
+                            }
+                        }
+                    }
+
+
+
+                    @if (product.SefareshMahsool != null && product.count > 0)
+                    {
+
+                        <a class="uclas btn btn-default" onclick="AddToCart('@product.MoreProductId'); not1();" role="button"><img src="~/images/cart-icon-resize.png" alt="baladcheeSale" /></a>
+                        if (ViewBag.flag == "yes")
                         {
 
                             if (ViewContext.HttpContext.User.IsInRole("User") || ViewContext.HttpContext.User.IsInRole("SuperAdmin"))
                             {
 
-                                <a data-toggle="modal" data-target="#@EditId" class="uclas btn btn-default">ویرایش</a>
-                            }
-                        }
-                        @if (ViewBag.flag == "yes")
-                        {
+                                <div class="uclas translate">    موجودی : @product.count</div>
 
-                            if (ViewContext.HttpContext.User.IsInRole("User") || ViewContext.HttpContext.User.IsInRole("SuperAdmin"))
-                            {
-                                //agar  sefaresh darad in no peygham ro bede baraye hazv
-                                if (product.SefareshMahsool != null && Replace.MoreProductHasOrder(product.MoreProductId))
-                                {
-                                    <a href="@Url.Action("DeleteMoreProduct", "Home", new { pId = product.MoreProductId, userId = (ViewBag.SelectPage as Client).UserId })" class="uclas btn btn-default" onclick="return confirm('برای این مورد سفارش ثبت شده است! یعنی این محصول دارای مشتری میباشد، آیا برای حذف آن مطمئن هستید؟');" data-text="حذف آگهی"><span>حذف</span></a>
-
-                                }
-                                //agar ghabeliate sefaresh nadasht peyghame sade bede baraye hazv
-                                else
-                                {
-                                    <a href="@Url.Action("DeleteMoreProduct", "Home", new { pId = product.MoreProductId, userId = (ViewBag.SelectPage as Client).UserId })" class="uclas btn btn-default" onclick="return confirm('برای حذف این مورد مطمئن هستید!؟');" data-text="حذف آگهی"><span>حذف</span></a>
-
-                                }
                             }
                         }
 
+                    }
+                    else
+                    {
+                        <div class="uclas translate" style="color:red"> عدم موجودی</div>
+                    }
+
+                    @*mahsul linke instagram dasht*@
+                    @if (product.MoreProductSocialMediaLink != null && product.MoreProductSocialMediaLink != "")
+                    {
 
 
-                        @if (product.SefareshMahsool != null && product.count > 0)
-                        {
+                        <a class="uclas btn btn-default" style="border-radius:40px" href="@product.MoreProductSocialMediaLink" target="_blank" role="button"><img src="~/images/InstaProduct.png" alt="InstagramProduct" /></a>
 
-                            <a class="uclas btn btn-default" onclick="AddToCart('@product.MoreProductId'); not1();" role="button"><img src="~/images/cart-icon-resize.png" alt="baladcheeSale" /></a>
-                            if (ViewBag.flag == "yes")
-                            {
-
-                                if (ViewContext.HttpContext.User.IsInRole("User") || ViewContext.HttpContext.User.IsInRole("SuperAdmin"))
-                                {
-
-                                    <div class="uclas translate">    موجودی : @product.count</div>
-
-                                }
-                            }
-
-                        }
-
-
-                        @*mahsul linke instagram dasht*@
-                        @if (product.MoreProductSocialMediaLink != null && product.MoreProductSocialMediaLink != "")
-                        {
-
-
-                            <a class="uclas btn btn-default" style="border-radius:40px" href="@product.MoreProductSocialMediaLink" target="_blank" role="button"><img src="~/images/InstaProduct.png" alt="InstagramProduct" /></a>
-
-                        }
+                    }
 
 
 
 
-                    </center>
+                </center>
 
 
 
@@ -2253,7 +2257,7 @@
     @if (ViewBag.result == "result")
     {
     <script>
-        $("html, body").animate({ scrollTop: $('#Result').offset().top-50 }, 1000);
+        $("html, body").animate({ scrollTop: $('#scrollAfterSearch').offset().top-50 }, 1000);
 
     </script>
     }

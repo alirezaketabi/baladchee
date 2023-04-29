@@ -1030,7 +1030,7 @@
                                         </div>
                                         <img src="~/images/SalePercent.png" alt="SalePercent" />
                                         <img src="~/images/30percent.jpg" alt="30percent" />
-                                        <button id="baladcheePay" type="submit" class="btn btn-default translate uns3">پرداخت 172 هزار تومان</button>
+                                        <button id="baladcheePay" type="submit" class="btn btn-default translate uns3">پرداخت ۲,۴۵۰,۰۰۰ تومان</button>
                                     </center>
                                 }
                                 <div class="modal-footer">
@@ -1068,7 +1068,7 @@
                                         </div>
                                         <img src="~/images/SalePercent.png" alt="SalePercent" />
                                         <img src="~/images/30percent.jpg" alt="30percent" />
-                                        <button id="baladcheePay2" type="submit" class="btn btn-default translate uns3">پرداخت 172 هزار تومان</button>
+                                        <button id="baladcheePay2" type="submit" class="btn btn-default translate uns3">پرداخت ۲,۴۵۰,۰۰۰ تومان</button>
                                     </center>
                                 }
                                 <div class="modal-footer">
@@ -1293,7 +1293,7 @@
                         </div>
                         <img src="~/images/PointerToUp.png" alt="Pointer" />
                         <br />
-                        <h5> بعد از دریافت کد درگاه، که معمولا بین ۱۲ تا ۲۴ ساعت طول میکشد، کد درگاه خود را به همراه نام فروشگاه به شماره واتساپ ۰۹۳۰۰۷۱۹۶۲۷ ارسال فرمایید.</h5>
+                        <h5> بعد از دریافت کد درگاه، که معمولا بین ۱۲ تا ۲۴ ساعت طول میکشد، کد درگاه خود را به همراه نام فروشگاه به شماره روبیکا 09302512499 ارسال فرمایید.</h5>
                         <a style="font-family:IranSans" href="https://www.baladchee.com/Home/workshop#a21">فیلم آموزش دریافت کد زرین پال</a>
                     </div>
                 }
@@ -2713,12 +2713,14 @@
                     {
 
 
-                    <center id="GoToMorePage">
+                    <center >
                         @*....searchBox....*@
                         <form class="example" action="@Url.Action("MoreProducts", "home")" style="margin:auto;max-width:348px">
 
-                            <button class="er" style="background-color:white" type="submit">محصولات بیشترِ  <b>@Model.Title</b><img class="pulse1" src="~/images/MyVitrinShoping.gif" alt="baladchee" /></button>
-
+                            <button  data-wow-delay="0.8s" class="er uclas bttn-default wow fadeInUp" style="background-color:white" type="submit">
+                                محصولات بیشتر  
+                            </button>
+                            <br />
                             <input type="text" value="@Model.Id" class="hidden" name="id">
 
                             @*<input id="slidename" type="text" placeholder="کالا، خدمات و یا..." class="cbBox" name="search">*@
@@ -3078,37 +3080,49 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12 col-sm-4">
-                            <div class="footer-box">
-                                <div class="box-icon">
-                                    <span class="mylnr lnr-map-marker"></span>
-                                </div>
-                                @*<p>8-54 Paya Lebar Square <br /> 60 Paya Lebar Roa SG, Singapore</p>*@
-                                <p class="translate uclas">@Model.Address</p>
-                            </div>
-                            <div class="space-30 hidden visible-xs"></div>
+
+
+   
+                        <div class="col-xs-12 col-sm-3">
+             
+                            <!--headin5_amrc ends here-->
+                            <a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=224812&amp;Code=Nl8FnVzGi6trqEnD6KwG"><img referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=224812&amp;Code=Nl8FnVzGi6trqEnD6KwG" alt="" style="cursor:pointer" id="Nl8FnVzGi6trqEnD6KwG"></a>
+
+                            <!--footer_ul2_amrc ends here-->
+
                         </div>
-                        <div class="col-xs-12 col-sm-4">
-                            <div class="footer-box">
-                                <div class="box-icon">
-                                    <span class="mylnr lnr-phone-handset"></span>
+
+                            <div class="col-xs-12 col-sm-3">
+                                <div class="footer-box">
+                                    <div class="box-icon">
+                                        <span class="mylnr lnr-map-marker"></span>
+                                    </div>
+                                    @*<p>8-54 Paya Lebar Square <br /> 60 Paya Lebar Roa SG, Singapore</p>*@
+                                    <p class="translate uclas">@Model.Address</p>
                                 </div>
-                                <p class="translate uclas">@Model.PhonNumber<br /> @*+65 93901337*@</p>
+                                <div class="space-30 hidden visible-xs"></div>
                             </div>
-                            <div class="space-30 hidden visible-xs"></div>
-                        </div>
-                        <div class="col-xs-12 col-sm-4">
-                            <div class="footer-box">
-                                <div class="box-icon">
-                                    <span class="mylnr lnr-envelope"></span>
+                            <div class="col-xs-12 col-sm-3">
+                                <div class="footer-box">
+                                    <div class="box-icon">
+                                        <span class="mylnr lnr-phone-handset"></span>
+                                    </div>
+                                    <p class="translate uclas">@Model.PhonNumber<br /> @*+65 93901337*@</p>
                                 </div>
-                                <p>
-                                    @Model.Email
-                                </p>
+                                <div class="space-30 hidden visible-xs"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-3">
+                                <div class="footer-box">
+                                    <div class="box-icon">
+                                        <span class="mylnr lnr-envelope"></span>
+                                    </div>
+                                    <p>
+                                        @Model.Email
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
 
             </div>
@@ -4882,7 +4896,7 @@ else if (ViewBag.flag == "yes" && ViewBag.EndOfOpportunity == "end")
                                             20% تخفیف، هدیه تیم بلدچی برای تمدید سالانه شما
                                         </div>
                                         <img src="~/images/vitrinGift.png" />
-                                        <button id="baladcheePay3" type="submit" class="uns3 btn btn-default translate">پرداخت 182 هزار تومان</button>
+                                        <button id="baladcheePay3" type="submit" class="uns3 btn btn-default translate">پرداخت ۲,80۰,۰۰۰ تومان</button>
                                     </center>
                                 }
                                 <div class="modal-footer">
@@ -4920,7 +4934,7 @@ else if (ViewBag.flag == "yes" && ViewBag.EndOfOpportunity == "end")
                                             20% تخفیف، هدیه تیم بلدچی برای تمدید سالانه شما
                                         </div>
                                         <img src="~/images/vitrinGift.png" />
-                                        <button id="baladcheePay5" type="submit" class="uns3 btn btn-default translate">پرداخت 182 هزار تومان</button>
+                                        <button id="baladcheePay5" type="submit" class="uns3 btn btn-default translate">پرداخت ۲,800,۰۰۰ تومان</button>
                                     </center>
                                 }
                                 <div class="modal-footer">
