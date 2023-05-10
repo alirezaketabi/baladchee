@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using System.Web.Routing;
 namespace QRProject
 {
+
+
     public class RouteConfig
     {
         public static void RegisterRoutes(RouteCollection routes)
@@ -14,6 +16,7 @@ namespace QRProject
             
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapMvcAttributeRoutes();
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
